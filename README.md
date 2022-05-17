@@ -15,7 +15,10 @@ git clone https://github.com/bgvlrd/upbank.git
 ```
 
 * Go to the directory where the repository is stored (in your command line)
-* If your repository is stored in your Desktop, go to your Desktop 
+* If your repository is stored in your Desktop, go to your Desktop
+```
+cd <where your put your repository>
+```
 
 * Create, install, and activate virtual environment
 ```
