@@ -14,7 +14,8 @@ This information system aims to enable potential borrowers to apply for a loan i
 git clone https://github.com/bgvlrd/upbank.git
 ```
 
-* Go to the project directory (in your command line)
+* Go to the directory where the repository is stored (in your command line)
+* If your repository is stored in your Desktop, go to your Desktop 
 ```
 cd UPBank
 ```
@@ -23,7 +24,12 @@ cd UPBank
 ```
 pip install virtualenv
 virtualenv <name of your choice>
+*Preferably name it "upbank" to put the scripts and libs folder in the upbank folder.
 
+*Go to the upbank folder*
+cd upbank
+
+*Activate the virtual environment*
 MAC: source bin/activate
 Windows: .\Scripts\Activate
 ```
