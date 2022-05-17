@@ -13,8 +13,11 @@ git clone https://github.com/bgvlrd/upbank.git
 cd UPBank
 ```
 
-* Activate virtual environment
+* Create, install, and activate virtual environment
 ```
+pip install virtualenv
+virtualenv <name of your choice>
+
 MAC: source bin/activate
 Windows: .\Scripts\Activate
 ```
