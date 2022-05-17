@@ -14,7 +14,6 @@ def signupView(request):
 		regform = UserCreationForm(request.POST)
 		if regform.is_valid():
 			regform.save()
-			messages.info(request, "We are so thrilled to have you here. Hats off on making an excellent decision. Wanna learn how to use KeepUP? We can teach you how.")
 			return redirect('login_url')
 		else:
 			messages.error(request, "The username or password you entered already exists or is invalid. Please make sure to follow the guidelines as stated.");
