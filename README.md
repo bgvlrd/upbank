@@ -1,6 +1,4 @@
-# upbank
-
-## UPBank: Bank Auto Loan Information System: 
+# UPBank: Bank Auto Loan Information System
 
 This information system aims to enable potential borrowers to apply for a loan in order to acquire property (house, car) or construct/renovate a house (multi-purpose loan). 
 
@@ -30,7 +28,7 @@ pip install -r requirements.txt
 * Make migrations and migrate
 ```
 python manage.py makemigrations
-python manage.py migate
+python manage.py migrate
 ```
 
 * Create your own superuser
