@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Home </title>
+</head>
+<body>
+
+	{% block content %}
+	<form action="{% url 'login' %}" method="post">
+		{% csrf_token %}
+		<button class="login">Login</button>
+	</form>
+	<br></br>
+	<form action="{% url 'signup' %}" method="post">
+		{% csrf_token %}
+		<button class="signup">Sign Up</button>
+	</form>
+	{% endblock %}
+
+</body>
+</html>
+

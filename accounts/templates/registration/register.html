@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sign Up</title>
+    <link rel="icon" type="image/png" href="/static/img/KeepUP-Logo.png"/>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="/static/signup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 one">
+                <div id="left-column-main-div">
+                        <p class="text-center" id="signup-text"><strong>SIGN UP</strong></p>
+                    </div> <!-- end div logo-signup -->
+                    <div class="col-xl-6 form-group">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                        <div id="signup-form-link-to-log-in"><button class="btn btn-primary" id="signup-button" type="submit" style="font-family: 'Nunito Sans', sans-serif;border-radius: 10px;"> SIGN UP </button>
+                            <p id="link-to-sign-up">Already have an account? <a href="{% url 'login_url' %}"> <strong style="color: #397D7E"> Log in here. </strong> </a> </p>
+                        </div> <!-- end div signup-form-link-to-log-in -->
+                        </form>
+                    </div> <!-- end class form-group -->
+                </div> <!-- end div left-column-main-div -->
+            </div> <!-- end class col-md-6 one -->
+            <div class="col-md-6 two" id="right-column-main-div" style="margin-top: -200px;"> <!-- start class col-md-6 two -->
+            </div> <!-- end div right-column-main-div -->
+        </div> <!-- end class row -->
+    </div> <!-- end class container -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

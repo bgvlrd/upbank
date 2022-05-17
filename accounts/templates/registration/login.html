@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Log In</title>
+    <link rel="icon" type="image/png" href="/static/img/KeepUP-Logo.png"/>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 one">
+                <div id="left-column-main-div">
+                    <div id="logo-login">
+                        <p class="text-center" id="login-text"><strong>LOG IN</strong></p>
+                    </div> <!-- end div logo-login-->
+                    <div class="col-xl-6 form-group">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                        <div id="login-form-link-to-sign-up">
+                            <button class="btn btn-primary" id="login-button" type="submit" style="font-family: 'Nunito Sans', sans-serif;border-radius:10px;"> LOG IN </button>
+                            <p id="link-to-sign-up"> <strong> Do not have an account? </strong> <a href="{% url 'register_url' %}"> <strong style="color: #F5B945"> Sign up here. </strong> </a> </p>
+                        </div> <!-- end div login-form-link-to-sign-up -->
+                        </form> <!-- end form post -->
+                    </div>  <!-- end class form-group -->
+                </div> <!-- end div left-column-main-div-->
+            </div> <!-- end class col-md-6 one-->
+            <div class="col-md-6 two"> <!--start class col-md-6 two-->
+            </div> <!-- end class d-xl-none two -->
+        </div> <!-- end class row-->
+    </div> <!-- end class container-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
