@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from App.decorators import anonymous_required
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LogoutView as logouts
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -28,8 +28,8 @@ def signup_redirect_view(request, *args, **kwargs):
 
 def logout_view(request):
 	if request.method == "POST":
-		logouts(request) # error here: 1 positional argument needed but 2 found
-		return redirect('landing_view')
+		logout(request)
+		return redirect('landing_page')
 #### END REDIRECT LINKS
 
 
