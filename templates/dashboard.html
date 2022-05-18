@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> Dashboard </title>
-</head>
-<body>
+{% extends "base.html" %}
 
-	{% block content %}
+{% load static %}
+
+{% block content %}
+
+	<title> Dashboard </title>
+
 	{% if user.is_authenticated %}
 		<h1> Welcome, {{user.username}} ! </h1>
 		<form action="{% url 'logout' %}" method="post">
@@ -19,9 +19,5 @@
 		<button class="login">Login</button>
 	</form>
 	{% endif %}
-	{% endblock %}
 
-
-</body>
-</html>
-
+{% endblock %}
