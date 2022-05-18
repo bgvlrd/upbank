@@ -17,32 +17,46 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 one">
-                <div id="left-column-main-div">
-                        <p class="text-center" id="signup-text"><strong>SIGN UP</strong></p>
-                    </div> <!-- end div logo-signup -->
-                    {% if invalid_name %}
-                        <p style="color: red;" class="">The username or password you entered already exists or is invalid. <br> Please make sure to follow the guidelines as stated.</p>
-                    {% endif %}
-                    <div class="col-xl-6 form-group">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                        <div id="signup-form-link-to-log-in"><button class="btn btn-primary" id="signup-button" type="submit" style="font-family: 'Nunito Sans', sans-serif;border-radius: 10px;"> SIGN UP </button>
-                            <p id="link-to-sign-up">Already have an account? <a href="{% url 'login_url' %}"> <strong style="color: #397D7E"> Log in here. </strong> </a> </p>
-                        </div> <!-- end div signup-form-link-to-log-in -->
-                        </form>
-                    </div> <!-- end class form-group -->
-                </div> <!-- end div left-column-main-div -->
-            </div> <!-- end class col-md-6 one -->
-            <div class="col-md-6 two" id="right-column-main-div" style="margin-top: -200px;"> <!-- start class col-md-6 two -->
-            </div> <!-- end div right-column-main-div -->
-        </div> <!-- end class row -->
-    </div> <!-- end class container -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<div class="container">
+    <div>
+        <h3 class="text-center" id="signup-text"><strong>SIGN UP</strong></p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 one"> 
+            <div id="left-column-main-div">
+                {% if invalid_name %}
+                <p style="color: red;" class="">The username or password you entered already exists or is invalid. <br> Please make sure to follow the guidelines as stated.</p>
+                {% endif %}
+                
+                <div class="col-xl-6 form-group" style="background-color: darkkhaki;">
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ regform|crispy }}
+                    <div id="signup-form-link-to-log-in">
+                    <button class="btn btn-primary" id="signup-button" type="submit" style="font-family: 'Nunito Sans', sans-serif;border-radius: 10px;"> SIGN UP </button>
+                    <p id="link-to-sign-up">Already have an account? <a href="{% url 'login_url' %}"> <strong style="color: #397D7E"> Log in here. </strong> </a> </p>
+                    </div> <!-- end div signup-form-link-to-log-in -->
+                    </form>
+                </div> <!-- end class form-group -->
+            </div> <!-- end div left-column-main-div -->
+        </div> <!-- end class col-md-6 one -->
+
+        <div class="col-md-6 two" style="margin-top: 0px;"> <!-- start class col-md-6 two -->
+            <div id="right-column-main-div">
+                <div class="col-xl-6 form-group" style="background-color: darkkhaki;">
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ regform2|crispy }}
+                    </form>
+                </div> <!-- end class form-group -->
+            </div>
+        </div> <!-- end div right-column-main-div -->
+
+    </div> <!-- end class row -->
+</div> <!-- end class container -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
