@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from App.forms import LoanerInForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.views import LogoutView as logouts
+from App.decorators import anonymous_required
 
 # Create your views here.
 
@@ -31,3 +31,7 @@ def signupView(request):
 			'regform2': LoanerInForm(),
 		}
 	return render(request, 'registration/register.html', context)
+
+#@anonymous_required
+def forgotPasswordView(request, *args, **kwargs):
+	return render(request, "forgot-password.html", {})
