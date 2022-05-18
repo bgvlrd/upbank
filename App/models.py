@@ -11,7 +11,6 @@ class BankAccount(models.Model):
 		('Closed', 'Closed')
     ]
     
-
     bank_status     = models.CharField(choices = bank_status_choices, max_length = 10)
 
 class LoanerInformation(models.Model):
@@ -246,17 +245,17 @@ class LoanerInformation(models.Model):
 
     ## Credit Card
 
-    card1_company               = models.CharField(max_length = 50)
-    card1_number                = models.CharField(max_length = 20)
-    card1_expiry_date           = models.CharField(max_length = 10)
-    card1_credit_limit          = models.IntegerField()
-    card1_outstanding_balance   = models.IntegerField()
+    card1_company               = models.CharField(max_length = 50, verbose_name = "Company of Credit Card 1")
+    card1_number                = models.CharField(max_length = 20, verbose_name = "Credit Card 1 Number")
+    card1_expiry_date           = models.CharField(max_length = 10, verbose_name = "Credit Card 1 Expiry Date")
+    card1_credit_limit          = models.IntegerField(verbose_name = "Credit Card 1 Credit Limit")
+    card1_outstanding_balance   = models.IntegerField(verbose_name = "Credit Card 1 Outstanding Balance")
 
-    card2_company               = models.CharField(max_length = 50)
-    card2_number                = models.CharField(max_length = 20)
-    card2_expiry_date           = models.CharField(max_length = 10)
-    card2_credit_limit          = models.IntegerField()
-    card2_outstanding_balance   = models.IntegerField()
+    card2_company               = models.CharField(max_length = 50, verbose_name = "Company of Credit Card 2")
+    card2_number                = models.CharField(max_length = 20, verbose_name = "Credit Card 2 Number")
+    card2_expiry_date           = models.CharField(max_length = 10, verbose_name = "Credit Card 2 Expiry Date")
+    card2_credit_limit          = models.IntegerField(verbose_name = "Credit Card 2 Credit Limit")
+    card2_outstanding_balance   = models.IntegerField(verbose_name = "Credit Card 2 Outstanding Balance")
 
     # Others
     source_product_info_choices = [
@@ -273,7 +272,7 @@ class LoanerInformation(models.Model):
 
     source_product_info    = models.CharField(choices = source_of_income_choices, max_length = 40, blank = True, null = True, verbose_name = "Source of Product Information")
     relative_working       = models.BooleanField(verbose_name = "Do you have relative working in UPBank?")
-    relative_name          = models.CharField(max_length = 100, blank = True, null = True, verbose_name = "If yes, please state")
+    relative_name          = models.CharField(max_length = 100, blank = True, null = True, verbose_name = "If yes, please state their name")
 
 class PersonalReferences(models.Model):
     personal_reference_id       = models.AutoField(primary_key = True)

@@ -12,16 +12,16 @@
 		<h1 style="text-align: center;">WELCOME TO UPBANK!</h1>
 	</div>
 	<div class="row">
-		<div class="col-lg-4" style="margin: 0; padding: 0%;">
+		<div class="col-xl-2">
 			<form action="{% url 'login' %}" method="post">
 				{% csrf_token %}
-				<button class="login" style="padding-top: 3%; padding-bottom: 3%; padding-left: 10%; padding-right: 10%; float: right;">Login</button>
+				<button class="login">Login</button>
 			</form>
 		</div>
-		<div class="col-lg-4" style="margin: 0; padding: 0%; float: right;">
+		<div class="col-xl-2">
 			<form action="{% url 'signup' %}" method="post">
 				{% csrf_token %}
-				<button class="signup" style="padding-top: 3%; padding-bottom: 3%; padding-left: 10%; padding-right: 10%; ">Sign Up</button>
+				<button class="signup">Sign Up</button>
 			</form>
 		</div>
 	</div>
