@@ -1,0 +1,57 @@
+.contact-us-img {
+  background-image: url('img/call_center.jpg');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  height: 1000px;
+}
+
+.parent-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: auto;
+    padding: 0;
+}
+
+.parent-img .bg {
+    flex-shrink: 0;
+    min-width: 100%;
+    object-fit: cover; 
+}
+
+.text-col {
+  background-color: #F5F5F5;
+}
+
+h1 {
+  margin-top: 8%;
+  margin-left: 5%;
+  font-size: 8vh;
+}
+
+.subtitle {
+  font-size: 3.5vh;
+  margin-left: 5%;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  padding: 5vh;
+  width: 70vh;
+  height: 11vh;
+  margin-top: 20px;
+  margin-left: 5%;
+  font-size: 3.5vh;
+  font-weight: 700;
+
+  background: #FFFFFF;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+}
+
+.icon {
+  width: 7vh;
+  margin-right: 5vh;
+}

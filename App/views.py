@@ -15,6 +15,9 @@ def dashboard_view(request, *args, **kwargs):
 def landing_view(request, *args, **kwargs):
 	return render(request, "landing-page.html", {})
 
+def contact_us_view(request, *args, **kwargs):
+	return render(request, "contact_us.html", {})
+
 #### REDIRECT LINKS
 @anonymous_required(redirect_url='/dashboard')
 def login_redirect_view(request, *args, **kwargs):

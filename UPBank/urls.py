@@ -21,11 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.landing_view, name='landing_page'),
     path('dashboard/', views.dashboard_view, name="dashboard"),
+    path('contact-us/', views.contact_us_view, name="contact_us"),
 
     # LOGIN/REGISTER
     path('accounts/', include('accounts.urls')),
     path('login/', views.login_redirect_view, name='login'),
     path('signup/', views.signup_redirect_view, name='signup'),
-    path('logout/', views.logout_view, name="logout"),
-    
+    path('logout/', views.logout_view, name="logout")
 ]
