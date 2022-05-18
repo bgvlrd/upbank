@@ -35,4 +35,8 @@ def logout_view(request):
 		return redirect('landing_page')
 #### END REDIRECT LINKS
 
+#@anonymous_required
+def resetPasswordView(request, *args, **kwargs):
+	return render(request, "reset-password.html", {})
+
 

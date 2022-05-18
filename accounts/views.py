@@ -26,3 +26,11 @@ def signupView(request):
 #@anonymous_required
 def forgotPasswordView(request, *args, **kwargs):
 	return render(request, "forgot-password.html", {})
+
+#@anonymous_required
+def resetPasswordView(request, *args, **kwargs):
+	return render(request, "reset-password.html", {})
+
+def resetpassword_redirect_view(request, *args, **kwargs):
+	response = redirect('/accounts/signup/')
+	return response

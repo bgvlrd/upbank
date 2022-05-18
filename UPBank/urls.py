@@ -27,5 +27,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('login/', views.login_redirect_view, name='login'),
     path('signup/', views.signup_redirect_view, name='signup'),
-    path('logout/', views.logout_view, name="logout")
+    path('logout/', views.logout_view, name="logout"),
+    path('resetpassword/', views.resetPasswordView, name="resetpassword"),
 ]
