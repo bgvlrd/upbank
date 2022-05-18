@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -14,9 +15,10 @@ def signupView(request):
 		regform = UserCreationForm(request.POST)
 		if regform.is_valid():
 			regform.save()
+			messages.success(request, "Account created successfully!")
 			return redirect('login_url')
 		else:
-			messages.error(request, "The username or password you entered already exists or is invalid. Please make sure to follow the guidelines as stated.");
 			regform = UserCreationForm()
+			return render(request, 'registration/register.html', {'form':regform, 'invalid_name':True})
 
 	return render(request, 'registration/register.html', {'form':regform})

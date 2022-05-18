@@ -23,6 +23,9 @@
                 <div id="left-column-main-div">
                         <p class="text-center" id="signup-text"><strong>SIGN UP</strong></p>
                     </div> <!-- end div logo-signup -->
+                    {% if invalid_name %}
+                        <p style="color: red;" class="">The username or password you entered already exists or is invalid. <br> Please make sure to follow the guidelines as stated.</p>
+                    {% endif %}
                     <div class="col-xl-6 form-group">
                         <form method="post">
                             {% csrf_token %}
