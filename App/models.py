@@ -10,6 +10,7 @@ class BankAccount(models.Model):
         ('Active', 'Active'),
 		('Closed', 'Closed')
     ]
+    
 
     bank_status     = models.CharField(choices = bank_status_choices, max_length = 10)
 
@@ -274,7 +275,6 @@ class LoanerInformation(models.Model):
     relative_working       = models.BooleanField(verbose_name = "Do you have relative working in UPBank?")
     relative_name          = models.CharField(max_length = 100, blank = True, null = True, verbose_name = "If yes, please state")
 
-
 class PersonalReferences(models.Model):
     personal_reference_id       = models.AutoField(primary_key = True)
     account_number              = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -282,7 +282,6 @@ class PersonalReferences(models.Model):
     reference_name              = models.CharField(max_length = 200)
     reference_address           = models.CharField(max_length = 500)
     reference_contact_number    = models.CharField(max_length = 20)
-
 
 class CreditBankReferences(models.Model):
     credit_bank_reference_id   = models.AutoField(primary_key = True)
@@ -293,7 +292,6 @@ class CreditBankReferences(models.Model):
     bank_account_no            = models.CharField(max_length = 100, verbose_name = "Account Number")
     bank_monthly_amortization  = models.IntegerField(verbose_name = "Monthly Amortization")
     bank_maturity_date         = models.DateField(verbose_name = "Maturity Date")
-
 
 class LoanApplication(models.Model): 
     loan_account_no = models.AutoField(primary_key = True)
