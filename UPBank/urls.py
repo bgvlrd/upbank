@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.landing_view, name='landing_page'),
     path('dashboard/', views.dashboard_view, name="dashboard"),
     path('contact-us/', views.contact_us_view, name="contact_us"),
+    path('fund-deposit/', views.fund_deposit_view, name="fund_deposit"),
 
     # LOGIN/REGISTER
     path('accounts/', include('accounts.urls')),
