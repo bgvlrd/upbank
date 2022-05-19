@@ -7,5 +7,7 @@ from django.contrib.auth.views import LoginView
 urlpatterns = [
 	path('dashboard/', dashboard_view, name="dashboard"),
 	path('login/', LoginView.as_view(redirect_authenticated_user=True), name="login_url"),
-	path('signup/', views.signupView, name="register_url")
+	path('signup/', views.signupView, name="register_url"),
+	path('forgotpassword/', views.forgotPasswordView, name="forgot_password"),
+	path('forgotpassword/submit', views.resetPasswordView, name="reset_password"),
 ]
