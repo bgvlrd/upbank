@@ -5,7 +5,7 @@
 {% block content %}
 
 <title>Fund Deposit</title>
-<link rel="stylesheet" type="text/css" href="{% static 'fund-deposit-style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/fund-deposit-style.css' %}">
 
 <div class="container-fluid ">
 	<div class="row">
@@ -13,7 +13,7 @@
 			<div class="frame">
 				<h2 class="center">Account Details</h2>
 				<br>
-				<form  action="{% url 'fund_deposit_review' %}">
+				<form action="{% url 'fund_deposit_review' %}">
 					<div class="form-group col-lg-16">												
 						<label for="acctnumber" class="form-label">Account Number</label>
 						<input type="text" class="form-control" id="acctnumber" placeholder="0123456789" disabled>
@@ -26,7 +26,7 @@
 					</div>
 					<br><br>
 					<div class="d-flex justify-content-center">
-						<button type="submit" class="center">Continue</button>
+						<button type="submit" class="center button-form">Continue</button>
 					</div>
 				</form>
 			</div>
@@ -41,13 +41,13 @@
 					</div>
 
 					<button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">1</button>
-					<span class="position-absolute top-100 start-0 translate-middle" style="margin-top:30px;">Fill Details</span>
+					<span class="position-absolute top-100 start-0 translate-middle text-success" style="margin-top:50px;">Fill Details</span>
 
 					<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;" disabled>2</button>
-					<span class="position-absolute top-100 start-50 translate-middle" style="margin-top:30px;">Review</span>
+					<span class="position-absolute top-100 start-50 translate-middle text-muted" style="margin-top:50px;">Review</span>
 
 					<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;" disabled>3</button>
-					<span class="position-absolute top-100 start-100 translate-middle" style="margin-top:30px;">Success</span>
+					<span class="position-absolute top-100 start-100 translate-middle text-muted" style="margin-top:50px;">Success</span>
 
 				</div>
 			</div>

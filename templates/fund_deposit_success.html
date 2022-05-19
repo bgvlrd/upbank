@@ -4,17 +4,28 @@
 
 {% block content %}
 
-<title>Fund Deposit: Review</title>
+<title>Fund Deposit: Success</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/fund-deposit-style.css' %}">
 
 <div class="container-fluid ">
 	<div class="row">
 		<div class="col-6 center">
 			<div class="frame">
-				<h2 class="center">Review & Deposit</h2>
+				<h2 class="center">Transaction Details</h2>
 				<br>
-				<form action="{% url 'fund_deposit_success' %}">
+				<form>
 					<div class="container-fluid">
+						<div class="row gx-5">
+							<div class="col-4">
+								<h4>Date & Time</h4>
+							</div>
+							<div class="col-8">
+								<h4 id="date">MAY 19, 2022</h4>
+								<h4 id="time">10:25:14 AM</h4>
+							</div>
+						<hr>
+						</div>
+
 						<div class="row gx-5">
 							<div class="col-4">
 								<h4>Account Details</h4>
@@ -28,28 +39,33 @@
 						</div>
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4>Amount</h4>
+								<h4>Amount Deposited</h4>
 							</div>
 							<div class="col-8">
 								<h4 id="amt">PHP 100,000.00</h4>
 							</div>
 						</div>
+						<hr>
+						<div class="row gx-5">
+							<div class="col-4">
+								<h4>Total balance</h4>
+							</div>
+							<div class="col-8">
+								<h4 id="balance">PHP 112,124.00</h4>
+							</div>
+						</div>
 					</div>
-					<br><br>
-					<div class="d-flex justify-content-center">
-						<button type="button" class="center back button-form" onclick="history.back()">Back</button> &nbsp &nbsp &nbsp
-						<button type="submit" class="center button-form">Continue</button>
-					</div>
+					
 				</form>
 			</div>
 		</div>
 		<div class="col-6 text-center">
-			<img src="{% static 'img/documents.png' %}" class="img-fluid">
+			<img src="{% static 'img/checked.png' %}" class="img-fluid">
 
 			<div class="container">
 				<div class="position-relative m-4">
 					<div class="progress" style="height: 5px;">
-						<div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+						<div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 
 					<button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">1</button>
@@ -58,8 +74,8 @@
 					<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">2</button>
 					<span class="position-absolute top-100 start-50 translate-middle text-success" style="margin-top:50px; color: green;">Review</span>
 
-					<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;" disabled>3</button>
-					<span class="position-absolute top-100 start-100 translate-middle text-muted" style="margin-top:50px;">Success</span>
+					<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">3</button>
+					<span class="position-absolute top-100 start-100 translate-middle text-success" style="margin-top:50px;">Success</span>
 
 				</div>
 			</div>
@@ -67,9 +83,5 @@
 	</div>
 </div>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript">
-	/*swal("Something's wrong.", "There is an error with the server. Try again later.", "error");*/
-</script>
 
 {% endblock %}
