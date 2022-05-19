@@ -15,6 +15,10 @@ def dashboard_view(request, *args, **kwargs):
 def fund_deposit_view(request, *args, **kwargs):
 	return render(request, "fund_deposit.html", {})
 
+@login_required
+def fund_deposit_review(request, *args, **kwargs):
+	return render(request, "fund_deposit_review.html", {})
+
 @anonymous_required(redirect_url='/dashboard')
 def landing_view(request, *args, **kwargs):
 	return render(request, "landing-page.html", {})

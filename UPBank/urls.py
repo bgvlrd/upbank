@@ -23,6 +23,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard_view, name="dashboard"),
     path('contact-us/', views.contact_us_view, name="contact_us"),
     path('fund-deposit/', views.fund_deposit_view, name="fund_deposit"),
+    path('fund-deposit-review/', views.fund_deposit_review, name="fund_deposit_review"),
 
     # LOGIN/REGISTER
     path('accounts/', include('accounts.urls')),
