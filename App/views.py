@@ -11,6 +11,10 @@ from django.contrib.auth import logout
 def dashboard_view(request, *args, **kwargs):
 	return render(request, "dashboard.html", {})
 
+@login_required
+def fund_deposit_view(request, *args, **kwargs):
+	return render(request, "fund_deposit.html", {})
+
 @anonymous_required(redirect_url='/dashboard')
 def landing_view(request, *args, **kwargs):
 	return render(request, "landing-page.html", {})
