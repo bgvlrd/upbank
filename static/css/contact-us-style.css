@@ -1,7 +1,11 @@
 
-@media only screen and (max-width: 1130px) {
+@media only screen and (max-width: 1400px) {
   .parent-img {
     display: none;
+  }
+
+  .frame {
+    width: 40%;
   }
 
 }
