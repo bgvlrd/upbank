@@ -6,6 +6,7 @@
 
 <title>Fund Deposit</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/fund-deposit-style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <div class="container-fluid ">
 	<div class="row">
@@ -22,7 +23,7 @@
 						<input type="text" class="form-control" id="holder" placeholder="Juan Dela Cruz" disabled>
 						<br>
 						<label for="amt" class="form-label">Amount to Deposit</label>
-						<input type="number" class="form-control" id="amt">
+						<input type="number" class="form-control" id="amt" required>
 					</div>
 					<br><br>
 					<div class="d-flex justify-content-center">
@@ -31,8 +32,8 @@
 				</form>
 			</div>
 		</div>
-		<div class="col-6 text-center">
-			<img src="{% static 'img/contract.png' %}" class="img-fluid">
+		<div class="col-6 text-center animate__animated animate__fadeInDown">
+			<img src="{% static 'img/contract.png' %}" class="img-fluid ">
 
 			<div class="container">
 				<div class="position-relative m-4">
@@ -43,10 +44,10 @@
 					<button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;">1</button>
 					<span class="position-absolute top-100 start-0 translate-middle text-success" style="margin-top:50px;">Fill Details</span>
 
-					<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;" disabled>2</button>
+					<button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;" disabled>2</button>
 					<span class="position-absolute top-100 start-50 translate-middle text-muted" style="margin-top:50px;">Review</span>
 
-					<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-success rounded-pill" style="width: 2rem; height:2rem;" disabled>3</button>
+					<button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;" disabled>3</button>
 					<span class="position-absolute top-100 start-100 translate-middle text-muted" style="margin-top:50px;">Success</span>
 
 				</div>
