@@ -20,6 +20,26 @@ def dashboard_view(request, *args, **kwargs):
 	return render(request, "dashboard.html", {})
 
 @login_required
+def dashboard_pending_view(request, *args, **kwargs):
+	return render(request, "dashboard/dashboard_pending.html", {})
+
+@login_required
+def dashboard_approved_view(request, *args, **kwargs):
+	return render(request, "dashboard/dashboard_approved.html", {})
+
+@login_required
+def dashboard_rejected_view(request, *args, **kwargs):
+	return render(request, "dashboard/dashboard_rejected.html", {})
+
+@login_required
+def applicant_information_view(request, *args, **kwargs):
+	return render(request, "applicant_information.html", {})
+
+@login_required
+def borrower_information_view(request, *args, **kwargs):
+	return render(request, "borrower_information.html", {})
+
+@login_required
 def fund_deposit_view(request, *args, **kwargs):
 	return render(request, "fund_deposit.html", {})
 
@@ -50,9 +70,8 @@ def signup_redirect_view(request, *args, **kwargs):
 	return response
 
 def logout_view(request):
-	if request.method == "POST":
-		logout(request)
-		return redirect('landing_page')
+	logout(request)
+	return redirect('landing_page')
 #### END REDIRECT LINKS
 
 @anonymous_required(redirect_url='/dashboard')

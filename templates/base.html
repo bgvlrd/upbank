@@ -16,14 +16,14 @@
   </head>
   <body class="d-flex flex-column">
 
-  <!-- Fixed navbar -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+  <!-- Navbar -->
+  <nav id="navbarMenu" class="navbar sticky-top navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand ms-2" href="{% url 'dashboard'%}">
-      	<span class="up-logo">UP</span><span class="bank-logo">Bank</span>
+        <span class="up-logo">UP</span><span class="bank-logo">Bank</span>
       </a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -32,35 +32,39 @@
             <a class="nav-link" href="{% url 'dashboard'%}">Home</a>
           </li>
           <li class="nav-item mt-2 me-4 dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Services
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Loan Calculator</a>
-	          <a class="dropdown-item" href="#">Loan Application</a>
-	          <a class="dropdown-item" href="#">Loan Monitoring</a>
-	          <a class="dropdown-item" href="{% url 'fund_deposit'%}">Fund Deposit</a>
-	          <a class="dropdown-item" href="#">Over the Counter Loan Payment</a>
-	        </div>
-	      </li>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Loan Calculator</a>
+              <a class="dropdown-item" href="#">Loan Application</a>
+              <a class="dropdown-item" href="#">Loan Monitoring</a>
+              <a class="dropdown-item" href="{% url 'fund_deposit'%}">Fund Deposit</a>
+              <a class="dropdown-item" href="#">Over the Counter Loan Payment</a>
+            </div>
+          </li>
           <li class="nav-item mt-2 me-4">
             <a class="nav-link" href="{% url 'contact_us'%}">Contact Us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-            	<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<g id="Frame 1">
-					<g id="Group 2">
-					<circle id="Ellipse 1" cx="20" cy="20" r="20" fill="white"/>
-					<circle id="Ellipse 2" cx="20" cy="11.7333" r="6.22222" fill="#014421"/>
-					<g id="Group 1">
-					<path id="Ellipse 4" d="M33.2299 27.8033C32.4668 29.8209 30.7905 31.6036 28.46 32.8763C26.1295 34.1489 23.2745 34.8405 20.336 34.8444C17.3974 34.8483 14.5388 34.1642 12.2017 32.8977C9.86456 31.6313 8.17899 29.8529 7.40532 27.8374L20.3111 25.3333L33.2299 27.8033Z" fill="#014421"/>
-					<path id="Ellipse 5" d="M7.39523 27.8334C8.16074 25.8163 9.83911 24.0346 12.1711 22.7633C14.5031 21.4921 17.3589 20.8021 20.2975 20.8C23.236 20.7979 26.0938 21.4837 28.4294 22.7515C30.7651 24.0194 32.4485 25.7987 33.2198 27.8147L20.3111 30.3111L7.39523 27.8334Z" fill="#014421"/>
-					</g>
-					</g>
-					</g>
-				</svg>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Frame 1">
+                <g id="Group 2">
+                <circle id="Ellipse 1" cx="20" cy="20" r="20" fill="white"/>
+                <circle id="Ellipse 2" cx="20" cy="11.7333" r="6.22222" fill="#014421"/>
+                <g id="Group 1">
+                <path id="Ellipse 4" d="M33.2299 27.8033C32.4668 29.8209 30.7905 31.6036 28.46 32.8763C26.1295 34.1489 23.2745 34.8405 20.336 34.8444C17.3974 34.8483 14.5388 34.1642 12.2017 32.8977C9.86456 31.6313 8.17899 29.8529 7.40532 27.8374L20.3111 25.3333L33.2299 27.8033Z" fill="#014421"/>
+                <path id="Ellipse 5" d="M7.39523 27.8334C8.16074 25.8163 9.83911 24.0346 12.1711 22.7633C14.5031 21.4921 17.3589 20.8021 20.2975 20.8C23.236 20.7979 26.0938 21.4837 28.4294 22.7515C30.7651 24.0194 32.4485 25.7987 33.2198 27.8147L20.3111 30.3111L7.39523 27.8334Z" fill="#014421"/>
+                </g>
+                </g>
+                </g>
+              </svg>
             </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown2">
+              <div class="dropdown-item disabled" style="color: #808080; font-weight: 700">Hi, {{user.username}}!</div>
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
           </li>
         </ul>
       </div>

@@ -38,4 +38,13 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),
+
+    # Bank Officer urls
+    path('dashboard/pending', views.dashboard_pending_view, name="dashboard-pending"),
+    path('dashboard/approved', views.dashboard_approved_view, name="dashboard-approved"),
+    path('dashboard/rejected', views.dashboard_rejected_view, name="dashboard-rejected"),
+
+    path('applicant_information', views.applicant_information_view, name="applicant-information"),
+    path('borrower_information', views.borrower_information_view, name="borrower-information"),
+
 ]
