@@ -13,8 +13,6 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/login-style.css' %}">
 </head>
 
-
-
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -26,29 +24,54 @@
                     <p>The bank with honor and excellence </p>
                 </div>
                 <div class="d-flex justify-content-center" id="login-to">
-                    <p> Log in to your account </p>
+                    <p id="fyp"> Log in to your account </p>
                 </div>
                 <div id="login-form" class="d-flex justify-content-center">
                     <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div id="forgot-password">
-                            <p> <strong> Forgot your password? </strong> <a href="{% url 'password_reset' %}"> <strong id="click-here"> Click here. </strong> </a> </p>
+                            <p> Forgot your password? <a href="{% url 'password_reset' %}"> <strong id="click-here"> Click here. </strong> </a> </p>
                         </div>
                         <div class="d-flex justify-content-center" id="login-button-div">
                             <button class="btn btn-primary" id="login-button" type="submit"> LOG IN </button>
                         </div>
                     </form>
                 </div>
-                <div id="new-to-upbank" class="d-flex">
-                    <p> <strong> New to UPBank? </strong> </p>
+                <div id="new-to-upbank" class="d-flex justify-content-center">
+                    <p id="upbank-text"> <strong> New to <span id="up-logo-mini">UP</span><span id="bank-logo-mini">Bank?</span> </strong> </p>
                 </div>
                 <div id="register-here" class="d-flex justify-content-center">
                     <a href="{% url 'register_url' %}"> <button class="btn btn-primary" id="link-to-register-button" type="submit"> Register Here </button> </a>
                 </div>
             </div>
         <div class="col-md-8 d-none d-md-block">
-            <img src="{% static 'img/familypic.jpg' %}">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="height: 100%">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>    
+                <div class="carousel-inner" style="height: 100%">
+                    <div class="carousel-item active" style="height: 100%">
+                        <img src="{% static 'img/familypic.jpg' %}" alt="family picture" id="pic">
+                    </div>
+                    <div class="carousel-item" style="height: 100%">
+                        <img src="{% static 'img/couple.jpg' %}" alt="couple on mountain" id="pic">
+                    </div>
+                    <div class="carousel-item" style="height: 100%">
+                        <img src="{% static 'img/driving.jpg' %}" alt="man driving" id="pic">
+                    </div>
+                </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+            </div>
         </div>
     </div>
     <div class="fixed-bottom">
