@@ -29,7 +29,7 @@ def login_user(request):
 def signupView(request):
 	if request.method == "POST":
 		regform = RegistrationForm(request.POST)
-		#regform2 = LoanerInForm(request.POST)
+		# regform2 = LoanerInForm(request.POST)
 		if regform.is_valid():
 			regform.save()
 		#	regform2.save()
@@ -39,14 +39,16 @@ def signupView(request):
 		else:	
 			context = {
 				'regform': RegistrationForm(),
-		#		'regform2': LoanerInForm(),
+				# 'regform2': LoanerInForm(),
+				'invalid_name': True
 			}
 			messages.error(request, "Registration failed. Please follow the guidelines.")
 			return render(request, 'registration/register.html', context)
 	else:
+		# messages.info(request, "If you signed up successfully, you will be automatically redirected to the log-in page in order to use your newly-created account.")
 		context = {
 			'regform': RegistrationForm(),
-		#	'regform2': LoanerInForm(),
+			# 'regform2': LoanerInForm()
 		}
 	return render(request, 'registration/register.html', context)
 
