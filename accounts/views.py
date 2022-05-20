@@ -11,6 +11,7 @@ from .forms import RegistrationForm
 
 # Create your views here.
 
+@anonymous_required(redirect_url='/dashboard')
 def login_user(request):
 	if request.method == "POST":
 		username = request.POST.get('username')
