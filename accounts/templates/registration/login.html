@@ -26,10 +26,20 @@
                 <div class="d-flex justify-content-center" id="login-to">
                     <p id="fyp"> Log in to your account </p>
                 </div>
+                <div id="message" class="d-flex justify-content-center">
+                    {% include 'registration/messages.html' %}
+                </div>
                 <div id="login-form" class="d-flex justify-content-center">
                     <form method="post">
                         {% csrf_token %}
-                        {{ form|crispy }}
+                            <div class="form-group col-xs-4 col-md-12">
+                                <label for="username" class="form-label"> Username<br> </label>
+                                <input type="text" class="form-control" id="username" name="username">
+                            </div>
+                            <div class="form-group col-xs-4 col-md-12">
+                                <label for="password" class="form-label"> Password<br> </label>
+                                <input type="password" class="form-control" id="password" name="password"> 
+                            </div>
                         <div id="forgot-password">
                             <p> Forgot your password? <a href="{% url 'password_reset' %}"> <strong id="click-here"> Click here. </strong> </a> </p>
                         </div>
