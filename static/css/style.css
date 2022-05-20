@@ -140,7 +140,7 @@ tbody tr:last-child {
 
 /* End of Bank Officer Tables */
 
-/* Borrower Information */
+/* Borrower Information Page */
 
 #download_btn {
   border-radius: 12px;
@@ -174,7 +174,7 @@ tbody tr:last-child {
   font-weight: 500;
 }
 
-#approve_btn {
+#green_btn {
   background: #014421;
   color: white;
   border-radius: 10px;
@@ -182,10 +182,35 @@ tbody tr:last-child {
   font-weight: 500;
 }
 
-#reject_btn {
+#maroon_btn {
   background: #800000;
   color: white;
   border-radius: 10px;
   font-size: 14px;
   font-weight: 500;
 }
+
+#cancel_btn {
+  background: #736E6E;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+  /* modal */
+
+.modal-header {
+  background: #800000;
+  color: white;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.modal-action {
+  font-weight: 900;
+}
+
+/* End of Borrower Information Page */
