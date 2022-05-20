@@ -7,6 +7,13 @@
 	{% if user.groups.all.0.name == "Bank Officer" %}
 
 		<title> Dashboard </title>
+
+		
+
+			
+
+		
+		<script type="text/javascript" src="{% static "/js/searchfilter.js" %}"></script>
 		
 	    <div class="row h-100">
 	        <div class="col-sm-3 col-md-2 p-0" id="sidebar">
@@ -38,12 +45,12 @@
 						</div>
 						<div class="col-3">
 							<div class="box">
-								<select id="amountFilter">
+								<select id="tagFilter">
 									<option value="" disabled selected hidden>Loan Tag</option>
-									<option value="">Ongoing</option>
-									<option value="">Completed</option>
-									<option value="">Delinquent</option>
-									<option value="">In Loan Default</option>
+									<option value="Ongoing">Ongoing</option>
+									<option value="Completed">Completed</option>
+									<option value="Delinquent">Delinquent</option>
+									<option value="In Loan Default">In Loan Default</option>
 								</select>
 							</div>
 						</div>
@@ -51,9 +58,9 @@
 							<div class="box">
 								<select id="amountFilter">
 									<option value="" disabled selected hidden>Amount Filter</option>
-									<option value="">< 1,000,000</option>
-									<option value="">2,0000,000 to 5,000,000</option>
-									<option value="">> 5,000,000</option>
+									<option value="less 1,000,000">< 1,000,000</option>
+									<option value="2,000,000 to 5,000,000">2,0000,000 to 5,000,000</option>
+									<option value="more 5,000,000">> 5,000,000</option>
 								</select>
 							</div>
 						</div>
@@ -68,20 +75,20 @@
 						    <th>Loan Term</th>
 						    <th>Loan Tag</th>
 						  </thead>
-						  <tbody>
+						  <tbody id="tableSearch">
 						    <tr>
-						    	<td>123456789</td>
+						    	<td>2022-123456789</td>
 								<td>Dela Cruz, Juan</td>
-								<td>₱2,690,00</td>
+								<td>2,690,000</td>
 								<td>60 months</td>
 								<td>Ongoing</td>
 							</tr>
 							<tr>
-						    	<td>123456789</td>
-								<td>Dela Cruz, Juan</td>
-								<td>₱2,690,00</td>
-								<td>60 months</td>
-								<td>Ongoing</td>
+						    	<td>2022-314345</td>
+								<td>Delos Reyes, Juan</td>
+								<td>1,000,000</td>
+								<td>35 months</td>
+								<td>Completed</td>
 							</tr>
 						  </tbody>
 						</table>
@@ -89,6 +96,7 @@
 				</div> <!--end of container -->
 	        </main>
 	    </div>
+
 	
 	{% else %}
 
@@ -97,6 +105,9 @@
 		</div>
 
 	{% endif %}
+	
+	
+	
 
 
 {% endblock %}
