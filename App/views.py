@@ -63,11 +63,9 @@ def borrower_loanlist(request):
 		loanlist.append(loan)
 	
 	context = {
-		'loanapplicationa' : loanapplications,
-		'loanlist' : loanlist
+		'myloans' : zip(loanapplications, loanlist)
 	}
-	# no borrower-loanlist.html yet
-	return render(request, "borrower-loanlist.html", context)
+	return render(request, "borrower_loan_pages/borrower_loanlist.html", context)
 
 @login_required
 def applyforLoan(request):
@@ -78,10 +76,8 @@ def applyforLoan(request):
 		loanappform = LoanApplicationForm(request.POST, instance = missing_loanappformfields)
 		if loanappform.is_valid():
 			loanappobject = loanappform.save()
-			missing_loanformfields = Loan(loan_account_no = loanappobject)
+			missing_loanformfields = Loan(loan_account_no = loanappobject, term_remaining = request.POST['total_term'])
 			loanform = LoanForm(request.POST, instance = missing_loanformfields)
-			loanform.save(commit = False)
-			loanform.term_remaining = loanform.total_term
 			
 			if loanform.is_valid():
 				loanform.save()
@@ -109,8 +105,7 @@ def applyforLoan(request):
 			'loanappform' : loanappform,
 			'loanform' : loanform
 		}
-	# no loan_application.html yet
-	return render(request, "loan_application.html", context)
+	return render(request, "borrower_loan_pages/loan_application.html", context)
 
 # Landing
 @anonymous_required(redirect_url='/dashboard')
