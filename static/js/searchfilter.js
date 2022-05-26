@@ -19,6 +19,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#amountFilter").on("change", function() {
         var value = $(this).val().toLowerCase();
+        var loan_tag = $("#tagFilter").val();
         if (value == 'less 1,000,000') {
             var amount1 = 0
             var amount2 = 1000000
@@ -38,12 +39,20 @@ $(document).ready(function(){
               for (var j = 0, col; col = row.cells[j]; j++) {
 
                    if (j == 2) {    
-                    console.log(amount1) 
-                    console.log(amount2)         
-                       if (parseInt($(col).html().replace(/,/g, '')) >= amount1 && parseInt($(col).html().replace(/,/g, '')) <= amount2) {
-                                   // if in interval
+                       var curr_loan_tag = row.cells[4].innerText 
+                       if (loan_tag = "Loan Tag") {
+                            if (parseInt($(col).html().replace(/,/g, '')) >= amount1 && parseInt($(col).html().replace(/,/g, '')) <= amount2) {
+                                $(row).show();
+                            }
+                            else {
+                                $(row).hide();
+                            }
+                           
+                       } 
+                       else if (parseInt($(col).html().replace(/,/g, '')) >= amount1 && parseInt($(col).html().replace(/,/g, '')) <= amount2) {
                            $(row).show();
-                    } else {
+                       } 
+                       else {
                            $(row).hide();
                        }
                 }
