@@ -40,8 +40,29 @@
     margin: 20px 100px 20px 100px;
 }
 
-#account-columns, #personal-columns
+#columns
+{
+    margin: 20px 0 20px 0;
+    width: 100px;
+}
+
+.forms, .form-group
+{
+    margin: 0 auto;
+}
+
+#columns-business, #columns-employed
 {
     margin: 20px 0 20px 0;
 }
 
+.dropdown
+{
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-control lie
+{
+    margin: 5px 0 5px 0;
+}
