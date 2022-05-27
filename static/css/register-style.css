@@ -48,6 +48,7 @@
 .forms, .form-group
 {
     margin: 0 auto;
+    width: 70%;
 }
 
 #columns-business, #columns-employed

@@ -45,11 +45,12 @@
         </div>
     </div>
 
-    <!-- ACCOUNT INFORMATION d-flex justify-content-center -->
-    <div class="row">
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-               <form method="post">
+    <form method="POST">
+        {% csrf_token %}
+        <!-- ACCOUNT INFORMATION d-flex justify-content-center -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" id="columns">
                     <div class="form-group col-xs-4 col-md-12">
                         <label for="accountnumber" class="form-label"> Account Number<br> </label>
                         <input type="number" class="form-control" id="accountnumber" name="accountnumber">
@@ -59,12 +60,8 @@
                         <label for="username" class="form-label"> Username<br> </label>
                         <input type="text" class="form-control" id="username" name="username">
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
+                </div>
+                <div class="col-md-6" id="columns">
                     <div class="form-group col-xs-4 col-md-12">
                         <label for="password" class="form-label"> Password<br> </label>
                         <input type="password" class="form-control" id="password" name="password">
@@ -74,659 +71,609 @@
                         <label for="confirmpassword" class="form-label"> Confirm Password<br> </label>
                         <input type="password" class="form-control" id="confirmpassword" name="confirmpassword">
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- LOANER INFORMATION HEADER -->
-    <div class="row">
-        <div class="col-md-12">
-            <div id="headers">
-                <p style="font-size: 20px; vertical-align: auto; text-align: center;"> LOANER INFORMATION </p>
+        <!-- LOANER INFORMATION HEADER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="headers">
+                    <p style="font-size: 20px; vertical-align: auto; text-align: center;"> LOANER INFORMATION </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- LOANER INFORMATION d-flex justify-content-center -->
-    <div class="row">
-        <div class="col-md-4" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="fullname" class="form-label"> Full Name<br> </label>
-                        <input type="text" class="form-control" id="fullname" name="fullname">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="country" class="form-label"> Nationality<br> </label>
-                        <input type="text" class="form-control" id="country" name="country">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="email" class="form-label"> Email Address<br> </label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="birthday" class="form-label"> Birthday<br> </label>
-                        <input type="date" class="form-control" id="birthday" name="birthday">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="present_address" class="form-label"> Present Address<br> </label>
-                        <input type="text" class="form-control" id="present_address" name="present_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="prev_address" class="form-label"> Previous Address<br> </label>
-                        <input type="text" class="form-control" id="prev_address" name="prev_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="telephone_no" class="form-label"> Telephone No. </label>
-                        <input type="number" class="form-control" id="telephone_no">
-                    </div>
-                </form>
+        <!-- LOANER INFORMATION d-flex justify-content-center -->
+        <div class="row">
+            <div class="col-md-4" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="fullname" class="form-label"> Full Name<br> </label>
+                    <input type="text" class="form-control" id="fullname" name="fullname">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="country" class="form-label"> Nationality<br> </label>
+                    <input type="text" class="form-control" id="country" name="country">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="email" class="form-label"> Email Address<br> </label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="birthday" class="form-label"> Birthday<br> </label>
+                    <input type="date" class="form-control" id="birthday" name="birthday">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="present_address" class="form-label"> Present Address<br> </label>
+                    <input type="text" class="form-control" id="present_address" name="present_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="prev_address" class="form-label"> Previous Address<br> </label>
+                    <input type="text" class="form-control" id="prev_address" name="prev_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="telephone_no" class="form-label"> Telephone No. </label>
+                    <input type="number" class="form-control" id="telephone_no">
+                </div>
+            </div>
+            <div class="col-md-4" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="mobilenumber" class="form-label"> Mobile Number<br> </label>
+                    <input type="number" class="form-control" id="mobilenumber" name="mobilenumber">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="birthplace" class="form-label"> Birthplace<br> </label>
+                    <input type="text" class="form-control" id="birthplace" name="birthplace">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="tin" class="form-label"> TIN </label>
+                    <input type="number" class="form-control" id="tin">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="sss_gsis_no" class="form-label"> SSS/GSIS No. </label>
+                    <input type="number" class="form-control" id="sss_gsis_no">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="length_of_stay_years" class="form-label"> Length of Stay (Years) </label>
+                    <input type="number" class="form-control" id="length_of_stay_years">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="length_of_stay_months" class="form-label"> Length of Stay (Months) </label>
+                    <input type="number" class="form-control" id="length_of_stay_months">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="cellphone_no" class="form-label"> Cellphone No. </label>
+                    <input type="number" class="form-control" id="cellphone_no">
+                </div>
+            </div>
+            <div class="col-md-4" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Gender </p>
+                    <label>
+                        <input type="radio" id="male" name="gender" value="Male"> Male
+                    </label>
+                    <label>
+                        <input type="radio" id="female" name="gender" value="Female"> Female
+                    </label> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Residency </p>
+                    <label>
+                        <input type="radio" id="resident" name="residency" value="Resident"> Resident
+                    </label>
+                    <label>
+                        <input type="radio" id="nonresident" name="residency" value="Non-Resident"> Non-Resident
+                    </label>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">            
+                    <p class="labels"> Educational Attainment </p>
+                    <select name="educational_attainment_choices" id="educational_attainment" class="dropdown">
+                        <option value="Elementary"> Elementary </option>
+                        <option value="High School"> High School </option>
+                        <option value="Vocational"> Vocational </option>
+                        <option value="Undergraduate"> Undergraduate </option>
+                        <option value="College"> College </option>
+                        <option value="Postgraduate"> Postgraduate </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Civil Status </p>
+                    <select name="civil_status_choices" id="civil_status" class="dropdown">
+                        <option value="Single"> Single </option>
+                        <option value="Marries"> Married </option>
+                        <option value="Legally Separated"> Legally Separated </option>
+                        <option value="Widow/Widower"> Widow/Widower </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Home Ownership </p>
+                    <select name="home_ownership_choices" id="home_ownership" class="dropdown">
+                        <option value="Owned"> Owned </option>
+                        <option value="Mortgaged"> Mortgaged </option>
+                        <option value="Rented"> Rented </option>
+                        <option value="Living with Parents/Relatives"> Living with Parents/Relatives</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="col-md-4" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="mobilenumber" class="form-label"> Mobile Number<br> </label>
-                        <input type="number" class="form-control" id="mobilenumber" name="mobilenumber">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="birthplace" class="form-label"> Birthplace<br> </label>
-                        <input type="text" class="form-control" id="birthplace" name="birthplace">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="tin" class="form-label"> TIN </label>
-                        <input type="number" class="form-control" id="tin">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="sss_gsis_no" class="form-label"> SSS/GSIS No. </label>
-                        <input type="number" class="form-control" id="sss_gsis_no">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="length_of_stay_years" class="form-label"> Length of Stay (Years) </label>
-                        <input type="number" class="form-control" id="length_of_stay_years">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="length_of_stay_months" class="form-label"> Length of Stay (Months) </label>
-                        <input type="number" class="form-control" id="length_of_stay_months">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="cellphone_no" class="form-label"> Cellphone No. </label>
-                        <input type="number" class="form-control" id="cellphone_no">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-4" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Gender </p>
-                        <label>
-                            <input type="radio" id="male" name="gender" value="Male"> Male
-                        </label>
-                        <label>
-                            <input type="radio" id="female" name="gender" value="Female"> Female
-                        </label> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Residency </p>
-                        <label>
-                            <input type="radio" id="resident" name="residency" value="Resident"> Resident
-                        </label>
-                        <label>
-                            <input type="radio" id="nonresident" name="residency" value="Non-Resident"> Non-Resident
-                        </label>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">            
-                        <p class="labels"> Educational Attainment </p>
-                        <select name="educational_attainment_choices" id="educational_attainment" class="dropdown">
-                            <option value="Elementary"> Elementary </option>
-                            <option value="High School"> High School </option>
-                            <option value="Vocational"> Vocational </option>
-                            <option value="Undergraduate"> Undergraduate </option>
-                            <option value="College"> College </option>
-                            <option value="Postgraduate"> Postgraduate </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Civil Status </p>
-                        <select name="civil_status_choices" id="civil_status" class="dropdown">
-                            <option value="Single"> Single </option>
-                            <option value="Marries"> Married </option>
-                            <option value="Legally Separated"> Legally Separated </option>
-                            <option value="Widow/Widower"> Widow/Widower </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Home Ownership </p>
-                        <select name="home_ownership_choices" id="home_ownership" class="dropdown">
-                            <option value="Owned"> Owned </option>
-                            <option value="Mortgaged"> Mortgaged </option>
-                            <option value="Rented"> Rented </option>
-                            <option value="Living with Parents/Relatives"> Living with Parents/Relatives</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <!-- LOANER INFORMATION (EMPLOYMENT) HEADER -->
-    <div class="row">
-        <div class="col-md-12">
-            <div id="headers">
-                <p style="font-size: 20px; vertical-align: auto; text-align: center;"> LOANER INFORMATION (EMPLOYMENT) </p>
+        <!-- LOANER INFORMATION (EMPLOYMENT) HEADER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="headers">
+                    <p style="font-size: 20px; vertical-align: auto; text-align: center;"> LOANER INFORMATION (EMPLOYMENT) </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- LOANER INFORMATION (EMPLOYMENT) FORMS -->
-    <div class="row">
-        <div class="col-md-4" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Source of Income </p>
-                        <select name="source_of_income_choices" id="source_of_income" class="dropdown">
-                            <option value="Locally Employed - Private"> Locally Employed - Private </option>
-                            <option value="Locally Employed - Government"> Locally Employed - Government </option>
-                            <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
-                            <option value="OFW Immigrant - Private"> OFW Immigrant - Private </option>
-                            <option value="OFW Immigrant - Government"> OFW Immigrant - Government </option>
-                            <option value="OFW Immigrant - Self-employed"> OFW Immigrant - Self-employed </option>
-                            <option value="OFW Non-Immigrant - Private"> OFW Non-Immigrant - Private </option>
-                            <option value="OFW Non-Immigrant - Government"> OFW Non-Immigrant - Government </option>
-                            <option value="OFW Non-Immigrant - Self-employed"> OFW Non-Immigrant - Self-employed </option>
-                            <option value="Unemployed - Remittance/Allottee"> Unemployed - Remittance/Allottee </option>
-                            <option value="Unemployed - Pension/Retired"> Unemployed - Pension/Retired </option>
-                            <option value="Unemployed - Student"> Unemployed - Student </option>
-                            <option value="Others"> Others </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Status of Employment </p>
-                        <label>
-                            <input type="radio" id="permanent" name="status_of_employment" value="Permanent">Permanent
-                        </label>
-                        <label>
-                            <input type="radio" id="probationary" name="status_of_employment" value="Probationary">Probationary
-                        </label>
-                        <label>
-                            <input type="radio" id="permanent" name="status_of_employment" value="Contractual">Contractual
-                        </label>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Position in Company </p>
-                        <select name="company_position_choices" id="company_position" class="dropdown">
-                            <option value="Non-Officer"> Non-Officer </option>
-                            <option value="Jr. Officer"> Jr. Officer </option>
-                            <option value="Supervisor"> Supervisor </option>
-                            <option value="Middle Officer"> Middle Manager </option>
-                            <option value="Sr. Officer"> Sr. Officer </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If OFW, </p>
-                        <p class="labels"> Employment Base </p>
-                        <label>
-                            <input type="radio" id="employment_base" name="land" value="Land">Land
-                        </label>
-                        <label>
-                            <input type="radio" id="employment_base" name="sea" value="Sea">Sea
-                        </label>
-                        <label>
-                            <input type="radio" id="employment_base" name="air" value="Air">Air
-                        </label>
-                    </div>
-                </form>
+        <!-- LOANER INFORMATION (EMPLOYMENT) FORMS -->
+        <div class="row">
+            <div class="col-md-4" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Source of Income </p>
+                    <select name="source_of_income_choices" id="source_of_income" class="dropdown">
+                        <option value="Locally Employed - Private"> Locally Employed - Private </option>
+                        <option value="Locally Employed - Government"> Locally Employed - Government </option>
+                        <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
+                        <option value="OFW Immigrant - Private"> OFW Immigrant - Private </option>
+                        <option value="OFW Immigrant - Government"> OFW Immigrant - Government </option>
+                        <option value="OFW Immigrant - Self-employed"> OFW Immigrant - Self-employed </option>
+                        <option value="OFW Non-Immigrant - Private"> OFW Non-Immigrant - Private </option>
+                        <option value="OFW Non-Immigrant - Government"> OFW Non-Immigrant - Government </option>
+                        <option value="OFW Non-Immigrant - Self-employed"> OFW Non-Immigrant - Self-employed </option>
+                        <option value="Unemployed - Remittance/Allottee"> Unemployed - Remittance/Allottee </option>
+                        <option value="Unemployed - Pension/Retired"> Unemployed - Pension/Retired </option>
+                        <option value="Unemployed - Student"> Unemployed - Student </option>
+                        <option value="Others"> Others </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Status of Employment </p>
+                    <label>
+                        <input type="radio" id="permanent" name="status_of_employment" value="Permanent">Permanent
+                    </label>
+                    <label>
+                        <input type="radio" id="probationary" name="status_of_employment" value="Probationary">Probationary
+                    </label>
+                    <label>
+                        <input type="radio" id="permanent" name="status_of_employment" value="Contractual">Contractual
+                    </label>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Position in Company </p>
+                    <select name="company_position_choices" id="company_position" class="dropdown">
+                        <option value="Non-Officer"> Non-Officer </option>
+                        <option value="Jr. Officer"> Jr. Officer </option>
+                        <option value="Supervisor"> Supervisor </option>
+                        <option value="Middle Officer"> Middle Manager </option>
+                        <option value="Sr. Officer"> Sr. Officer </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If OFW, </p>
+                    <p class="labels"> Employment Base </p>
+                    <label>
+                        <input type="radio" id="employment_base" name="land" value="Land">Land
+                    </label>
+                    <label>
+                        <input type="radio" id="employment_base" name="sea" value="Sea">Sea
+                    </label>
+                    <label>
+                        <input type="radio" id="employment_base" name="air" value="Air">Air
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4" id="columns-employed">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If employed, </p>
+                    <label for="company_name" class="form-label"> Company Name<br></label>
+                    <input type="text" class="form-control" id="company_name"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="office_address" class="form-label"> Office Address<br></label>
+                    <input type="text" class="form-control" id="office_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="company_web_address" class="form-label"> Company Web Address<br></label>
+                    <input type="text" class="form-control" id="company_web_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="nature_of_business" class="form-label"> Nature of Business<br></label>
+                    <input type="text" class="form-control" id="nature_of_business"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="job_title" class="form-label"> Job Title<br></label>
+                    <input type="text" class="form-control" id="job_title">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="job_length_of_stay_years" class="form-label"> Length of Stay (in Years) <br></label>
+                    <input type="number" class="form-control" id="job_length_of_stay_years"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="job_length_of_stay_months class="form-label"> Length of Stay (Months) <br></label>
+                    <input type="number" class="form-control" id="job_length_of_stay_months">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="office_phone_no" class="form-label"> Office Phone No. <br></label>
+                    <input type="number" class="form-control" id="office_phone_no">
+                </div>
+            </div>
+            <div class="col-md-4" id="columns-business">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If in business or in practice of profession, </p>
+                    <label for="business_name" class="form-label"> Business Name<br></label>
+                    <input type="text" class="form-control" id="business_name"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="business_address" class="form-label"> Business Address<br></label>
+                    <input type="text" class="form-control" id="business_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="business_web_address" class="form-label"> Business Web Address<br></label>
+                    <input type="text" class="form-control" id="business_web_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="nature_of_business_work" class="form-label"> Nature of Work/Business<br></label>
+                    <input type="text" class="form-control" id="nature_of_business_work"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="job_length_of_operation_years" class="form-label"> Length of Operation (Years) <br></label>
+                    <input type="number" class="form-control" id="job_length_of_operation_years">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="job_length_of_operation_months" class="form-label"> Length of Operation (Months)<br></label>
+                    <input type="number" class="form-control" id="job_length_of_operation_months">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="name_prevemployer_business" class="form-label"> Name of Business/Previous Employer <br></label>
+                    <input type="text" class="form-control" id="name_prevemployer_business">
+                </div>
             </div>
         </div>
-        <div class="col-md-4" id="columns-employed">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If employed, </p>
-                        <label for="company_name" class="form-label"> Company Name<br></label>
-                        <input type="text" class="form-control" id="company_name"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="office_address" class="form-label"> Office Address<br></label>
-                        <input type="text" class="form-control" id="office_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="company_web_address" class="form-label"> Company Web Address<br></label>
-                        <input type="text" class="form-control" id="company_web_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="nature_of_business" class="form-label"> Nature of Business<br></label>
-                        <input type="text" class="form-control" id="nature_of_business"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="job_title" class="form-label"> Job Title<br></label>
-                        <input type="text" class="form-control" id="job_title">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="job_length_of_stay_years" class="form-label"> Length of Stay (in Years) <br></label>
-                        <input type="number" class="form-control" id="job_length_of_stay_years"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="job_length_of_stay_months class="form-label"> Length of Stay (Months) <br></label>
-                        <input type="number" class="form-control" id="job_length_of_stay_months">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="office_phone_no" class="form-label"> Office Phone No. <br></label>
-                        <input type="number" class="form-control" id="office_phone_no">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-4" id="columns-business">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If in business or in practice of profession, </p>
-                        <label for="business_name" class="form-label"> Business Name<br></label>
-                        <input type="text" class="form-control" id="business_name"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="business_address" class="form-label"> Business Address<br></label>
-                        <input type="text" class="form-control" id="business_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="business_web_address" class="form-label"> Business Web Address<br></label>
-                        <input type="text" class="form-control" id="business_web_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="nature_of_business_work" class="form-label"> Nature of Work/Business<br></label>
-                        <input type="text" class="form-control" id="nature_of_business_work"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="job_length_of_operation_years" class="form-label"> Length of Operation (Years) <br></label>
-                        <input type="number" class="form-control" id="job_length_of_operation_years">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="job_length_of_operation_months" class="form-label"> Length of Operation (Months)<br></label>
-                        <input type="number" class="form-control" id="job_length_of_operation_months">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="name_prevemployer_business" class="form-label"> Name of Business/Previous Employer <br></label>
-                        <input type="text" class="form-control" id="name_prevemployer_business">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <!-- DEPENDENTS HEADER -->
-    <div class="row">
-        <div class="col-md-12">
-            <div id="headers">
-                <p style="font-size: 20px; vertical-align: auto; text-align: center;"> DEPENDENTS  </p>
+        <!-- DEPENDENTS HEADER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="headers">
+                    <p style="font-size: 20px; vertical-align: auto; text-align: center;"> DEPENDENTS  </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- DEPENDENTS FORMS -->
-    <div class="row">
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> Dependent 1<br></p>
-                        <label for="dependent1_name" class="form-label"> Name <br></label>
-                        <input type="text" class="form-control" id="dependent1_name">
-                    </div>
-                    <br> 
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_school" class="form-label"> School <br></label>
-                        <input type="text" class="form-control" id="dependent1_school">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_age" class="form-label"> Age <br></label>
-                        <input type="number" class="form-control" id="dependent1_age">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_level" class="form-label"> Level <br></label>
-                        <input type="text" class="form-control" id="dependent1_level">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Type of School</p>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="public" value="Public">Public
-                        </label>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="exclusive" value="Exclusive">Exclusive
-                        </label>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="private coed" value="Private Coed">Private Coed
-                        </label>
-                    </div>        
-                </form>
+        <!-- DEPENDENTS FORMS -->
+        <div class="row">
+            <div class="col-md-6" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> Dependent 1<br></p>
+                    <label for="dependent1_name" class="form-label"> Name <br></label>
+                    <input type="text" class="form-control" id="dependent1_name">
+                </div>
+                <br> 
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_school" class="form-label"> School <br></label>
+                    <input type="text" class="form-control" id="dependent1_school">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_age" class="form-label"> Age <br></label>
+                    <input type="number" class="form-control" id="dependent1_age">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_level" class="form-label"> Level <br></label>
+                    <input type="text" class="form-control" id="dependent1_level">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Type of School</p>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="public" value="Public">Public
+                    </label>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="exclusive" value="Exclusive">Exclusive
+                    </label>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="private coed" value="Private Coed">Private Coed
+                    </label>
+                </div>        
+            </div>
+            <div class="col-md-6" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> Dependent 2 <br></p>
+                    <label for="dependent1_name" class="form-label"> Name <br></label>
+                    <input type="text" class="form-control" id="dependent1_name">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_school" class="form-label"> School <br></label>
+                    <input type="text" class="form-control" id="dependent1_school">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_age" class="form-label"> Age <br></label>
+                    <input type="number" class="form-control" id="dependent1_age">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="dependent1_level" class="form-label"> Level <br></label>
+                    <input type="text" class="form-control" id="dependent1_level">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Type of School</p>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="public" value="Public">Public
+                    </label>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="exclusive" value="Exclusive">Exclusive
+                    </label>
+                    <label>
+                        <input type="radio" id="dependent1_type_of_school" name="private coed" value="Private Coed">Private Coed
+                    </label>
+                </div>        
             </div>
         </div>
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> Dependent 2 <br></p>
-                        <label for="dependent1_name" class="form-label"> Name <br></label>
-                        <input type="text" class="form-control" id="dependent1_name">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_school" class="form-label"> School <br></label>
-                        <input type="text" class="form-control" id="dependent1_school">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_age" class="form-label"> Age <br></label>
-                        <input type="number" class="form-control" id="dependent1_age">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="dependent1_level" class="form-label"> Level <br></label>
-                        <input type="text" class="form-control" id="dependent1_level">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Type of School</p>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="public" value="Public">Public
-                        </label>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="exclusive" value="Exclusive">Exclusive
-                        </label>
-                        <label>
-                            <input type="radio" id="dependent1_type_of_school" name="private coed" value="Private Coed">Private Coed
-                        </label>
-                    </div>        
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <!-- INFORMATION OF SPOUSE HEADER -->
-    <div class="row">
-        <div class="col-md-12">
-            <div id="headers">
-                <p style="font-size: 20px; vertical-align: auto; text-align: center;"> INFORMATION OF SPOUSE  </p>
+        <!-- INFORMATION OF SPOUSE HEADER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="headers">
+                    <p style="font-size: 20px; vertical-align: auto; text-align: center;"> INFORMATION OF SPOUSE  </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- INFORMATION OF SPOUSE FORMS -->
-    <div class="row">
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_full_name" class="form-label"> Full Name <br></label>
-                        <input type="text" class="form-control" id="spouse_full_name">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_gender" class="form-label"> Gender <br></label>
-                        <input type="text" class="form-control" id="spouse_gender">
-                    </div> 
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_nationality" class="form-label"> Nationality <br></label>
-                        <input type="text" class="form-control" id="spouse_nationality">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_residency" class="form-label"> Residency <br></label>
-                        <input type="text" class="form-control" id="spouse_residency">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_birthdate" class="form-label"> Birthdate <br></label>
-                        <input type="date" class="form-control" id="spouse_birthdate">
-                    </div>  
-                </form>
+        <!-- INFORMATION OF SPOUSE FORMS -->
+        <div class="row">
+            <div class="col-md-6" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_full_name" class="form-label"> Full Name <br></label>
+                    <input type="text" class="form-control" id="spouse_full_name">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_gender" class="form-label"> Gender <br></label>
+                    <input type="text" class="form-control" id="spouse_gender">
+                </div> 
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_nationality" class="form-label"> Nationality <br></label>
+                    <input type="text" class="form-control" id="spouse_nationality">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_residency" class="form-label"> Residency <br></label>
+                    <input type="text" class="form-control" id="spouse_residency">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_birthdate" class="form-label"> Birthdate <br></label>
+                    <input type="date" class="form-control" id="spouse_birthdate">
+                </div>  
+            </div>
+            <div class="col-md-6" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_birthplace" class="form-label"> Birthplace <br></label>
+                    <input type="text" class="form-control" id="spouse_birthplace">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Educational Attainment </p>
+                    <select name="educational_attainment_choices" id="spouse_educational_attainment" class="dropdown">
+                        <option value="Elementary"> Elementary </option>
+                        <option value="High School"> High School </option>
+                        <option value="Vocational"> Vocational </option>
+                        <option value="Undergraduate"> Undergraduate </option>
+                        <option value="College"> College </option>
+                        <option value="Postgraduate"> Postgraduate </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Civil Status </p>
+                    <select name="civil_status_choices" id="spouse_civil_status" class="dropdown">
+                        <option value="Single"> Single </option>
+                        <option value="Marries"> Married </option>
+                        <option value="Legally Separated"> Legally Separated </option>
+                        <option value="Widow/Widower"> Widow/Widower </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_tin" class="form-label"> TIN Number <br></label>
+                    <input type="number" class="form-control" id="spouse_tin">
+                </div>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_sss_gsis_no" class="form-label"> SSS/GSIS Number <br></label>
+                    <input type="number" class="form-control" id="spouse_sss_gsis_no">
+                </div>  
             </div>
         </div>
-        <div class="col-md-6" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_birthplace" class="form-label"> Birthplace <br></label>
-                        <input type="text" class="form-control" id="spouse_birthplace">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Educational Attainment </p>
-                        <select name="educational_attainment_choices" id="spouse_educational_attainment" class="dropdown">
-                            <option value="Elementary"> Elementary </option>
-                            <option value="High School"> High School </option>
-                            <option value="Vocational"> Vocational </option>
-                            <option value="Undergraduate"> Undergraduate </option>
-                            <option value="College"> College </option>
-                            <option value="Postgraduate"> Postgraduate </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Civil Status </p>
-                        <select name="civil_status_choices" id="spouse_civil_status" class="dropdown">
-                            <option value="Single"> Single </option>
-                            <option value="Marries"> Married </option>
-                            <option value="Legally Separated"> Legally Separated </option>
-                            <option value="Widow/Widower"> Widow/Widower </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_tin" class="form-label"> TIN Number <br></label>
-                        <input type="number" class="form-control" id="spouse_tin">
-                    </div>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_sss_gsis_no" class="form-label"> SSS/GSIS Number <br></label>
-                        <input type="number" class="form-control" id="spouse_sss_gsis_no">
-                    </div>  
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <!-- INFORMATION OF SPOUSE (EMPLOYMENT) HEADER -->
-    <div class="row">
-        <div class="col-md-12">
-            <div id="headers">
-                <p style="font-size: 20px; vertical-align: auto; text-align: center;"> INFORMATION OF SPOUSE (EMPLOYMENT)  </p>
+        <!-- INFORMATION OF SPOUSE (EMPLOYMENT) HEADER -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="headers">
+                    <p style="font-size: 20px; vertical-align: auto; text-align: center;"> INFORMATION OF SPOUSE (EMPLOYMENT)  </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- INFORMATION OF SPOUSE (EMPLOYMENT) FORMS -->
-    <div class="row">
-        <div class="col-md-4" id="columns">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Source of Income </p>
-                        <select name="source_of_income_choices" id="spouse_source_of_income" class="dropdown">
-                            <option value="Locally Employed - Private"> Locally Employed - Private </option>
-                            <option value="Locally Employed - Government"> Locally Employed - Government </option>
-                            <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
-                            <option value="OFW Immigrant - Private"> OFW Immigrant - Private </option>
-                            <option value="OFW Immigrant - Government"> OFW Immigrant - Government </option>
-                            <option value="OFW Immigrant - Self-employed"> OFW Immigrant - Self-employed </option>
-                            <option value="OFW Non-Immigrant - Private"> OFW Non-Immigrant - Private </option>
-                            <option value="OFW Non-Immigrant - Government"> OFW Non-Immigrant - Government </option>
-                            <option value="OFW Non-Immigrant - Self-employed"> OFW Non-Immigrant - Self-employed </option>
-                            <option value="Unemployed - Remittance/Allottee"> Unemployed - Remittance/Allottee </option>
-                            <option value="Unemployed - Pension/Retired"> Unemployed - Pension/Retired </option>
-                            <option value="Unemployed - Student"> Unemployed - Student </option>
-                            <option value="Others"> Others </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Status of Employment </p>
-                        <label>
-                            <input type="radio" id="permanent" name="spouse_status_of_employment" value="Permanent">Permanent
-                        </label>
-                        <label>
-                            <input type="radio" id="probationary" name="spouse_status_of_employment" value="Probationary">Probationary
-                        </label>
-                        <label>
-                            <input type="radio" id="permanent" name="spouse_status_of_employment" value="Contractual">Contractual
-                        </label>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p class="labels"> Position in Company </p>
-                        <select name="company_position_choices" id="spouse_company_position" class="dropdown">
-                            <option value="Non-Officer"> Non-Officer </option>
-                            <option value="Jr. Officer"> Jr. Officer </option>
-                            <option value="Supervisor"> Supervisor </option>
-                            <option value="Middle Officer"> Middle Manager </option>
-                            <option value="Sr. Officer"> Sr. Officer </option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If OFW, </p>
-                        <p class="labels"> Employment Base </p>
-                        <label>
-                            <input type="radio" id="spouse_employment_base" name="land" value="Land">Land
-                        </label>
-                        <label>
-                            <input type="radio" id="spouse_employment_base" name="sea" value="Sea">Sea
-                        </label>
-                        <label>
-                            <input type="radio" id="spouse_employment_base" name="air" value="Air">Air
-                        </label>
-                    </div>
-                </form>
+        <!-- INFORMATION OF SPOUSE (EMPLOYMENT) FORMS -->
+        <div class="row">
+            <div class="col-md-4" id="columns">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Source of Income </p>
+                    <select name="source_of_income_choices" id="spouse_source_of_income" class="dropdown">
+                        <option value="Locally Employed - Private"> Locally Employed - Private </option>
+                        <option value="Locally Employed - Government"> Locally Employed - Government </option>
+                        <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
+                        <option value="OFW Immigrant - Private"> OFW Immigrant - Private </option>
+                        <option value="OFW Immigrant - Government"> OFW Immigrant - Government </option>
+                        <option value="OFW Immigrant - Self-employed"> OFW Immigrant - Self-employed </option>
+                        <option value="OFW Non-Immigrant - Private"> OFW Non-Immigrant - Private </option>
+                        <option value="OFW Non-Immigrant - Government"> OFW Non-Immigrant - Government </option>
+                        <option value="OFW Non-Immigrant - Self-employed"> OFW Non-Immigrant - Self-employed </option>
+                        <option value="Unemployed - Remittance/Allottee"> Unemployed - Remittance/Allottee </option>
+                        <option value="Unemployed - Pension/Retired"> Unemployed - Pension/Retired </option>
+                        <option value="Unemployed - Student"> Unemployed - Student </option>
+                        <option value="Others"> Others </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Status of Employment </p>
+                    <label>
+                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Permanent">Permanent
+                    </label>
+                    <label>
+                        <input type="radio" id="probationary" name="spouse_status_of_employment" value="Probationary">Probationary
+                    </label>
+                    <label>
+                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Contractual">Contractual
+                    </label>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p class="labels"> Position in Company </p>
+                    <select name="company_position_choices" id="spouse_company_position" class="dropdown">
+                        <option value="Non-Officer"> Non-Officer </option>
+                        <option value="Jr. Officer"> Jr. Officer </option>
+                        <option value="Supervisor"> Supervisor </option>
+                        <option value="Middle Officer"> Middle Manager </option>
+                        <option value="Sr. Officer"> Sr. Officer </option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If OFW, </p>
+                    <p class="labels"> Employment Base </p>
+                    <label>
+                        <input type="radio" id="spouse_employment_base" name="land" value="Land">Land
+                    </label>
+                    <label>
+                        <input type="radio" id="spouse_employment_base" name="sea" value="Sea">Sea
+                    </label>
+                    <label>
+                        <input type="radio" id="spouse_employment_base" name="air" value="Air">Air
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4" id="columns-employed">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If employed, </p>
+                    <label for="spouse_company_name" class="form-label"> Company Name<br></label>
+                    <input type="text" class="form-control" id="spouse_company_name"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_office_address" class="form-label"> Office Address<br></label>
+                    <input type="text" class="form-control" id="spouse_office_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_company_web_address" class="form-label"> Company Web Address<br></label>
+                    <input type="text" class="form-control" id="spouse_company_web_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_nature_of_business" class="form-label"> Nature of Business<br></label>
+                    <input type="text" class="form-control" id="spouse_nature_of_business"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_job_title" class="form-label"> Job Title<br></label>
+                    <input type="text" class="form-control" id="spouse_job_title">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_job_length_of_stay_years" class="form-label"> Length of Stay (in Years) <br></label>
+                    <input type="number" class="form-control" id="spouse_job_length_of_stay_years"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_job_length_of_stay_months" class="form-label"> Length of Stay (Months) <br></label>
+                    <input type="number" class="form-control" id="spouse_job_length_of_stay_months">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_office_phone_no" class="form-label"> Office Phone No. <br></label>
+                    <input type="number" class="form-control" id="spouse_office_phone_no">
+                </div>
+            </div>
+            <div class="col-md-4" id="columns-business">
+                <div class="form-group col-xs-6 col-md-12">
+                    <p> If in business or in practice of profession, </p>
+                    <label for="spouse_business_name" class="form-label"> Business Name<br></label>
+                    <input type="text" class="form-control" id="spouse_business_name"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_business_address" class="form-label"> Business Address<br></label>
+                    <input type="text" class="form-control" id="spouse_business_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_business_web_address" class="form-label"> Business Web Address<br></label>
+                    <input type="text" class="form-control" id="spouse_business_web_address">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_nature_of_business_work" class="form-label"> Nature of Work/Business<br></label>
+                    <input type="text" class="form-control" id="spouse_nature_of_business_work"> 
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_job_length_of_operation_years" class="form-label"> Length of Operation (Years) <br></label>
+                    <input type="number" class="form-control" id="spouse_job_length_of_operation_years">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_job_length_of_operation_months" class="form-label"> Length of Operation (Months)<br></label>
+                    <input type="number" class="form-control" id="spouse_job_length_of_operation_months">
+                </div>
+                <br>
+                <div class="form-group col-xs-6 col-md-12">
+                    <label for="spouse_name_prevemployer_business" class="form-label"> Name of Business/Previous Employer <br></label>
+                    <input type="text" class="form-control" id="spouse_name_prevemployer_business">
+                </div>
             </div>
         </div>
-        <div class="col-md-4" id="columns-employed">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If employed, </p>
-                        <label for="spouse_company_name" class="form-label"> Company Name<br></label>
-                        <input type="text" class="form-control" id="spouse_company_name"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_office_address" class="form-label"> Office Address<br></label>
-                        <input type="text" class="form-control" id="spouse_office_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_company_web_address" class="form-label"> Company Web Address<br></label>
-                        <input type="text" class="form-control" id="spouse_company_web_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_nature_of_business" class="form-label"> Nature of Business<br></label>
-                        <input type="text" class="form-control" id="spouse_nature_of_business"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_job_title" class="form-label"> Job Title<br></label>
-                        <input type="text" class="form-control" id="spouse_job_title">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_job_length_of_stay_years" class="form-label"> Length of Stay (in Years) <br></label>
-                        <input type="number" class="form-control" id="spouse_job_length_of_stay_years"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_job_length_of_stay_months" class="form-label"> Length of Stay (Months) <br></label>
-                        <input type="number" class="form-control" id="spouse_job_length_of_stay_months">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_office_phone_no" class="form-label"> Office Phone No. <br></label>
-                        <input type="number" class="form-control" id="spouse_office_phone_no">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-4" id="columns-business">
-            <div class="d-flex justify-content-center">
-                <form method="post">
-                    <div class="form-group col-xs-6 col-md-12">
-                        <p> If in business or in practice of profession, </p>
-                        <label for="spouse_business_name" class="form-label"> Business Name<br></label>
-                        <input type="text" class="form-control" id="spouse_business_name"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_business_address" class="form-label"> Business Address<br></label>
-                        <input type="text" class="form-control" id="spouse_business_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_business_web_address" class="form-label"> Business Web Address<br></label>
-                        <input type="text" class="form-control" id="spouse_business_web_address">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_nature_of_business_work" class="form-label"> Nature of Work/Business<br></label>
-                        <input type="text" class="form-control" id="spouse_nature_of_business_work"> 
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_job_length_of_operation_years" class="form-label"> Length of Operation (Years) <br></label>
-                        <input type="number" class="form-control" id="spouse_job_length_of_operation_years">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_job_length_of_operation_months" class="form-label"> Length of Operation (Months)<br></label>
-                        <input type="number" class="form-control" id="spouse_job_length_of_operation_months">
-                    </div>
-                    <br>
-                    <div class="form-group col-xs-6 col-md-12">
-                        <label for="spouse_name_prevemployer_business" class="form-label"> Name of Business/Previous Employer <br></label>
-                        <input type="text" class="form-control" id="spouse_name_prevemployer_business">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+        <!-- Continue Here -->
+
+    </form>
 
 </div>
 <script src="assets/js/jquery.min.js"></script>
