@@ -17,6 +17,10 @@ from .forms import *
 
 # Create your views here.
 
+# Loan calculator is accessible to public, regardless if user is logged in or not
+def loan_calculator_view(request, *args, **kwargs):
+	return render(request, "loan_calculator.html", {})
+
 @login_required
 def dashboard_view(request, *args, **kwargs):
 	return render(request, "dashboard.html", {})
@@ -39,8 +43,6 @@ def dashboard_pending_view(request, *args, **kwargs):
 	context = {
 		'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
 	}
-
-
 
 	return render(request, "dashboard/dashboard_pending.html", context)
 

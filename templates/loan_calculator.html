@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--TO-DO:
+	Check if whole webpage can be accessible by any user - logged in/logged out
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>UPBank: Loan Calculator</title>
+	<link rel="stylesheet" href="/static/css/loan_calculator_style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700' rel='stylesheet'>
+</head>
+
+<body>
+	<div class="container h-100 mt-4">
+		<div class="header">
+			<span class="header-text header-text-loan">LOAN</span><span class="header-text header-text-calculator">CALCULATOR</span><br>
+			<span style="font-size: 24px; margin-top: -50px;">Your loan, at your terms.</span>
+		</div>
+
+		<div class="mt-4 row">
+			<div class="btn-grp">
+				<button type="button" class="tab-btn" style="margin-left: -4px;">
+					<p class="tab-btn-main-text">CAR LOAN</p>
+					<p class="tab-btn-sub-text">Loan Amortization</p>
+				</button>
+				<button type="button" class="tab-btn" style="margin-left: -4px;">
+					<p class="tab-btn-main-text">LOAN RATES</p>
+					<p class="tab-btn-sub-text">Learn More</p>
+				</button>
+			</div>
+		</div>
+
+		<div id="calculatorTab" class="row">
+			<div class="col">test</div>
+			<div class="col">test</div>
+
+
+
+		</div>
+
+		<div id="ratesTab" class="row">
+
+
+
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+</body>
+
+</html>
+{% endblock %}

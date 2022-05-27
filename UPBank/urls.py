@@ -18,17 +18,17 @@ from django.urls import path, include
 from App import views
 from django.contrib.auth import views as auth_views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.landing_view, name='landing_page'),
     path('dashboard/', views.dashboard_view, name="dashboard"),
     path('contact-us/', views.contact_us_view, name="contact_us"),
+    path('loan-calculator/', views.loan_calculator_view, name='loan-calculator'),
     path('fund-deposit/', views.fund_deposit_view, name="fund_deposit"),
     path('fund-deposit-review/', views.fund_deposit_review, name="fund_deposit_review"),
     path('fund-deposit-success/', views.fund_deposit_success, name="fund_deposit_success"),
 
-    # LOGIN/REGISTER
+    # Login/Register
     path('accounts/', include('accounts.urls')),
     path('login/', views.login_redirect_view, name='login'),
     path('signup/', views.signup_redirect_view, name='signup'),
@@ -39,7 +39,7 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),
 
-    # Bank Officer urls
+    # Bank Officer URLs
     path('dashboard/pending', views.dashboard_pending_view, name="dashboard-pending"),
     path('dashboard/approved', views.dashboard_approved_view, name="dashboard-approved"),
     path('dashboard/rejected', views.dashboard_rejected_view, name="dashboard-rejected"),
