@@ -43,7 +43,6 @@
 #columns
 {
     margin: 20px 0 20px 0;
-    width: 100px;
 }
 
 .forms, .form-group
@@ -62,7 +61,7 @@
     font-size: 16px;
 }
 
-.form-control lie
+.form-control
 {
     margin: 5px 0 5px 0;
 }
