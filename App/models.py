@@ -3,7 +3,7 @@ from datetime import date
 from django.contrib.auth.models import User
 
 class BankAccount(models.Model):
-    account_number = models.OneToOneField(User, on_delete = models.CASCADE)
+    account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
     balance        = models.DecimalField(max_digits = 11, decimal_places = 2)
 
     bank_status_choices = [
@@ -332,7 +332,7 @@ class LoanApplication(models.Model):
     vehicle_type        = models.CharField(choices = vehicle_type_choices, max_length = 15, verbose_name = "Type of Vehicle")
 
 class Loan(models.Model):
-    loan_account_no         = models.OneToOneField(LoanApplication, on_delete = models.CASCADE)
+    loan_account_no         = models.OneToOneField(LoanApplication, on_delete = models.CASCADE, primary_key = True)
 
     loan_tag_choices = [
         ('Completed', 'Completed'),
@@ -340,7 +340,7 @@ class Loan(models.Model):
         ('In Loan Default', 'In Loan Default')
     ]
     
-    loan_tag                = models.CharField(choices = loan_tag_choices, max_length = 20)
+    loan_tag                = models.CharField(choices = loan_tag_choices, max_length = 20, default = "Completed")
 
     selling_prize           = models.DecimalField(max_digits=10, decimal_places=2)
     downpayment             = models.DecimalField(max_digits=10, decimal_places=2)

@@ -12,6 +12,8 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -51,6 +53,61 @@ def fund_deposit_review(request, *args, **kwargs):
 def fund_deposit_success(request, *args, **kwargs):
 	return render(request, "fund_deposit_success.html", {})
 
+# Borrower's Views
+@login_required
+def borrower_loanlist(request):
+	loanapplications = LoanApplication.objects.filter(account_no = request.user).order_by('date_of_application')
+	loanlist = []
+	for i in loanapplications:
+		loan = Loan.objects.get(loan_account_no = i.loan_account_no)
+		loanlist.append(loan)
+	
+	context = {
+		'myloans' : zip(loanapplications, loanlist)
+	}
+	return render(request, "borrower_loan_pages/borrower_loanlist.html", context)
+
+@login_required
+def applyforLoan(request):
+	if request.method == "POST":
+		user = request.user
+		missing_loanappformfields = LoanApplication(account_no = user)
+
+		loanappform = LoanApplicationForm(request.POST, instance = missing_loanappformfields)
+		if loanappform.is_valid():
+			loanappobject = loanappform.save()
+			missing_loanformfields = Loan(loan_account_no = loanappobject, term_remaining = request.POST['total_term'])
+			loanform = LoanForm(request.POST, instance = missing_loanformfields)
+			
+			if loanform.is_valid():
+				loanform.save()
+
+				messages.success(request, "Loan Application has been added successfully! A Bank Officer will review your application.")
+				return redirect('borrower-loanlist')
+			else:
+				messages.error(request, "Internal error! Please enter the necessary fields correctly!")
+				loanappobject.delete()
+				context = {
+					'loanappform' : loanappform,
+					'loanform' : loanform
+				}
+		else:
+			messages.error(request, "Internal error! Please enter the necessary fields correctly!")
+			context = {
+					'loanappform' : loanappform,
+					'loanform' : loanform
+				}
+	else:
+		loanappform = LoanApplicationForm()
+		loanform = LoanForm()
+
+		context = {
+			'loanappform' : loanappform,
+			'loanform' : loanform
+		}
+	return render(request, "borrower_loan_pages/loan_application.html", context)
+
+# Landing
 @anonymous_required(redirect_url='/dashboard')
 def landing_view(request, *args, **kwargs):
 	return render(request, "landing-page.html", {})
