@@ -40,8 +40,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Loan Calculator</a>
-              <a class="dropdown-item" href="#">Loan Application</a>
-              <a class="dropdown-item" href="#">Loan Monitoring</a>
+              <a class="dropdown-item" href="{% url 'apply-for-loan' %}">Loan Application</a>
+              <a class="dropdown-item" href="{% url 'borrower-loanlist' %}">Loan Monitoring</a>
               <a class="dropdown-item" href="{% url 'fund_deposit'%}">Fund Deposit</a>
               <a class="dropdown-item" href="#">Over the Counter Loan Payment</a>
             </div>

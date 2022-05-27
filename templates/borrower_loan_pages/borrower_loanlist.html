@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<title> UPBank </title>
+		
+	    <div class="row h-100">
+	        <main class="centered">
+	            <div class="container">
+				{% if messages %}
+				<br>
+					{% for message in messages %}
+					<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+						<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+						{{ message }}
+					</div>
+					{% endfor %}
+				{% endif %}
+					<div class="row g-2 mb-4 mt-5">
+						<h3 class="table-title mb-0">MY LOANS</h3>
+	            		<hr>
+					</div>
+
+					<div class="table-responsive">
+						<table class="table table-sm table-hover text-center" id="myTable">
+						  <thead>
+						  	<th>Loan Account Number</th>
+                            <th>Application Date</th>
+						    <th>Car Brand and Model</th>
+						    <th>Downpayment</th>
+                            <th>Amount Financed</th>
+                            <th>Total Terms</th>
+                            <th>Monthly Amortization</th>
+						    <th>Loan Decision</th>
+						  </thead>
+						  <tbody id="tableSearch">
+                            {% for loanapp, loanlist in myloans %}
+                            <tr>
+						    	<td>{{loanapp.pk}}</td>
+                                <td>{{loanapp.date_of_application}}</td>
+                                <td>{{loanapp.car_brand}} {{loanapp.car_model}}</td>
+								<td>₱{{loanlist.downpayment}}</td>
+								<td>₱{{loanlist.amount_financed}}</td>
+                                <td>{{loanlist.total_term}}</td>
+                                <td>₱{{loanlist.monthly_amortization}}</td>
+								<td>{{loanapp.application_status}}</td>
+							</tr>
+                            {% endfor %}
+						  </tbody>
+						</table>
+					</div> <!--end of table-responsive -->
+				</div> <!--end of container -->
+	        </main>
+	    </div>
+
+{% endblock %}

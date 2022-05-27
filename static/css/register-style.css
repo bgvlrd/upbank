@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap');
+
+
+* 
+{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+#title
+{
+    text-align: center;
+    margin: 80px 0 40px 0;
+}
+
+.form-control
+{
+    background-color: #c4c4c4;
+    opacity: 80%;
+}
+
+#register-text-up
+{
+    font-size: 60px;
+    font-weight: 900;
+    color: #800000;
+}
+
+#register-text
+{
+    font-size: 60px;
+    font-weight: 300;
+}
+
+#headers
+{
+    background-color: #800000;
+    color: white;
+    height: 30px;
+    margin: 20px 100px 20px 100px;
+}
+
+#columns
+{
+    margin: 20px 0 20px 0;
+    width: 100px;
+}
+
+.forms, .form-group
+{
+    margin: 0 auto;
+}
+
+#columns-business, #columns-employed
+{
+    margin: 20px 0 20px 0;
+}
+
+.dropdown
+{
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-control lie
+{
+    margin: 5px 0 5px 0;
+}

@@ -44,7 +44,10 @@ urlpatterns = [
     path('dashboard/approved', views.dashboard_approved_view, name="dashboard-approved"),
     path('dashboard/rejected', views.dashboard_rejected_view, name="dashboard-rejected"),
 
-    path('applicant_information', views.applicant_information_view, name="applicant-information"),
-    path('borrower_information', views.borrower_information_view, name="borrower-information"),
+    path('applicant_information/<int:pk>', views.applicant_information_view, name="applicant-information"),
+    path('borrower_information/<int:pk>', views.borrower_information_view, name="borrower-information"),
 
+    # Borrower URLs
+    path('myloans', views.borrower_loanlist, name="borrower-loanlist"),
+    path('applyloan', views.applyforLoan, name="apply-for-loan"),
 ]

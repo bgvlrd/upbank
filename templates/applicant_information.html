@@ -203,11 +203,64 @@
 					</div>
 					<div class="row mb-3">
 						<div class="col-12 text-end">
-							<a class="btn py-1 px-3" id="approve_btn" href="#"> APPROVE </a>
-							<a class="btn py-1 px-3" id="reject_btn" href="#"> REJECT </a>
+							<button type="button" class="btn py-1 px-3" id="green_btn" data-bs-toggle="modal" data-bs-target="#approveModal">
+								APPROVE
+							</button>
+							<button type="button" class="btn py-1 px-3" id="maroon_btn" data-bs-toggle="modal" data-bs-target="#rejectModal">
+								REJECT
+							</button>
 						</div>
 					</div>
 				</div> <!--end of container -->
+
+				<!-- Approve Modal -->
+				<div class="modal fade" id="approveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">Approve Application?</h5>
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+				    		<div class="modal-body">
+				    			<div class="m-3">
+						    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">APPROVE</span> this Loan Application?</h6>
+						    		<h6 class="font-italic">(You cannot change this decision.)</h6>
+						    	</div>
+						    	<div class="d-flex justify-content-center mb-3">
+						    		<button type="button" class="btn py-1 px-3 me-3" id="green_btn">Approve</button>
+							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
+							    </div>
+						    </div>
+				    	</div>
+				  	</div>
+				</div>
+
+				<!-- Reject Modal -->
+				<div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				  	<div class="modal-dialog">
+				    	<div class="modal-content">
+				    		<div class="modal-header">
+				    			<h5 class="modal-title" id="staticBackdropLabel">Reject Application?</h5>
+					    		<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+					    	</div>
+						    <div class="modal-body">
+						    	<div class="m-3">
+						    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">REJECT</span> this Loan Application?</h6>
+						    		<h6 class="font-italic">(You cannot change this decision.)</h6>
+						    	</div>
+						    	<div class="mb-3 me-5 ms-5">
+						    		<h6 class="mb-0">Reason for Rejection:</h6>
+						    		<textarea class="form-control" style="background: #F2F2F2;"></textarea>
+						    	</div>
+						    	<div class="d-flex justify-content-center mb-3">
+							    	<button type="button" class="btn py-1 px-3 me-3" id="green_btn">Reject</button>
+							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
+							    </div>
+					    	</div>
+				    	</div>
+					</div>
+				</div>
+
 	        </main>
 	    </div>
 

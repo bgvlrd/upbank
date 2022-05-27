@@ -3,6 +3,15 @@ from pyexpat import model
 from django.forms import ModelForm
 from App.models import *
 
+class LoanApplicationForm(ModelForm):
+    class Meta:
+        model = LoanApplication
+        exclude = ['account_no', 'application_status']
+
+class LoanForm(ModelForm):
+    class Meta:
+        model = Loan
+        exclude = ['loan_account_no', 'loan_tag', 'term_remaining', 'months_missed_counter']
 
 class BankAccForm(ModelForm):
     class Meta:
@@ -191,16 +200,6 @@ class PersonalRefForm(ModelForm):
 class CreditBankRefForm(ModelForm):
     class Meta:
         model = CreditBankReferences
-        fields = '__all__'
-
-class LoanAppForm(ModelForm):
-    class Meta:
-        model = LoanApplication
-        fields = '__all__'
-
-class LoanForm(ModelForm):
-    class Meta:
-        model = Loan
         fields = '__all__'
 
 class OTCPayForm(ModelForm):
