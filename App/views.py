@@ -23,15 +23,66 @@ def dashboard_view(request, *args, **kwargs):
 
 @login_required
 def dashboard_pending_view(request, *args, **kwargs):
-	return render(request, "dashboard/dashboard_pending.html", {})
+	loan_applications = LoanApplication.objects.filter(application_status = "For Review").order_by('date_of_application')
+	loaner_information = []
+	loan_specific_details = []
+
+
+	for i in loan_applications:
+		loaner = LoanerInformation.objects.filter(account_number = i.account_no).first()
+		loaner_information.append(loaner)
+
+	for i in loan_applications:
+		loan = Loan.objects.filter(loan_account_no = i.loan_account_no).first()
+		loan_specific_details.append(loan)
+
+	context = {
+		'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
+	}
+
+
+
+	return render(request, "dashboard/dashboard_pending.html", context)
 
 @login_required
 def dashboard_approved_view(request, *args, **kwargs):
-	return render(request, "dashboard/dashboard_approved.html", {})
+	loan_applications = LoanApplication.objects.filter(application_status = "For Review").order_by('date_of_application')
+	loaner_information = []
+	loan_specific_details = []
+
+
+	for i in loan_applications:
+		loaner = LoanerInformation.objects.filter(account_number = i.account_no).first()
+		loaner_information.append(loaner)
+
+	for i in loan_applications:
+		loan = Loan.objects.filter(loan_account_no = i.loan_account_no).first()
+		loan_specific_details.append(loan)
+
+	context = {
+		'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
+	}
+	return render(request, "dashboard/dashboard_approved.html", context)
 
 @login_required
 def dashboard_rejected_view(request, *args, **kwargs):
-	return render(request, "dashboard/dashboard_rejected.html", {})
+	loan_applications = LoanApplication.objects.filter(application_status = "For Review").order_by('date_of_application')
+	loaner_information = []
+	loan_specific_details = []
+
+
+	for i in loan_applications:
+		loaner = LoanerInformation.objects.filter(account_number = i.account_no).first()
+		loaner_information.append(loaner)
+
+	for i in loan_applications:
+		loan = Loan.objects.filter(loan_account_no = i.loan_account_no).first()
+		loan_specific_details.append(loan)
+
+	context = {
+		'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
+	}
+	return render(request, "dashboard/dashboard_rejected.html", context)
 
 @login_required
 def applicant_information_view(request, *args, **kwargs):

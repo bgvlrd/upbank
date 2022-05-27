@@ -72,13 +72,15 @@
 						    <th>Loan Tag</th>
 						  </thead>
 						  <tbody id="tableSearch">
+						  	{% for loan_app, loan_info, loan_amount in loan_details %}
 						  	<tr onclick="document.location='{% url 'borrower-information' 2 %}'" style="cursor: pointer;">
-						    	<td>2022-987654321</td>
-								<td>Dela Cruz, Nene</td>
-								<td>2,690,000</td>
-								<td>60 months</td>
-								<td>Ongoing</td>
+						    	<td>{{loan_app.loan_account_no}}</td>
+								<td>{{loan_info.full_name}}</td>
+								<td>{{loan_amount.monthly_amortization}}</td>
+								<td>{{loan_amount.total_term}}</td>
+								<td>{{loan_app.loan_tag_choices}}</td>
 							</tr>
+							{% endfor %}
 						  </tbody>
 						</table>
 					</div> <!--end of table-responsive -->
