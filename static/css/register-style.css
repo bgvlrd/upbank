@@ -43,12 +43,12 @@
 #columns
 {
     margin: 20px 0 20px 0;
-    width: 100px;
 }
 
 .forms, .form-group
 {
     margin: 0 auto;
+    width: 70%;
 }
 
 #columns-business, #columns-employed
@@ -62,7 +62,7 @@
     font-size: 16px;
 }
 
-.form-control lie
+.form-control
 {
     margin: 5px 0 5px 0;
 }
