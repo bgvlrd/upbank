@@ -10,7 +10,7 @@
 
   		<!-- Bank Officer's Dashboard -->
   		{# CSS #}
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard-bank-officer.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 
   		{# JS #}
 		<script type="text/javascript" src="{% static '/js/searchfilter.js' %}"></script>
@@ -89,74 +89,6 @@
 				</div> <!--end of container -->
 	        </main>
 	    </div>
-
-	{% else %}
-
-		{# CSS #}
-  		<link rel="stylesheet" type="text/css" href="{% static 'css/landing-style.css' %}">
-
-		<!-- Borrower's Dashboard -->
-
-		<div class="row">
-			<div class="ml-5 col">
-				<h1 class="landing-heading justify-content-center"> Handle your finances with <br> <span style="color: #014421; font-weight: bold"> honor and excellence. </span> </h1>
-				<p class="landing-text"> <span style="color: #800000; font-weight: 900;">UP</span><span style="color: #014421; font-weight: 300;">Bank</span> can help you get started. </p>
-
-				<button type="button" class="btn get-started-btn mb-5"><a href="{% url 'register_url' %}">Learn How</a></button>
-			</div>
-
-			<div class="col mr-5 d-none d-lg-block" style="display: block; padding: 0;">
-				<img src="/static/img/image 1.png" class="illustration"/>
-			</div>
-		</div>
-
-		<div class="container-fluid mt-0" style="margin: 0">
-			<section id="features-section">
-				<div class="row d-flex justify-content-center">
-					<br><h1 class="features-heading" style="text-align: center;"> SERVICES WE OFFER </h1>
-				</div>
-
-				<div class="row ml-5 mr-5 pl-5 pr-5">
-					<div class="col mt-5">
-						<div class="features-item h-100">
-							<img src="{% static 'img/calculate.png' %}" hspace="10" height="180"/>
-							<p class="features-title"><b id="first-word">CALCULATE </b><br><b> your Auto Loan</b></p>
-						</div>
-					</div>
-
-					<div class="col mt-5">
-						<div class="features-item h-100">
-							<img src="{% static 'img/apply.png' %}" hspace="10" height="180"/>
-							<p class="features-title"><b id="first-word">APPLY </b><br><b> for an Auto Loan</b></p>
-						</div>
-					</div>
-
-					<div class="col mt-5">
-						<div class="features-item h-100">
-							<img src="{% static 'img/monitor.png' %}" hspace="10" height="180"/>
-							<p class="features-title"><b id="first-word"> MONITOR</b> <br><b> your loan status</b></p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row ml-5 mr-5 pl-5 pr-5">
-					<div class="col mt-5">
-						<div class="features-item h-100">
-							<img src="{% static 'img/deposit.png' %}" hspace="10" height="180"/>
-							<p class="features-title"><b id="first-word">DEPOSIT </b><br> <b>funds</b></p>
-						</div>
-					</div>
-
-					<div class="col mt-5">
-						<div class="features-item h-100">
-							<img src="{% static 'img/make.png' %}" hspace="10" height="180"/>
-							<p class="features-title"><b id="first-word">MAKE </b><br><b> over-the counter <br> (OTC) loan <br> payments. </b></p>
-						</div>
-					</div>
-				</div>
-				<br><br><br><br><br>
-			</section>
-		</div>
 
 	{% endif %}
 

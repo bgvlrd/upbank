@@ -5,51 +5,73 @@
 {% block content %}
 
 	<title> UPBank </title>
+
+		{# CSS #}
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 		
 	    <div class="row h-100">
 	        <main class="centered">
 	            <div class="container">
-				{% if messages %}
-				<br>
-					{% for message in messages %}
-					<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
-						<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-						</button>
-						{{ message }}
-					</div>
-					{% endfor %}
-				{% endif %}
+					{% if messages %}
+					<br>
+						{% for message in messages %}
+						<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+							<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+							{{ message }}
+						</div>
+						{% endfor %}
+					{% endif %}
+
 					<div class="row g-2 mb-4 mt-5">
 						<h3 class="table-title mb-0">MY LOANS</h3>
 	            		<hr>
+						
+						<div class="col-6">
+							<div class="box">
+								<svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="20px" height="20px"><path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/></svg>
+								<input id="nameFilter" type="text" placeholder="Search...">
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="box">
+								<select id="tagFilter">
+									<option value="" disabled selected hidden>Loan Status</option>
+									<option value="For Review">For Review</option>
+									<option value="Approved">Approved</option>
+									<option value="Rejected">Rejected</option>
+									<option value="Completed">Completed</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="box">
+								<select id="amountFilter">
+									<option value="" disabled selected hidden>Amount Filter</option>
+									<option value="less 1,000,000">< 1,000,000</option>
+									<option value="2,000,000 to 5,000,000">2,0000,000 to 5,000,000</option>
+									<option value="more 5,000,000">> 5,000,000</option>
+								</select>
+							</div>
+						</div>
 					</div>
 
 					<div class="table-responsive">
 						<table class="table table-sm table-hover text-center" id="myTable">
 						  <thead>
 						  	<th>Loan Account Number</th>
-                            <th>Application Date</th>
-						    <th>Car Brand and Model</th>
-						    <th>Downpayment</th>
-                            <th>Amount Financed</th>
-                            <th>Total Terms</th>
-                            <th>Monthly Amortization</th>
-						    <th>Loan Decision</th>
+						    <th>Loan Amount</th>
+						    <th>Application Date</th>
+						    <th>Loan Status</th>
 						  </thead>
 						  <tbody id="tableSearch">
-                            {% for loanapp, loanlist in myloans %}
-                            <tr>
-						    	<td>{{loanapp.pk}}</td>
-                                <td>{{loanapp.date_of_application}}</td>
-                                <td>{{loanapp.car_brand}} {{loanapp.car_model}}</td>
-								<td>₱{{loanlist.downpayment}}</td>
-								<td>₱{{loanlist.amount_financed}}</td>
-                                <td>{{loanlist.total_term}}</td>
-                                <td>₱{{loanlist.monthly_amortization}}</td>
-								<td>{{loanapp.application_status}}</td>
+						    <tr onclick="document.location='{% url 'loan-information' 123456789 %}'" style="cursor: pointer;">
+						    	<td>123456789</td>
+								<td>₱2,690,00</td>
+								<td>Feb. 30, 2022</td>
+								<td>For Review</td>
 							</tr>
-                            {% endfor %}
 						  </tbody>
 						</table>
 					</div> <!--end of table-responsive -->

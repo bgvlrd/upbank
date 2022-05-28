@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<title> UPBank </title>
+
+	{# CSS #}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/borrower-information.css' %}">
+
+	<div class="container">
+
+		<div class="row g-2 mt-4">
+			<div class="col-md-4 col-sm-6 col-12">
+				<h2 class="table-title mb-0">Juan Dela Cruz</h2>
+			</div>
+			<div class="col-md-8 text-md-end text-sm-end col-sm-6 col-12">
+				<a class="btn py-2 px-auto" id="download_btn" href="#"> Download
+					<img src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/14/ffffff/external-download-web-smashingstocks-glyph-smashing-stocks-3.png"/>
+				</a>
+			</div>
+			<hr>
+		</div>
+
+		<div class="row g-3 mb-3">
+			<div class="col-md-4">
+		  		<label for="purpose_of_loan" class="form-label">Purpose of Loan</label>
+		  		<input type="text" class="form-control" value="Personal" disabled>
+			</div>
+			<div class="col-md-2 d-none d-sm-block">
+			</div>
+			<div class="col-md-4">
+		  		<label for="purpose_of_loan" class="form-label">Loan Status</label>
+		  		<input type="text" class="form-control" value="For Review" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-lg-2 col-md-6">
+		  		<label for="" class="form-label">Date of Application</label>
+		  		<input type="text" class="form-control" value="04/25/2020" disabled>
+			</div>
+			<div class="col-lg-4 col-md-6">
+			    <label for="" class="form-label">Dealer</label>
+			    <input type="text" class="form-control" value="Automotive Icon" disabled>
+			</div>
+			<div class="col-lg-2 col-md-4">
+				<label for="" class="form-label">Sales Agent</label>
+				<input type="text" class="form-control" value="Gina Bee" disabled>
+			</div>
+			<div class="col-lg-2 col-md-4">
+				<label for="" class="form-label">Branch</label>
+				<input type="text" class="form-control" value="Alabang" disabled>
+			</div>
+			<div class="col-lg-2 col-md-4">
+				<label for="" class="form-label">Application No.</label>
+				<input type="text" class="form-control" value="123456789" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-lg-4 col-md-6">
+		  		<label for="" class="form-label">Brand</label>
+		  		<input type="text" class="form-control" value="Mercedes Benz" disabled>
+			</div>
+			<div class="col-lg-2 col-md-3">
+			    <label for="" class="form-label">Year Model</label>
+			    <input type="text" class="form-control" value="2022" disabled>
+			</div>
+			<div class="col-lg-2 col-md-3">
+				<label for="" class="form-label">Cash Price</label>
+				<input type="text" class="form-control" value="2,260,000.00" disabled>
+			</div>
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Downpayment</label>
+				<input type="text" class="form-control" value="670,000.00" disabled>
+			</div>
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Term (in months)</label>
+				<input type="text" class="form-control" value="60" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-lg-4 col-md-6">
+		  		<label for="" class="form-label">Model</label>
+		  		<input type="text" class="form-control" value="2022 A 180 Progressive" disabled>
+			</div>
+			<div class="col-lg-4 col-md-6">
+			    <label for="" class="form-label">Type of Vehicle</label>
+			    <input type="text" class="form-control" value="Brand New" disabled>
+			</div>
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Amount Financed</label>
+				<input type="text" class="form-control" value="1,833,000.00" disabled>
+			</div>
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Add-on Rate (AOR)</label>
+				<input type="text" class="form-control" value="5.25%" disabled>
+			</div>
+		</div>
+		<div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
+		  <h6>INFORMATION OF BORROWER</h6>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-10">
+		  		<label for="" class="form-label">Name</label>
+		  		<input type="text" class="form-control" value="Dela Cruz, Juan Reyes" disabled>
+			</div>
+			<div class="col-md-2">
+			    <label for="" class="form-label">Gender</label>
+			    <input type="text" class="form-control" value="Male" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-2">
+		  		<label for="" class="form-label">Nationality</label>
+		  		<input type="text" class="form-control" value="Filipino" disabled>
+			</div>
+			<div class="col-md-4">
+			    <label for="" class="form-label">Residency</label>
+			    <input type="text" class="form-control" value="" disabled>
+			</div>
+			<div class="col-md-2">
+				<label for="" class="form-label">Birthdate</label>
+				<input type="text" class="form-control" value="04/04/1970" disabled>
+			</div>
+			<div class="col-md-2">
+				<label for="" class="form-label">Age</label>
+				<input type="text" class="form-control" value="52" disabled>
+			</div>
+			<div class="col-md-2">
+				<label for="" class="form-label">Birthplace</label>
+				<input type="text" class="form-control" value="Pasig City" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-6 col-lg-4">
+		  		<label for="" class="form-label">Educational Attainment</label>
+		  		<input type="text" class="form-control" value="College" disabled>
+			</div>
+			<div class="col-md-6 col-lg-2">
+			    <label for="" class="form-label">Civil Status</label>
+			    <input type="text" class="form-control" value="Married" disabled>
+			</div>
+			<div class="col-lg-2">
+				<label for="" class="form-label">Tax Identification No.</label>
+				<input type="text" class="form-control" value="111222333" disabled>
+			</div>
+			<div class="col-lg-2">
+				<label for="" class="form-label">SSS/GSIS No.</label>
+				<input type="text" class="form-control" value="CRN-111222333" disabled>
+			</div>
+			<div class="col-lg-2 col-md-12">
+				<label for="" class="form-label" style="font-size: 9px; margin-bottom: 0;">If co-maker, relation to the Principal Applicant</label>
+				<input type="text" class="form-control" value="123456789" style="margin-top:0" disabled >
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-12">
+		  		<label for="" class="form-label">Present Address</label>
+		  		<input type="text" class="form-control" value="#2 Vilma St. Avida Settings, Nuvali, Calamba, Laguna" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-12">
+		  		<label for="" class="form-label">Previous Address</label>
+		  		<input type="text" class="form-control" value="#2 Flores St. Sta. Cruz, Manila" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-12">
+		  		<label for="" class="form-label">Home Ownership</label>
+		  		<input type="text" class="form-control" value="Owned" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-6">
+		  		<label for="" class="form-label">Residential Telephone No.</label>
+		  		<input type="text" class="form-control" value="02-8-2734566" disabled>
+			</div>
+			<div class="col-md-6">
+		  		<label for="" class="form-label">Cellphone No.</label>
+		  		<input type="text" class="form-control" value="09123456789" disabled>
+			</div>
+		</div>
+		<div class="row g-3 mb-3">
+			<div class="col-md-6">
+		  		<label for="" class="form-label">Email Address</label>
+		  		<input type="text" class="form-control" value="juandelacruz@gmail.com" disabled>
+			</div>
+			<div class="col-md-6">
+		  		<label for="" class="form-label">Preferred Mailing Address</label>
+		  		<input type="text" class="form-control" value="Residence" disabled>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-12 text-end">
+				<a href="{% url 'dashboard' %}"> 
+					<button type="button" class="btn py-1 px-3" id="maroon_btn">
+						BACK
+					</button>
+				</a>
+			</div>
+		</div>
+	</div> <!--end of container -->
+
+{% endblock %}
