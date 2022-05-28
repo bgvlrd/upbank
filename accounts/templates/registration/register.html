@@ -51,25 +51,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6" id="columns">
+
+                    <!--
                     <div class="form-group col-xs-4 col-md-12">
                         <label for="accountnumber" class="form-label"> Account Number<br> </label>
-                        <input type="number" class="form-control" id="accountnumber" name="accountnumber">
+                        <input type="number" class="form-control" id="accountnumber" name="accountnumber" readonly value="{{acc_num}}">
                     </div>
+                    -->
+
                     <br>
                     <div class="form-group col-xs-4 col-md-12">
                         <label for="username" class="form-label"> Username<br> </label>
-                        <input type="text" class="form-control" id="username" name="username">
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                 </div>
                 <div class="col-md-6" id="columns">
                     <div class="form-group col-xs-4 col-md-12">
-                        <label for="password" class="form-label"> Password<br> </label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <label for="password1" class="form-label"> Password<br> </label>
+                        <input type="password" class="form-control" id="password1" name="password1" required>
                     </div>
                     <br>
                     <div class="form-group col-xs-4 col-md-12">
-                        <label for="confirmpassword" class="form-label"> Confirm Password<br> </label>
-                        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword">
+                        <label for="password2" class="form-label"> Confirm Password<br> </label>
+                        <input type="password" class="form-control" id="password2" name="password2" required>
                     </div>
                 </div>
             </div>
@@ -88,54 +92,54 @@
         <div class="row">
             <div class="col-md-4" id="columns">
                 <div class="form-group col-xs-6 col-md-12">
-                    <label for="fullname" class="form-label"> Full Name<br> </label>
-                    <input type="text" class="form-control" id="fullname" name="fullname">
+                    <label for="full_name" class="form-label"> Full Name<br> </label>
+                    <input type="text" class="form-control" id="full_name" name="full_name" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
-                    <label for="country" class="form-label"> Nationality<br> </label>
-                    <input type="text" class="form-control" id="country" name="country">
+                    <label for="nationality" class="form-label"> Nationality<br> </label>
+                    <input type="text" class="form-control" id="nationality" name="nationality" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="email" class="form-label"> Email Address<br> </label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
-                    <label for="birthday" class="form-label"> Birthday<br> </label>
-                    <input type="date" class="form-control" id="birthday" name="birthday">
+                    <label for="birthdate" class="form-label"> Birthdate<br> </label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="present_address" class="form-label"> Present Address<br> </label>
-                    <input type="text" class="form-control" id="present_address" name="present_address">
+                    <input type="text" class="form-control" id="present_address" name="present_address" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="prev_address" class="form-label"> Previous Address<br> </label>
-                    <input type="text" class="form-control" id="prev_address" name="prev_address">
+                    <input type="text" class="form-control" id="prev_address" name="prev_address" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="telephone_no" class="form-label"> Telephone No. </label>
-                    <input type="number" class="form-control" id="telephone_no" name="telephone_no">
+                    <input type="number" class="form-control" id="telephone_no" name="telephone_no" required>
                 </div>
             </div>
             <div class="col-md-4" id="columns">
                 <div class="form-group col-xs-6 col-md-12">
-                    <label for="mobilenumber" class="form-label"> Mobile Number<br> </label>
-                    <input type="number" class="form-control" id="mobilenumber" name="mobilenumber">
+                    <label for="cellphone_no" class="form-label"> Cellphone No. </label>
+                    <input type="number" class="form-control" id="cellphone_no" name="cellphone_no" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="birthplace" class="form-label"> Birthplace<br> </label>
-                    <input type="text" class="form-control" id="birthplace" name="birthplace">
+                    <input type="text" class="form-control" id="birthplace" name="birthplace" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="tin" class="form-label"> TIN </label>
-                    <input type="number" class="form-control" id="tin" name="tin">
+                    <input type="number" class="form-control" id="tin" name="tin" required>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
@@ -153,47 +157,45 @@
                     <input type="number" class="form-control" id="length_of_stay_months" name="length_of_stay_months">
                 </div>
                 <br>
-                <div class="form-group col-xs-6 col-md-12">
-                    <label for="cellphone_no" class="form-label"> Cellphone No. </label>
-                    <input type="number" class="form-control" id="cellphone_no" name="cellphone_no">
-                </div>
             </div>
             <div class="col-md-4" id="columns">
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Gender </p>
                     <label>
-                        <input type="radio" id="male" name="gender" value="Male"> Male
+                        <input type="radio" id="male" name="gender" value="Male" required> Male
                     </label>
                     <label>
-                        <input type="radio" id="female" name="gender" value="Female"> Female
+                        <input type="radio" id="female" name="gender" value="Female" required> Female
                     </label>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Residency </p>
                     <label>
-                        <input type="radio" id="resident" name="residency" value="Resident"> Resident
+                        <input type="radio" id="resident" name="residency" value="Resident" required> Resident
                     </label>
                     <label>
-                        <input type="radio" id="nonresident" name="residency" value="Non-Resident"> Non-Resident
+                        <input type="radio" id="nonresident" name="residency" value="Non-Resident" required> Non-Resident
                     </label>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Educational Attainment </p>
                     <select name="educational_attainment" id="educational_attainment" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Elementary"> Elementary </option>
                         <option value="High School"> High School </option>
                         <option value="Vocational"> Vocational </option>
-                        <option value="Undergraduate"> Undergraduate </option>
-                        <option value="College"> College </option>
-                        <option value="Postgraduate"> Postgraduate </option>
+                        <option value="College Studies"> College Studies </option>
+                        <option value="College (Undergraduate Degree)"> College (Undergraduate Degree) </option>
+                        <option value="College (Postgraduate Degree)"> College (Postgraduate Degree) </option>
                     </select>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Civil Status </p>
                     <select name="civil_status" id="civil_status" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Single"> Single </option>
                         <option value="Married"> Married </option>
                         <option value="Legally Separated"> Legally Separated </option>
@@ -204,6 +206,7 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Home Ownership </p>
                     <select name="home_ownership" id="home_ownership" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Owned"> Owned </option>
                         <option value="Mortgaged"> Mortgaged </option>
                         <option value="Rented"> Rented </option>
@@ -227,7 +230,8 @@
             <div class="col-md-4" id="columns">
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Source of Income </p>
-                    <select name="source_of_income" id="source_of_income" class="dropdown">
+                    <select name="source_of_income" id="source_of_income" class="dropdown" required>
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Locally Employed - Private"> Locally Employed - Private </option>
                         <option value="Locally Employed - Government"> Locally Employed - Government </option>
                         <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
@@ -260,6 +264,7 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Position in Company </p>
                     <select name="company_position" id="company_position" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Non-Officer"> Non-Officer </option>
                         <option value="Jr. Officer"> Jr. Officer </option>
                         <option value="Supervisor"> Supervisor </option>
@@ -492,18 +497,20 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Educational Attainment </p>
                     <select name="spouse_educational_attainment" id="spouse_educational_attainment" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Elementary"> Elementary </option>
                         <option value="High School"> High School </option>
                         <option value="Vocational"> Vocational </option>
-                        <option value="Undergraduate"> Undergraduate </option>
-                        <option value="College"> College </option>
-                        <option value="Postgraduate"> Postgraduate </option>
+                        <option value="College Studies"> College Studies </option>
+                        <option value="College (Undergraduate Degree)"> College (Undergraduate Degree) </option>
+                        <option value="College (Postgraduate Degree)"> College (Postgraduate Degree) </option>
                     </select>
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Civil Status </p>
                     <select name="spouse_civil_status" id="spouse_civil_status" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Single"> Single </option>
                         <option value="Married"> Married </option>
                         <option value="Legally Separated"> Legally Separated </option>
@@ -537,6 +544,7 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Source of Income </p>
                     <select name="spouse_source_of_income" id="spouse_source_of_income" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Locally Employed - Private"> Locally Employed - Private </option>
                         <option value="Locally Employed - Government"> Locally Employed - Government </option>
                         <option value="Locally Employed - Self-employed"> Locally Employed - Self-employed </option>
@@ -569,6 +577,7 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Position in Company </p>
                     <select name="spouse_company_position" id="spouse_company_position" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="Non-Officer"> Non-Officer </option>
                         <option value="Jr. Officer"> Jr. Officer </option>
                         <option value="Supervisor"> Supervisor </option>
@@ -686,26 +695,26 @@
             <div class="col-md-6">
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="borrower_monthly_income" class="form-label"> Borrower's Monthly Income (Php) <br></label>
-                    <input type="number" class="form-control" id="borrower_monthly_income" name="borrower_monthly_income">
+                    <input type="number" class="form-control" id="borrower_monthly_income" name="borrower_monthly_income" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="spouse_monthly_income" class="form-label"> Spouse's Monthly Income (Php) <br></label>
-                    <input type="number" class="form-control" id="spouse_monthly_income" name="spouse_monthly_income">
+                    <input type="number" class="form-control" id="spouse_monthly_income" name="spouse_monthly_income" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="borrower_monthly_expenses" class="form-label"> Borrower's Monthly Expenses (Php) <br></label>
-                    <input type="number" class="form-control" id="borrower_monthly_expenses" name="borrower_monthly_expenses">
+                    <input type="number" class="form-control" id="borrower_monthly_expenses" name="borrower_monthly_expenses" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="spouse_monthly_expenses" class="form-label"> Spouse's Monthly Expenses (Php) <br></label>
-                    <input type="number" class="form-control" id="spouse_monthly_expenses" name="spouse_monthly_expenses">
+                    <input type="number" class="form-control" id="spouse_monthly_expenses" name="spouse_monthly_expenses" required>
                 </div>
             </div>
         </div>
 
-        <!-- Statement of Assets and Liabilities HEADER -->
+        <!-- STATEMENT OF ASSETS AND LIABILITIES HEADER -->
         <div class="row">
             <div class="col-md-12">
                 <div id="headers">
@@ -714,63 +723,63 @@
             </div>
         </div>
 
-        <!-- Statement of Assets and Liabilities FORMS -->
+        <!-- STATEMENT OF ASSETS AND LIABILITIES FORMS -->
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group col-xs-6 col-md-12">
                     <p>Assets </p>
                     <label for="cash_hand_with_banks_details" class="form-label"> Cash on Hand with Banks (Details)<br></label>
-                    <input type="text" class="form-control" id="cash_hand_with_banks_details" name="cash_hand_with_banks_details">
+                    <input type="text" class="form-control" id="cash_hand_with_banks_details" name="cash_hand_with_banks_details" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="cash_hand_with_banks_amount" class="form-label"> Cash on Hand with Banks (Amount)<br></label>
-                    <input type="number" class="form-control" id="cash_hand_with_banks_amount" name="cash_hand_with_banks_amount">
+                    <input type="number" class="form-control" id="cash_hand_with_banks_amount" name="cash_hand_with_banks_amount" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="real_estate_property_details" class="form-label"> Real Estate Property (Details)<br></label>
-                    <input type="text" class="form-control" id="real_estate_property_details" name="real_estate_property_details">
+                    <input type="text" class="form-control" id="real_estate_property_details" name="real_estate_property_details" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="real_estate_property_amount" class="form-label"> Real Estate Property (Amount)<br></label>
-                    <input type="number" class="form-control" id="real_estate_property_amount" name="real_estate_property_amount">
+                    <input type="number" class="form-control" id="real_estate_property_amount" name="real_estate_property_amount" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="motor_vehicle_details" class="form-label"> Motor Vehicle (Details)<br></label>
-                    <input type="text" class="form-control" id="motor_vehicle_details" name="motor_vehicle_details">
+                    <input type="text" class="form-control" id="motor_vehicle_details" name="motor_vehicle_details" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="motor_vehicle_amount" class="form-label"> Motor Vehicle (Amount)<br></label>
-                    <input type="number" class="form-control" id="motor_vehicle_amount" name="motor_vehicle_amount">
+                    <input type="number" class="form-control" id="motor_vehicle_amount" name="motor_vehicle_amount" required>
                 </div>
 
                 <!--Loans-->
                 <div class="form-group col-xs-6 col-md-12">
                     <p> Liabilities </p>
                     <label for="personal_salary_loan_bank" class="form-label"> Personal Salary Loan (Bank)<br></label>
-                    <input type="text" class="form-control" id="personal_salary_loan_bank" name="personal_salary_loan_bank">
+                    <input type="text" class="form-control" id="personal_salary_loan_bank" name="personal_salary_loan_bank" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="personal_salary_loan_amortization" class="form-label"> Personal Salary Loan (Amortization)<br></label>
-                    <input type="number" class="form-control" id="personal_salary_loan_amortization" name="personal_salary_loan_amortization">
+                    <input type="number" class="form-control" id="personal_salary_loan_amortization" name="personal_salary_loan_amortization" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="personal_salary_loan_outstanding_balance" class="form-label"> Personal Salary Loan (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="personal_salary_loan_outstanding_balance" name="personal_salary_loan_outstanding_balance">
+                    <input type="number" class="form-control" id="personal_salary_loan_outstanding_balance" name="personal_salary_loan_outstanding_balance" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="car_loan_bank" class="form-label"> Car Loan (Bank)<br></label>
-                    <input type="text" class="form-control" id="car_loan_bank" name="car_loan_bank">
+                    <input type="text" class="form-control" id="car_loan_bank" name="car_loan_bank" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="car_loan_amortization" class="form-label"> Car Loan (Amortization)<br></label>
-                    <input type="number" class="form-control" id="car_loan_amortization" name="car_loan_amortization">
+                    <input type="number" class="form-control" id="car_loan_amortization" name="car_loan_amortization" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="car_loan_outstanding_balance" class="form-label"> Car Loan (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="car_loan_outstanding_balance" name="car_loan_outstanding_balance">
+                    <input type="number" class="form-control" id="car_loan_outstanding_balance" name="car_loan_outstanding_balance" required>
                 </div>
 
             </div>
@@ -778,57 +787,57 @@
                 <!--Credit Cards-->
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="housing_loan_bank" class="form-label"> Housing Loan (Bank)<br></label>
-                    <input type="text" class="form-control" id="housing_loan_bank" name="housing_loan_bank">
+                    <input type="text" class="form-control" id="housing_loan_bank" name="housing_loan_bank" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="housing_loan_amortization" class="form-label"> Housing Loan (Amortization)<br></label>
-                    <input type="number" class="form-control" id="housing_loan_amortization" name="housing_loan_amortization">
+                    <input type="number" class="form-control" id="housing_loan_amortization" name="housing_loan_amortization" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="housing_loan_outstanding_balance" class="form-label"> Housing Loan (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="housing_loan_outstanding_balance" name="housing_loan_outstanding_balance">
+                    <input type="number" class="form-control" id="housing_loan_outstanding_balance" name="housing_loan_outstanding_balance" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_company" class="form-label"> Credit Card 1 (Company)<br></label>
-                    <input type="text" class="form-control" id="card1_company" name="card1_company">
+                    <input type="text" class="form-control" id="card1_company" name="card1_company" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_number" class="form-label"> Credit Card 1 (Number)<br></label>
-                    <input type="text" class="form-control" id="card1_number" name="card1_number">
+                    <input type="text" class="form-control" id="card1_number" name="card1_number" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_expiry_date" class="form-label"> Credit Card 1 (Expiry Date)<br></label>
-                    <input type="date" class="form-control" id="card1_expiry_date" name="card1_expiry_date">
+                    <input type="date" class="form-control" id="card1_expiry_date" name="card1_expiry_date" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_credit_limit" class="form-label"> Credit Card 1 (Credit Limit)<br></label>
-                    <input type="number" class="form-control" id="card1_credit_limit" name="card1_credit_limit">
+                    <input type="number" class="form-control" id="card1_credit_limit" name="card1_credit_limit" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_outstanding_balance" class="form-label"> Credit Card 1 (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="card1_outstanding_balance" name="card1_outstanding_balance">
+                    <input type="number" class="form-control" id="card1_outstanding_balance" name="card1_outstanding_balance" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_company" class="form-label"> Credit Card 2 (Company)<br></label>
-                    <input type="text" class="form-control" id="card2_company" name="card2_company">
+                    <input type="text" class="form-control" id="card2_company" name="card2_company" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_number" class="form-label"> Credit Card 2 (Number)<br></label>
-                    <input type="text" class="form-control" id="card2_number" name="card2_number">
+                    <input type="text" class="form-control" id="card2_number" name="card2_number" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_expiry_date" class="form-label"> Credit Card 2 (Expiry Date)<br></label>
-                    <input type="date" class="form-control" id="card2_expiry_date" name="card2_expiry_date">
+                    <input type="date" class="form-control" id="card2_expiry_date" name="card2_expiry_date" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_credit_limit" class="form-label"> Credit Card 2 (Credit Limit)<br></label>
-                    <input type="number" class="form-control" id="card2_credit_limit" name="card2_credit_limit">
+                    <input type="number" class="form-control" id="card2_credit_limit" name="card2_credit_limit" required>
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_outstanding_balance" class="form-label"> Credit Card 2 (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="card2_outstanding_balance" name="card2_outstanding_balance">
+                    <input type="number" class="form-control" id="card2_outstanding_balance" name="card2_outstanding_balance" required>
                 </div>
             </div>
         </div>
@@ -848,6 +857,7 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Source of Product Info </p>
                     <select name="source_product_info" id="source_product_info" class="dropdown">
+                        <option value="" selected disabled hidden>Select an option...</option>
                         <option value="TV / Radio"> TV / Radio </option>
                         <option value="Flyer / Poster / Streamer"> Flyer / Poster / Streamer </option>
                         <option value="Newspaper / Magazine"> Newspaper / Magazine </option>
@@ -869,12 +879,20 @@
                 </div>
             </div>
         </div>
+
+        <br />
+        <br />
+        <!-- SUBMIT BUTTON -->
+        <div class="d-flex justify-content-center">
+            <button class="" type="submit"> SUBMIT </button>
+        </div>
         <br />
         <br />
 
     </form>
 
 </div>
+
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

@@ -39,15 +39,9 @@ class LoanerInForm(ModelForm):
             'length_of_stay_months',
             'telephone_no',
             'cellphone_no',
-            'email_address',
+            'email',
             'source_of_income',
             'status_of_employment',
-        ]
-
-class LoanerInCards(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
             'card1_company',
             'card1_number',
             'card1_expiry_date',
@@ -57,13 +51,7 @@ class LoanerInCards(ModelForm):
             'card2_number',
             'card2_expiry_date',
             'card2_credit_limit',
-            'card2_outstanding_balance'
-        ]
-
-class LoanerInFormSpouse(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
+            'card2_outstanding_balance',
             'spouse_full_name',
             'spouse_gender',
             'spouse_nationality',
@@ -93,14 +81,7 @@ class LoanerInFormSpouse(ModelForm):
             'spouse_job_length_of_operation_months',
             'spouse_name_prevemployer_business',
             'spouse_country_of_destination',
-            'spouse_employment_base'
-
-        ]
-
-class LoanerInFormEmployed(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
+            'spouse_employment_base',
             'company_name',
             'office_address',
             'company_web_address',
@@ -109,34 +90,14 @@ class LoanerInFormEmployed(ModelForm):
             'company_position',
             'job_length_of_stay_years',
             'job_length_of_stay_months',
-            'office_phone_no'
-        ]
-
-class LoanerInFormBusiness(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
+            'office_phone_no',
             'business_name',
             'business_address',
             'business_web_address',
             'nature_of_business_work',
             'job_length_of_operation_years',
             'job_length_of_operation_months',
-            'name_prevemployer_business'
-        ]
-
-class LoanerInFormOFW(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
-            'country_of_destination',
-            'employment_base',
-        ]
-
-class LoanerInFormDependents(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
+            'name_prevemployer_business',
             'dependent1_name',
             'dependent1_school',
             'dependent1_age',
@@ -144,34 +105,16 @@ class LoanerInFormDependents(ModelForm):
             'dependent1_type_of_school',
             'dependent2_name',
             'dependent2_school',
-        ]
-
-class LoanerInFormStatement(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
             'borrower_monthly_income',
             'borrower_monthly_expenses',
             'spouse_monthly_income',
-            'spouse_monthly_expenses'
-        ]
-
-class LoanerInFormAssets(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
+            'spouse_monthly_expenses',
             'cash_hand_with_banks_details',
             'cash_hand_with_banks_amount',
             'real_estate_property_details',
             'real_estate_property_amount',
             'motor_vehicle_details',
             'motor_vehicle_amount',
-        ]
-
-class LoanerInFormLiabilities(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
             'personal_salary_loan_bank',
             'personal_salary_loan_amortization',
             'personal_salary_loan_outstanding_balance',
@@ -181,15 +124,9 @@ class LoanerInFormLiabilities(ModelForm):
             'housing_loan_bank',
             'housing_loan_amortization',
             'housing_loan_outstanding_balance',
-        ]
-
-class LoanerInFormOthers(ModelForm):
-    class Meta:
-        model = LoanerInformation
-        fields = [
             'source_product_info',
             'relative_working',
-            'relative_name'
+            'relative_name',
         ]
 
 class PersonalRefForm(ModelForm):

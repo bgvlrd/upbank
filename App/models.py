@@ -30,9 +30,9 @@ class LoanerInformation(models.Model):
         ('Elementary', 'Elementary'),
 		('High School', 'High School'),
         ('Vocational', 'Vocational'),
-        ('Undergraduate', 'Undergraduate'),
-        ('College', 'College'),
-        ('Postgraduate', 'Postgraduate')
+        ('College Studies', 'College Studies'),
+        ('College (Undergraduate Degree)','College (Undergraduate Degree)'),
+        ('College (Postgraduate Degree)', 'College (Postgraduate Degree)'),
     ]
 
     civil_status_choices = [
@@ -65,7 +65,7 @@ class LoanerInformation(models.Model):
         return today.year - self.birthdate.year - ((today.month, today.day) < (self.birthdate.month, self.birthdate.day))
     
     birthplace              = models.CharField(max_length = 50)
-    educational_attainment  = models.CharField(choices = educational_attainment_choices, max_length = 15, blank = True, null = True)
+    educational_attainment  = models.CharField(choices = educational_attainment_choices, max_length = 30, blank = True, null = True)
     civil_status            = models.CharField(choices = civil_status_choices, max_length = 20, blank = True, null = True)
     tin                     = models.CharField(max_length = 10, verbose_name = "Tax Identification Number (TIN)")
     sss_gsis_no             = models.CharField(max_length = 20, verbose_name = "SSS / GSIS Number", blank = True, null = True)
@@ -76,7 +76,7 @@ class LoanerInformation(models.Model):
     length_of_stay_months   = models.IntegerField(blank = True, null = True, verbose_name = "Length of Stay (Months)")
     telephone_no            = models.CharField(max_length=20, verbose_name = "Residential Telephone Number")
     cellphone_no            = models.CharField(max_length=15, verbose_name = "Cellphone Number")
-    email_address           = models.EmailField()
+    email                   = models.EmailField()
     # pref_mailing_add        = models.CharField(choices = pref_mailing_add_choices, verbose_name = "Preferred Mailing Address")
     
     # Loaner Employment Information
@@ -179,7 +179,7 @@ class LoanerInformation(models.Model):
         return today.year - self.spouse_birthdate.year - ((today.month, today.day) < (self.spouse_birthdate.month, self.spouse_birthdate.day))
     
     spouse_birthplace               = models.CharField(max_length = 50, blank = True, null = True, verbose_name = "Birthplace")
-    spouse_educational_attainment   = models.CharField(choices = educational_attainment_choices, max_length = 15, blank = True, null = True, verbose_name = "Educational Attainment")
+    spouse_educational_attainment   = models.CharField(choices = educational_attainment_choices, max_length = 30, blank = True, null = True, verbose_name = "Educational Attainment")
     spouse_civil_status             = models.CharField(choices = civil_status_choices, max_length = 20, blank = True, null = True, verbose_name = "Civil Status")
     spouse_tin                      = models.CharField(max_length = 10, blank = True, null = True, verbose_name = "Tax Identification Number (TIN)")
     spouse_sss_gsis_no              = models.CharField(max_length = 20, blank = True, null = True, verbose_name = "SSS / GSIS Number")
