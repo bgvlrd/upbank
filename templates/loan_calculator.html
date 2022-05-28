@@ -2,7 +2,9 @@
 {% block content %}
 <!--TO-DO:
 	Check if whole webpage can be accessible by any user - logged in/logged out
-
+	Store interest rate/s in database?
+	Polish formatting of down payment part
+	Validate input - should be numbers, make them decimals auto
 -->
 <!DOCTYPE html>
 <html>
@@ -34,29 +36,83 @@
 		</div>
 
 		<div id="calculatorTab" class="row">
-			<div class="col">test</div>
-			<div class="col">test</div>
+			<div class="col calculator-main">
+				<label for="sellingPrice" class="calculator-main-text">Selling Price</label><br>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">PHP</span>
+					</div>
+					<input id="sellingPrice" name="sellingPrice" type="number" class="w-75 form-control">
+				</div>
+				<br>
 
+				<span class="calculator-main-text">Down Payment</span><br>
+				<span class="down-note"><b>NOTE:</b> Minimum down payment is 20% of the selling price.</span><br>
 
+				<label for="downPercentage" class="calculator-main-text">Percentage</label>
+				<label for="downAmount" class="calculator-main-text" style="margin-left: 28%;">Amount</label>
 
+				<div class="input-group">
+					<input type="number" id="downPercentage" name="downPercentage" class="form-control" min="20" value="20">
+					<div class="input-group-append">
+						<span class="input-group-text">%</span>
+					</div>
+					<div class="input-group-prepend" style="margin-left: 20px;">
+						<span class="input-group-text">PHP</span>
+					</div>
+					<input type="number" id="downAmount" name="downAmount" class="form-control input-sm">
+				</div>
+				<br>
+
+				<label for="paymentTerms" class="calculator-main-text">Payment Terms</label><br>
+				<select name="paymentTerms" id="paymentTerms" class="form-control form-select">
+					<option value="12">12 months</option>
+					<option value="18">18 months</option>
+					<option value="24">24 months</option>
+					<option value="36">36 months</option>
+					<option value="48">48 months</option>
+					<option value="60">60 months</option>
+				</select>
+				<br>
+
+				<p class="mt-3" id="errorMsg"></p>
+
+				<button type="button" id="reset-btn" class="btn btn-default mx-auto reset-btn">Reset</button>
+				<button type="button" id="calculate-btn" class="btn btn-default mx-auto calculate-btn">Calculate</button>
+				
+			</div>
+
+			<div class="col calculator-results ">
+				<span class="calculator-results-header">LOAN CALCULATION RESULTS</span><br>
+				<span style="font-size: 14px;">Your loan details are as follows:</span>
+				
+				<table class="">
+				  <tbody>
+				    <tr>
+				      <td>Mark</td>
+				      <td>Otto</td>
+				    </tr>
+				    <tr>
+				      <td>Jacob</td>
+				      <td>Thornton</td>
+				    </tr>
+				    <tr>
+				      <td>Larry the Bird</td>
+				      <td>@twitter</td>
+				    </tr>
+				  </tbody>
+				</table>
+				
+				<span>NOTE: Computation is indicative only and may change without prior notice. Please check our standard interest rates for more information on the current calculation process.</span>
+			</div>
 		</div>
 
 		<div id="ratesTab" class="row">
-
-
-
 		</div>
-
-
 	</div>
 
-
-
-
-
-
-
+	<!--JAVASCRIPT-->
+	<script src="/static/js/loan_calculator.js"></script>
 </body>
-
 </html>
 {% endblock %}

@@ -87,17 +87,18 @@ nav {
 
 /* End of Sidebar */
 
-/* Bank Officer Tables */
+/* Bank Officer Tables - pls pagawa nitong specific lang sa bank officer tables via classes, 
+e.g. .bank-officer-table kesa table kasi naapektuhan lahat ng tables sa website */
 
 .table-title {
   font-weight: 700;
 }
 
-table {
+/*table {
   border-radius: 9px;
   overflow: hidden;
   border: none;
-  box-shadow: 0 0 0 1px black; /* All the borders by using the spread properties*/
+  box-shadow: 0 0 0 1px black;
 }
 
 table, th, td {
@@ -136,7 +137,7 @@ tbody td {
 
 tbody tr:last-child {
   border-bottom: none !important;
-}
+}*/
 
 /* End of Bank Officer Tables */
 
