@@ -19,7 +19,6 @@ def login_user(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			return redirect('dashboard')
 		else:
 			messages.error(request, "There was an error logging in. Please make sure you typed the correct username and password.")
 			return redirect('login_url')
@@ -32,7 +31,11 @@ def signupView(request):
 		regform = RegistrationForm(request.POST)
 		# regform2 = LoanerInForm(request.POST)
 		if regform.is_valid():
-			regform.save()
+			user = regform.save()
+			# add user to borrower's group
+			group, created = Group.objects.get_or_create(name="Borrower")
+			user.groups.add(group)
+			user.save()
 		#	regform2.save()
 			messages.success(request, "Account created successfully! You can now log in to your newly-created account!")
 			return redirect('login_url')

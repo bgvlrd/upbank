@@ -49,5 +49,6 @@ urlpatterns = [
 
     # Borrower URLs
     path('myloans', views.borrower_loanlist, name="borrower-loanlist"),
+    path('loan/<int:pk>', views.loan_information_view, name="loan-information"),
     path('applyloan', views.applyforLoan, name="apply-for-loan"),
 ]

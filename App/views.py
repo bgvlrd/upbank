@@ -23,7 +23,10 @@ def loan_calculator_view(request, *args, **kwargs):
 
 @login_required
 def dashboard_view(request, *args, **kwargs):
-	return render(request, "dashboard.html", {})
+	if request.user.groups.filter(name__in=['Bank Officer']).exists():
+		return render(request, "dashboard.html", {})
+	else:
+		return redirect('borrower-loanlist')
 
 @login_required
 def dashboard_pending_view(request, *args, **kwargs):
@@ -119,6 +122,10 @@ def borrower_loanlist(request):
 		'myloans' : zip(loanapplications, loanlist)
 	}
 	return render(request, "borrower_loan_pages/borrower_loanlist.html", context)
+
+@login_required
+def loan_information_view(request, pk):
+	return render(request, "borrower_loan_pages/loan_information.html", {})
 
 @login_required
 def applyforLoan(request):
