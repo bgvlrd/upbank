@@ -10,6 +10,14 @@ var downAmount = document.getElementById('downAmount');
 // error message variable
 var errorMsg = document.getElementById('errorMsg');
 
+// results fields variables
+var sellingPriceRes = document.getElementById('sellingPriceResults');
+var downPaymentRes = document.getElementById('downPaymentResults');
+var paymentTermsRes = document.getElementById('paymentTermsResults');
+var amountFinancedRes = document.getElementById('amountFinancedResults');
+var monthlyAmortRes = document.getElementById('monthlyAmortizationResults');
+
+// other intermediate variables
 var paymentTerms;
 var amountFinanced,basicAmortization, monthlyInterest, monthlyAmortization, interestRate;
 
@@ -39,11 +47,12 @@ function isPercentageValid(percentage){
 function calculateStandardAmortization(){
 	// getting input from user
 	sellingPrice = document.getElementById('sellingPrice').value;
-	downPercentage = document.getElementById('downPercentage').value;
+	downAmount = document.getElementById('downAmount').value;
 	paymentTerms = document.getElementById('paymentTerms').value;
 
-	// computing intermediate values
-	downAmount = sellingPrice * (downPercentage / 100);
+	// validate input
+
+	// compute intermediate values
 	amountFinanced = sellingPrice - downAmount;
 
 	// setting interest based on payment terms
@@ -56,6 +65,16 @@ function calculateStandardAmortization(){
 
 	console.log(interestRate + " " + amountFinanced + " " + downAmount + " " + paymentTerms + " "
 		+ basicAmortization + " " + monthlyInterest + " " + monthlyAmortization);
+
+	// setting results variables
+	sellingPriceRes.innerHTML = sellingPrice;
+	downPaymentRes.innerHTML = downAmount;
+	paymentTermsRes.innerHTML = paymentTerms;
+	amountFinancedRes.innerHTML = amountFinanced;
+	monthlyAmortRes.innerHTML = monthlyAmortization;
+
+	// show calculation results 
+	document.getElementById('calculator-results').style.display = "block";
 }
 
 // validating downPercentage and auto-updating downAmount
@@ -106,4 +125,7 @@ resetBtn.addEventListener('click', function(){
 	document.getElementById('downPercentage').value = 20;
 	document.getElementById('downAmount').value = "";
 	document.getElementById('paymentTerms').value = 12;
+
+	// hide calculation results
+	document.getElementById('calculator-results').style.display = "none";
 });

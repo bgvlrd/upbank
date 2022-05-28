@@ -5,6 +5,7 @@
 	Store interest rate/s in database?
 	Polish formatting of down payment part
 	Validate input - should be numbers, make them decimals auto
+	Format all numbers into comma-separated with decimal places
 -->
 <!DOCTYPE html>
 <html>
@@ -47,7 +48,7 @@
 				<br>
 
 				<span class="calculator-main-text">Down Payment</span><br>
-				<span class="down-note"><b>NOTE:</b> Minimum down payment is 20% of the selling price.</span><br>
+				<span class="note"><b>NOTE:</b> Minimum down payment is 20% of the selling price.</span><br>
 
 				<label for="downPercentage" class="calculator-main-text">Percentage</label>
 				<label for="downAmount" class="calculator-main-text" style="margin-left: 28%;">Amount</label>
@@ -82,28 +83,38 @@
 				
 			</div>
 
-			<div class="col calculator-results ">
+			<div id="calculator-results" class="col calculator-results">
 				<span class="calculator-results-header">LOAN CALCULATION RESULTS</span><br>
 				<span style="font-size: 14px;">Your loan details are as follows:</span>
 				
-				<table class="">
-				  <tbody>
+				<table class="results-table w-100">
+					<col style="width:45%">
+					<col style="width:55%">
+				  	<tbody>
 				    <tr>
-				      <td>Mark</td>
-				      <td>Otto</td>
+				      <td class="results-label" align="right">Selling Price</td>
+				      <td class="results-text">PHP <span id="sellingPriceResults"></span></td>
 				    </tr>
 				    <tr>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
+				      <td class="results-label" align="right">Down Payment</td>
+				      <td class="results-text">PHP <span id="downPaymentResults"></span></td>
 				    </tr>
 				    <tr>
-				      <td>Larry the Bird</td>
-				      <td>@twitter</td>
+				      <td class="results-label" align="right">Payment Term</td>
+				      <td class="results-text"><span id="paymentTermsResults"></span> months</td>
+				    </tr>
+				    <tr>
+				      <td class="results-label" align="right">Amount Financed</td>
+				      <td class="results-text">PHP <span id="amountFinancedResults"></span></td>
+				    </tr>
+				    <tr>
+				      <td class="results-label" align="right">Your Monthly Amortization</td>
+				      <td class="results-text">PHP <span id="monthlyAmortizationResults"></span></td>
 				    </tr>
 				  </tbody>
 				</table>
 				
-				<span>NOTE: Computation is indicative only and may change without prior notice. Please check our standard interest rates for more information on the current calculation process.</span>
+				<p class="note"><b>NOTE: </b> Computation is indicative only and may change without prior notice. Please check our standard interest rates for more information on the current calculation process.</p>
 			</div>
 		</div>
 

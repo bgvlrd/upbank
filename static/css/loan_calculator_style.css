@@ -2,6 +2,10 @@ body {
 	font-family: Roboto;
 }
 
+td {
+	padding-bottom: 10px;
+}
+
 .header{
 	margin-top: 50px;
 	line-height: 30px;
@@ -62,10 +66,11 @@ body {
 	font-weight: 400;
 }
 
-.down-note{
+.note{
 	color: maroon;
 	font-size: 13px;
-	font-style:italic;
+	font-style: italic;
+	line-height: 15px;
 }
 
 .calculate-btn{
@@ -82,6 +87,7 @@ body {
 }
 
 .calculator-results{
+	display: none;
 	border: 2px solid #9B9B9B;
 	border-radius: 5px;
 	background-color: #DFDFDF;
@@ -94,8 +100,19 @@ body {
 	font-size: 24px;
 }
 
-.results-table{
-	border:none !important;
+.results-table {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.results-text{
+	padding-left: 20px;
+}
+
+.results-label{
+	font-weight: 400;
+	line-height: 18px;
 }
 
 #errorMsg{
