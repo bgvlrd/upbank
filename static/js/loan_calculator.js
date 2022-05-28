@@ -28,14 +28,12 @@ var paymentTerms;
 var amountFinanced,basicAmortization, monthlyInterest, monthlyAmortization, interestRate;
 
 // hardcoded interest rates based on payment terms (e.g. 12 mos, 18 mos, ..., 60 mos)
-// Interest rates adapted from PSBank's standard Auto Loan rates: https://www.psbank.com.ph/psbank-online-loan-amortization-calculator/AutoLoan/Rates
 var rate12 = 5.5800;
 var rate18 = 8.1500;
 var rate24 = 11.0200;
 var rate36 = 16.9000;
 var rate48 = 22.9600;
 var rate60 = 28.7600;
-
 
 function openTab(evt, tabName){
 	var i, tabcontent, tablinks;
