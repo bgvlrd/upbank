@@ -100,7 +100,9 @@ body {
 .calculator-results-header{
 	color: #014421;
 	font-weight: 500;
-	font-size: 24px;
+	font-size: calc(20px + 1vw);
+
+	line-height: calc(15px + 1vw);
 }
 
 .results-table {

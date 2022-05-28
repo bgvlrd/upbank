@@ -3,7 +3,6 @@
 <!--TO-DO:
 	Check if whole webpage can be accessible by any user - logged in/logged out
 	Store interest rate/s in database?
-	Polish formatting of down payment part
 -->
 <!DOCTYPE html>
 <html>
@@ -37,34 +36,41 @@
 		<div id="calculatorTab" class="row tabcontent">
 			<div class="col calculator-main">
 				<label for="sellingPrice" class="calculator-main-text">Selling Price</label><br>
-				<div class="input-group">
+				<div class="input-group" style="max-width: 500px;">
 					<div class="input-group-prepend">
 						<span class="input-group-text">PHP</span>
 					</div>
-					<input id="sellingPrice" name="sellingPrice" type="text" class="w-75 form-control" onchange="setTwoNumberDecimal(this)">
+					<input id="sellingPrice" name="sellingPrice" type="text" class="form-control" onchange="setTwoNumberDecimal(this)">
 				</div>
 				<br>
 
 				<span class="calculator-main-text">Down Payment</span><br>
 				<span class="note"><b>NOTE:</b> Minimum down payment is 20% of the selling price.</span><br>
 
-				<label for="downPercentage" class="calculator-main-text">Percentage</label>
-				<label for="downAmount" class="calculator-main-text" style="margin-left: 28%;">Amount</label>
-
-				<div class="input-group">
-					<input type="text" id="downPercentage" name="downPercentage" class="form-control" value="20" onchange="setTwoNumberDecimal(this)">
-					<div class="input-group-append">
-						<span class="input-group-text">%</span>
+				<div class="row">
+					<div class="col-sm-auto">
+						<label for="downPercentage" class="calculator-main-text">Percentage</label>
+						<div class="input-group">
+						<input type="text" id="downPercentage" name="downPercentage" class="form-control" value="20" onchange="setTwoNumberDecimal(this)">
+						<div class="input-group-append">
+							<span class="input-group-text">%</span>
+						</div>
+						</div>
 					</div>
-					<div class="input-group-prepend" style="margin-left: 20px;">
-						<span class="input-group-text">PHP</span>
+					<div class="col-sm-auto">
+						<label for="downAmount" class="calculator-main-text">Amount</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">PHP</span>
+							</div>
+							<input type="text" id="downAmount" name="downAmount" class="form-control input-sm" onchange="setTwoNumberDecimal(this)">
+						</div>
 					</div>
-					<input type="text" id="downAmount" name="downAmount" class="form-control input-sm" onchange="setTwoNumberDecimal(this)">
 				</div>
 				<br>
 
 				<label for="paymentTerms" class="calculator-main-text">Payment Terms</label><br>
-				<select name="paymentTerms" id="paymentTerms" class="form-control form-select">
+				<select name="paymentTerms" id="paymentTerms" class="form-control form-select" style="width: 200px;">
 					<option value="12">12 months</option>
 					<option value="18">18 months</option>
 					<option value="24">24 months</option>
@@ -81,8 +87,8 @@
 			</div>
 
 			<div id="calculator-results" class="col calculator-results">
-				<span class="calculator-results-header">LOAN CALCULATION RESULTS</span><br>
-				<span style="font-size: 14px;">Your loan details are as follows:</span>
+				<p class="calculator-results-header">LOAN CALCULATION RESULTS</p>
+				<p style="font-size: 14px; margin-top: -15px;">Your loan details are as follows:</p>
 				
 				<table class="results-table w-100">
 					<col style="width:45%">
