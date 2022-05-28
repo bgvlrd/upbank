@@ -37,7 +37,7 @@ var rate48 = 22.9600;
 var rate60 = 28.7600;
 
 
-function openTab(tabName){
+function openTab(evt, tabName){
 	var i, tabcontent, tablinks;
 
 	// hiding all elements with class="tabcontent"
@@ -54,7 +54,7 @@ function openTab(tabName){
 
   	// show current tab and add 'active' class to the button that opened the tab
   	document.getElementById(tabName).style.display = "flex";
-  	currentTarget.className += " active";
+  	evt.currentTarget.className += " active";
 }
 
 // formatting function 
