@@ -7,6 +7,8 @@
 	{% if user.groups.all.0.name == "Bank Officer" %}
 
 		<title> Application Information </title>
+		{# CSS #}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/borrower-information.css' %}">
 		
 		<div class="row h-100">
 	        <div class="col-sm-3 col-md-2 p-0" id="sidebar">
