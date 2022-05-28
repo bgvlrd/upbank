@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <!--TO-DO:
-	Check if whole webpage can be accessible by any user - logged in/logged out
 	Store interest rate/s in database?
 -->
 <!DOCTYPE html>
@@ -99,7 +98,7 @@
 				      <td class="results-text">PHP <span id="sellingPriceResults"></span></td>
 				    </tr>
 				    <tr>
-				      <td class="results-label" align="right">Down Payment</td>
+				      <td class="results-label" align="right" style="color: #014421;">Down Payment</td>
 				      <td class="results-text">PHP <span id="downPaymentResults"></span></td>
 				    </tr>
 				    <tr>
@@ -111,7 +110,7 @@
 				      <td class="results-text">PHP <span id="amountFinancedResults"></span></td>
 				    </tr>
 				    <tr>
-				      <td class="results-label" align="right">Your Monthly Amortization</td>
+				      <td class="results-label" align="right" style="color: #014421;">Your Monthly Amortization</td>
 				      <td class="results-text">PHP <span id="monthlyAmortizationResults"></span></td>
 				    </tr>
 				  </tbody>
@@ -122,13 +121,14 @@
 		</div>
 
 		<div id="ratesTab" class="row tabcontent">
+		<div class="flex-container" style="width:80%;">
 			<div class="row">
 				<div class="col">
-					<span class="rates-header">Standard Rates</span><br>
-					<span class="rates-subheader">Rates are subject to change without prior notice. <br> Please contact UPBank to confirm the prevailing rates. </span>
+					<p class="rates-header">Standard Rates</p>
+					<p class="rates-subheader">Rates are subject to change without prior notice. <br> Please contact UPBank to confirm the prevailing rates. </p>
 				</div>
 				<div class="col">
-					<img src="/static/img/upbank_logo.png" style="margin-top:12px; float:right;" height="80">
+					<img src="/static/img/upbank_logo.png" class="rates-logo" height="80">
 				</div>
 			</div>
 			<table class="rates-table">
@@ -166,6 +166,7 @@
 
   				</tbody>
 			</table>
+		</div>
 		</div>
 	</div>
 
