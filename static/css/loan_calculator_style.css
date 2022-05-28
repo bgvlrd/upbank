@@ -42,6 +42,13 @@ td {
 	padding-bottom: 30px;
 }
 
+.tab-btn:active {
+	filter: brightness(80%);
+  	-moz-box-shadow:    inset 0 0 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+   	box-shadow:         inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
 .tab-btn-main-text{
 	margin-top: 5px;
 	font-size: 20px;
@@ -134,4 +141,20 @@ td {
 	background-color: white;
 
 	padding: 30px;
+}
+
+#ratesTab{
+	margin-top: -40px;
+	margin-left: -4px;
+	margin-right: -4px;
+	display: flex;
+	z-index: 2;
+	position: relative;
+
+	border: 5px solid #DFDFDF;
+	border-radius: 5px;
+	background-color: white;
+
+	padding: 30px;
+	display: none;
 }

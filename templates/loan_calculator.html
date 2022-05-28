@@ -4,8 +4,7 @@
 	Check if whole webpage can be accessible by any user - logged in/logged out
 	Store interest rate/s in database?
 	Polish formatting of down payment part
-	Validate input - should be numbers, make them decimals auto
-	Format all numbers into comma-separated with decimal places
+	Validate input - should be numbers
 -->
 <!DOCTYPE html>
 <html>
@@ -25,25 +24,25 @@
 
 		<div class="mt-4 row">
 			<div class="btn-grp">
-				<button type="button" class="tab-btn" style="margin-left: -4px;">
+				<button type="button" class="tab-btn tablinks active" style="margin-left: -4px;" onclick="openTab('calculatorTab')">
 					<p class="tab-btn-main-text">CAR LOAN</p>
 					<p class="tab-btn-sub-text">Loan Amortization</p>
 				</button>
-				<button type="button" class="tab-btn" style="margin-left: -4px;">
+				<button type="button" class="tab-btn tablinks" style="margin-left: -4px;" onclick="openTab('ratesTab')">
 					<p class="tab-btn-main-text">LOAN RATES</p>
 					<p class="tab-btn-sub-text">Learn More</p>
 				</button>
 			</div>
 		</div>
 
-		<div id="calculatorTab" class="row">
+		<div id="calculatorTab" class="row tabcontent">
 			<div class="col calculator-main">
 				<label for="sellingPrice" class="calculator-main-text">Selling Price</label><br>
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text">PHP</span>
 					</div>
-					<input id="sellingPrice" name="sellingPrice" type="number" class="w-75 form-control">
+					<input id="sellingPrice" name="sellingPrice" type="text" class="w-75 form-control" onchange="setTwoNumberDecimal(this)">
 				</div>
 				<br>
 
@@ -54,14 +53,14 @@
 				<label for="downAmount" class="calculator-main-text" style="margin-left: 28%;">Amount</label>
 
 				<div class="input-group">
-					<input type="number" id="downPercentage" name="downPercentage" class="form-control" min="20" value="20">
+					<input type="text" id="downPercentage" name="downPercentage" class="form-control" value="20.00" onchange="setTwoNumberDecimal(this)">
 					<div class="input-group-append">
 						<span class="input-group-text">%</span>
 					</div>
 					<div class="input-group-prepend" style="margin-left: 20px;">
 						<span class="input-group-text">PHP</span>
 					</div>
-					<input type="number" id="downAmount" name="downAmount" class="form-control input-sm">
+					<input type="text" id="downAmount" name="downAmount" class="form-control input-sm" onchange="setTwoNumberDecimal(this)">
 				</div>
 				<br>
 
@@ -80,7 +79,6 @@
 
 				<button type="button" id="reset-btn" class="btn btn-default mx-auto reset-btn">Reset</button>
 				<button type="button" id="calculate-btn" class="btn btn-default mx-auto calculate-btn">Calculate</button>
-				
 			</div>
 
 			<div id="calculator-results" class="col calculator-results">
@@ -118,7 +116,8 @@
 			</div>
 		</div>
 
-		<div id="ratesTab" class="row">
+		<div id="ratesTab" class="row tabcontent">
+
 		</div>
 	</div>
 
