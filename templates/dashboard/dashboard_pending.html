@@ -6,7 +6,9 @@
 
 	{% if user.groups.all.0.name == "Bank Officer" %}
 
-		<title> Dashboard </title>
+		<title> UPBank </title>
+		{# CSS #}
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard-bank-officer.css' %}">
 
 		{# JS #}
 		<script type="text/javascript" src="{% static '/js/searchfilter.js' %}"></script>
