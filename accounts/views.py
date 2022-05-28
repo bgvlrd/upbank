@@ -1,4 +1,6 @@
 from email import message
+import re
+from wsgiref.util import request_uri
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from UPBank.settings import LOGIN_REDIRECT_URL
@@ -16,6 +18,7 @@ def login_user(request):
 	if request.method == "POST":
 		username = request.POST.get('username')
 		password = request.POST.get('password')
+		#print(request.POST)
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
