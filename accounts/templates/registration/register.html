@@ -67,7 +67,13 @@
 <body> 
 
 <div class="container-fluid">
+    <!-- FLOATING BUTTON GOING TO THE TOP OF THE PAGE-->
     <a name="top"></a>
+    <a href="#top" class="float">
+        <i class="fs-1 bi-arrow-up-circle-fill icon-up"></i>
+    </a>
+
+    <!-- START OF PAGE HERE -->
     <div class="row">
         <div class="col-md-12">
             <div id="title">
@@ -88,7 +94,7 @@
 
     <form method="POST">
         {% csrf_token %}
-        <!-- ACCOUNT INFORMATION d-flex justify-content-center -->
+        <!-- ACCOUNT INFORMATION FORMS -->
         <div class="container">
             <div class="row">
                 <div class="col-md-6" id="columns">
@@ -129,7 +135,7 @@
             </div>
         </div>
 
-        <!-- LOANER INFORMATION d-flex justify-content-center -->
+        <!-- LOANER INFORMATION FORMS -->
         <div class="row">
             <div class="col-md-4" id="columns">
                 <div class="form-group col-xs-6 col-md-12">
@@ -205,6 +211,7 @@
                     <label>
                         <input type="radio" id="male" name="gender" value="Male" required> Male
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="female" name="gender" value="Female" required> Female
                     </label>
@@ -215,6 +222,7 @@
                     <label>
                         <input type="radio" id="resident" name="residency" value="Resident" required> Resident
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="nonresident" name="residency" value="Non-Resident" required> Non-Resident
                     </label>
@@ -294,9 +302,11 @@
                     <label>
                         <input type="radio" id="permanent" name="status_of_employment" value="Permanent"> Permanent
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="probationary" name="status_of_employment" value="Probationary"> Probationary
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="permanent" name="status_of_employment" value="Contractual"> Contractual
                     </label>
@@ -320,9 +330,11 @@
                     <label>
                         <input type="radio" id="land" name="employment_base" value="Land"> Land
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="sea" name="employment_base" value="Sea"> Sea
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="air" name="employment_base" value="Air"> Air
                     </label>
@@ -447,9 +459,11 @@
                     <label>
                         <input type="radio" id="public" name="dependent1_type_of_school" value="Public"> Public
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="exclusive" name="dependent1_type_of_school" value="Exclusive"> Exclusive
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="private_coed" name="dependent1_type_of_school" value="Private Coed"> Private Coed
                     </label>
@@ -482,9 +496,11 @@
                     <label>
                         <input type="radio" id="public" name="dependent2_type_of_school" value="Public"> Public
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="exclusive" name="dependent2_type_of_school" value="Exclusive"> Exclusive
                     </label>
+                    <br>
                     <label>
                         <input type="radio" id="private_coed" name="dependent2_type_of_school" value="Private Coed"> Private Coed
                     </label>
@@ -605,13 +621,15 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Status of Employment </p>
                     <label>
-                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Permanent">Permanent
+                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Permanent"> Permanent
                     </label>
+                    <br>
                     <label>
-                        <input type="radio" id="probationary" name="spouse_status_of_employment" value="Probationary">Probationary
+                        <input type="radio" id="probationary" name="spouse_status_of_employment" value="Probationary"> Probationary
                     </label>
+                    <br>
                     <label>
-                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Contractual">Contractual
+                        <input type="radio" id="permanent" name="spouse_status_of_employment" value="Contractual"> Contractual
                     </label>
                 </div>
                 <br>
@@ -631,13 +649,15 @@
                     <p> If OFW, </p>
                     <p class="labels"> Employment Base </p>
                     <label>
-                        <input type="radio" id="land" name="spouse_employment_base" value="Land">Land
+                        <input type="radio" id="land" name="spouse_employment_base" value="Land"> Land
                     </label>
+                    <br>
                     <label>
-                        <input type="radio" id="sea" name="spouse_employment_base" value="Sea">Sea
+                        <input type="radio" id="sea" name="spouse_employment_base" value="Sea"> Sea
                     </label>
+                    <br>
                     <label>
-                        <input type="radio" id="air" name="spouse_employment_base" value="Air">Air
+                        <input type="radio" id="air" name="spouse_employment_base" value="Air"> Air
                     </label>
                 </div>
             </div>
