@@ -14,6 +14,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from .models import *
 from .forms import *
+from decimal import *
 
 # Create your views here.
 
@@ -125,7 +126,19 @@ def borrower_loanlist(request):
 
 @login_required
 def loan_information_view(request, pk):
-	return render(request, "borrower_loan_pages/loan_information.html", {})
+	try:
+		loanapp = LoanApplication.objects.get(account_no = request.user, pk = pk)
+		print(loanapp.loan_type)
+		loan = Loan.objects.get(loan_account_no = loanapp.loan_account_no)
+	except:
+		messages.error(request, "Access denied or the page does not exist!")
+		return redirect('borrower-loanlist')
+	else:
+		context = {
+			'loanapp' : loanapp,
+			'loan' : loan
+		}
+		return render(request, "borrower_loan_pages/loan_information.html", context)
 
 @login_required
 def applyforLoan(request):
@@ -136,7 +149,40 @@ def applyforLoan(request):
 		loanappform = LoanApplicationForm(request.POST, instance = missing_loanappformfields)
 		if loanappform.is_valid():
 			loanappobject = loanappform.save()
-			missing_loanformfields = Loan(loan_account_no = loanappobject, term_remaining = request.POST['total_term'])
+
+			interestRate = {
+				12 : 0.0558,
+				18 : 0.0815,
+				24 : 0.1102,
+				36 : 0.1690,
+				48 : 0.2296,
+				60 : 0.2876
+			}
+
+			interestRateDatabase = {
+				12 : 5.58,
+				18 : 8.15,
+				24 : 11.02,
+				36 : 16.90,
+				48 : 22.96,
+				60 : 28.76
+			}
+			
+			#Loan Computations
+			downpaymentAmount = Decimal(request.POST['selling_prize']) * (Decimal(request.POST['downpayment_percent']) / 100)
+			amountFinanced = Decimal(request.POST['selling_prize']) - downpaymentAmount
+			basicAmortization = amountFinanced / Decimal(request.POST['total_term'])
+			monthlyInterest = (amountFinanced * Decimal(interestRate[int(request.POST['total_term'])])) / Decimal(request.POST['total_term'])
+			monthlyAmortization = basicAmortization + monthlyInterest
+			
+			missing_loanformfields = Loan(
+				loan_account_no = loanappobject,
+				term_remaining = request.POST['total_term'],
+				downpayment = downpaymentAmount,
+				aor = interestRateDatabase[int(request.POST['total_term'])],
+				monthly_amortization = monthlyAmortization,
+				amount_financed = amountFinanced
+				)
 			loanform = LoanForm(request.POST, instance = missing_loanformfields)
 			
 			if loanform.is_valid():

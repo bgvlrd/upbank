@@ -11,7 +11,11 @@ class LoanApplicationForm(ModelForm):
 class LoanForm(ModelForm):
     class Meta:
         model = Loan
-        exclude = ['loan_account_no', 'loan_tag', 'term_remaining', 'months_missed_counter']
+        exclude = [
+            'loan_account_no', 'loan_tag', 'term_remaining',
+            'months_missed_counter', 'downpayment',
+            'aor', 'monthly_amortization', 'amount_financed'
+        ]
 
 class BankAccForm(ModelForm):
     class Meta:

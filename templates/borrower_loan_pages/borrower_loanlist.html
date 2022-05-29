@@ -66,12 +66,14 @@
 						    <th>Loan Status</th>
 						  </thead>
 						  <tbody id="tableSearch">
-						    <tr onclick="document.location='{% url 'loan-information' 123456789 %}'" style="cursor: pointer;">
-						    	<td>123456789</td>
-								<td>₱2,690,00</td>
-								<td>Feb. 30, 2022</td>
-								<td>For Review</td>
+							{% for loanapp, loan in myloans %}
+							<tr onclick="document.location='{% url 'loan-information' loanapp.pk %}'" style="cursor: pointer;">
+						    	<td>{{loanapp.pk}}</td>
+								<td>{{loan.amount_financed}}</td>
+								<td>{{loanapp.date_of_application}}</td>
+								<td>{{loanapp.application_status}}</td>
 							</tr>
+							{% endfor %}
 						  </tbody>
 						</table>
 					</div> <!--end of table-responsive -->

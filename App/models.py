@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class BankAccount(models.Model):
     account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
@@ -342,9 +343,19 @@ class Loan(models.Model):
     
     loan_tag                = models.CharField(choices = loan_tag_choices, max_length = 20, default = "Completed")
 
+    total_term_choices = [
+        (12, '12 Months'),
+        (18, '18 Months'),
+        (24, '24 Months'),
+        (36, '36 Months'),
+        (48, '48 Months'),
+        (60, '60 Months')
+    ]
+
     selling_prize           = models.DecimalField(max_digits=10, decimal_places=2)
+    downpayment_percent     = models.PositiveSmallIntegerField(validators=[MinValueValidator(20), MaxValueValidator(100)], verbose_name="Downpayment (in percent)")
     downpayment             = models.DecimalField(max_digits=10, decimal_places=2)
-    total_term              = models.IntegerField()
+    total_term              = models.IntegerField(choices=total_term_choices)
     term_remaining          = models.IntegerField()
     amount_financed         = models.DecimalField(max_digits=10, decimal_places=2)
     aor                     = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Add-on Rate (AOR)") #already in percent

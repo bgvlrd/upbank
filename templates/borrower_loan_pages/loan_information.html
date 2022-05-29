@@ -26,75 +26,75 @@
 		<div class="row g-3 mb-3">
 			<div class="col-md-4">
 		  		<label for="purpose_of_loan" class="form-label">Purpose of Loan</label>
-		  		<input type="text" class="form-control" value="Personal" disabled>
+		  		<input type="text" class="form-control" value="{{loanapp.loan_type}}" disabled>
 			</div>
 			<div class="col-md-2 d-none d-sm-block">
 			</div>
 			<div class="col-md-4">
 		  		<label for="purpose_of_loan" class="form-label">Loan Status</label>
-		  		<input type="text" class="form-control" value="For Review" disabled>
+		  		<input type="text" class="form-control" value="{{loanapp.application_status}}" disabled>
 			</div>
 		</div>
 		<div class="row g-3 mb-3">
 			<div class="col-lg-2 col-md-6">
 		  		<label for="" class="form-label">Date of Application</label>
-		  		<input type="text" class="form-control" value="04/25/2020" disabled>
+		  		<input type="text" class="form-control" value="{{loanapp.date_of_application}}" disabled>
 			</div>
 			<div class="col-lg-4 col-md-6">
 			    <label for="" class="form-label">Dealer</label>
-			    <input type="text" class="form-control" value="Automotive Icon" disabled>
+			    <input type="text" class="form-control" value="{{loanapp.dealer}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-4">
 				<label for="" class="form-label">Sales Agent</label>
-				<input type="text" class="form-control" value="Gina Bee" disabled>
+				<input type="text" class="form-control" value="{{loanapp.sales_agent}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-4">
 				<label for="" class="form-label">Branch</label>
-				<input type="text" class="form-control" value="Alabang" disabled>
+				<input type="text" class="form-control" value="{{loanapp.branch}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-4">
 				<label for="" class="form-label">Application No.</label>
-				<input type="text" class="form-control" value="123456789" disabled>
+				<input type="text" class="form-control" value="{{loanapp.pk}}" disabled>
 			</div>
 		</div>
 		<div class="row g-3 mb-3">
 			<div class="col-lg-4 col-md-6">
 		  		<label for="" class="form-label">Brand</label>
-		  		<input type="text" class="form-control" value="Mercedes Benz" disabled>
+		  		<input type="text" class="form-control" value="{{loanapp.car_brand}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-3">
 			    <label for="" class="form-label">Year Model</label>
-			    <input type="text" class="form-control" value="2022" disabled>
+			    <input type="text" class="form-control" value="{{loanapp.year_model}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-3">
 				<label for="" class="form-label">Cash Price</label>
-				<input type="text" class="form-control" value="2,260,000.00" disabled>
+				<input type="text" class="form-control" value="{{loan.selling_prize}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-6">
 				<label for="" class="form-label">Downpayment</label>
-				<input type="text" class="form-control" value="670,000.00" disabled>
+				<input type="text" class="form-control" value="{{loan.downpayment}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-6">
 				<label for="" class="form-label">Term (in months)</label>
-				<input type="text" class="form-control" value="60" disabled>
+				<input type="text" class="form-control" value="{{loan.total_term}}" disabled>
 			</div>
 		</div>
 		<div class="row g-3 mb-3">
 			<div class="col-lg-4 col-md-6">
 		  		<label for="" class="form-label">Model</label>
-		  		<input type="text" class="form-control" value="2022 A 180 Progressive" disabled>
+		  		<input type="text" class="form-control" value="{{loanapp.car_model}}" disabled>
 			</div>
 			<div class="col-lg-4 col-md-6">
 			    <label for="" class="form-label">Type of Vehicle</label>
-			    <input type="text" class="form-control" value="Brand New" disabled>
+			    <input type="text" class="form-control" value="{{loanapp.vehicle_type}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-6">
 				<label for="" class="form-label">Amount Financed</label>
-				<input type="text" class="form-control" value="1,833,000.00" disabled>
+				<input type="text" class="form-control" value="{{loan.amount_financed}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-6">
 				<label for="" class="form-label">Add-on Rate (AOR)</label>
-				<input type="text" class="form-control" value="5.25%" disabled>
+				<input type="text" class="form-control" value="{{loan.aor}}%" disabled>
 			</div>
 		</div>
 		<div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
