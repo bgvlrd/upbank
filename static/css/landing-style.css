@@ -41,12 +41,6 @@ body {
 	letter-spacing: 1px;
 }
 
-.blob{
-	z-index: -2;
-	right: 0px;
-	position:absolute;
-}
-
 .logo{
 	margin-top: 10px;
 	left: 20px;
