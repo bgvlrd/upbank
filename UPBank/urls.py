@@ -26,6 +26,7 @@ urlpatterns = [
     path('loan-calculator/', views.loan_calculator_view, name='loan-calculator'),
     path('fund-deposit/', views.fund_deposit_view, name="fund_deposit"),
     path('add-deposit/', views.add_deposit, name="add_deposit"),
+    path('otc-payment/', views.otc_payment, name="otc_payment"),
 
     # Login/Register
     path('accounts/', include('accounts.urls')),

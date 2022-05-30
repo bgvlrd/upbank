@@ -283,6 +283,16 @@ def applyforLoan(request):
 		}
 	return render(request, "borrower_loan_pages/loan_application.html", context)
 
+@login_required
+def otc_payment(request, *args, **kwargs):
+	now = datetime.now()
+	transaction_date = now.strftime("%B %m, %Y %H:%M")
+	print(transaction_date)
+	context = {
+		'transaction_date' : transaction_date
+	}
+	return render(request, "otc_payment.html", context)
+
 # Landing
 @anonymous_required(redirect_url='/dashboard')
 def landing_view(request, *args, **kwargs):
