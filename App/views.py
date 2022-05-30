@@ -288,8 +288,12 @@ def otc_payment(request, *args, **kwargs):
 	now = datetime.now()
 	transaction_date = now.strftime("%B %m, %Y %H:%M")
 	print(transaction_date)
+
+	form = OTCPayForm()
+
 	context = {
-		'transaction_date' : transaction_date
+		'transaction_date' : transaction_date,
+		'form': form
 	}
 	return render(request, "otc_payment.html", context)
 

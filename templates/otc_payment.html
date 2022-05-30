@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <title>Fund Deposit</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/fund-deposit-style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -16,20 +17,15 @@
 					<h2 class="center">Over The Counter Loan Payment Form</h2>
 					<br>
 					<div class="form-group col-lg-16">
-						<label for="acctnumber" class="form-label">Account Number</label>
-						<input type="text" class="form-control inputs" id="acctnumber" required>
-                        <span class="error d-none">
-							Please enter an amount.
-						</span>
+						<label for="{{form.loan_account_no_hashed.id_for_label}}" class="form-label">Account Number</label>
+						<p> {{form.loan_account_no_hashed}} </p>
                         <br>
 						<label for="date" class="form-label">Transaction Date</label>
 						<input type="text" class="form-control inputs date" value="{{transaction_date}}" disabled>
 						<br>
 						<label for="amt" class="form-label">Amount Paid</label>
-						<input type="number" class="form-control inputs" id="amt" required>
-						<span class="error d-none">
-							Please enter an amount.
-						</span>
+						<p> {{form.amount_paid}} </p>
+
 					</div>
 					<br>
 					<div class="d-flex justify-content-center">

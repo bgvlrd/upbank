@@ -2,6 +2,7 @@ from dataclasses import field
 from pyexpat import model
 from django.forms import ModelForm
 from App.models import *
+from django import forms
 
 class LoanApplicationForm(ModelForm):
     class Meta:
@@ -147,3 +148,8 @@ class OTCPayForm(ModelForm):
     class Meta:
         model = OTCPayment
         fields = '__all__'
+
+        widgets = {
+            'loan_account_no_hashed': forms.Select(attrs={'class': 'form-control inputs'}),
+            'amount_paid': forms.NumberInput(attrs={'class': 'form-control inputs', 'id':'amt'})
+        }

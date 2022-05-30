@@ -22,7 +22,7 @@ class LoanTable(admin.ModelAdmin):
     list_display = ('loan_account_no', 'amount_financed', 'total_term', 'term_remaining', 'monthly_amortization', 'months_missed_counter', 'loan_tag')
 
 class OTCPaymentTable(admin.ModelAdmin):
-    list_display = ('otc_payment_id', 'loan_account_no', 'transaction_date', 'amount_paid')
+    list_display = ('otc_payment_id', 'loan_account_no_hashed', 'transaction_date', 'amount_paid')
 
 
 admin.site.register(BankAccount, BankAccountTable)

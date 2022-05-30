@@ -307,7 +307,15 @@ class CreditBankReferences(models.Model):
 class LoanApplication(models.Model): 
     loan_account_no = models.AutoField(primary_key = True)
     account_no      = models.ForeignKey(User, db_column = "id", on_delete = models.PROTECT)
-    
+    loan_account_no_hashed = models.CharField(max_length=11, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.loan_account_no_hashed = str(abs(hash(self.loan_account_no)) % (10 ** 9))
+        super(LoanApplication, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.loan_account_no_hashed
+
     application_status_choices = [
         ('Approved', 'Approved'),
         ('Denied', 'Denied'),
@@ -378,7 +386,7 @@ class Loan(models.Model):
 class OTCPayment(models.Model):
     otc_payment_id      = models.AutoField(primary_key=True)
 
-    loan_account_no     = models.OneToOneField(LoanApplication, on_delete = models.CASCADE)
+    loan_account_no_hashed = models.ForeignKey(LoanApplication, db_column="loan_account_no_hashed", on_delete=models.PROTECT)
     transaction_date    = models.DateField()
     amount_paid         = models.DecimalField(max_digits = 11, decimal_places = 2)
 
