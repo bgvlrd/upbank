@@ -13,7 +13,7 @@
 
 		<div class="row g-2 mt-4">
 			<div class="col-md-4 col-sm-6 col-12">
-				<h2 class="table-title mb-0">Juan Dela Cruz</h2>
+				<h2 class="table-title mb-0">Loan Application No: {{loanapp.pk}}</h2>
 			</div>
 			<div class="col-md-8 text-md-end text-sm-end col-sm-6 col-12">
 				<a class="btn py-2 px-auto" id="download_btn" href="#"> Download
@@ -31,7 +31,7 @@
 			<div class="col-md-2 d-none d-sm-block">
 			</div>
 			<div class="col-md-4">
-		  		<label for="purpose_of_loan" class="form-label">Loan Status</label>
+		  		<label for="purpose_of_loan" class="form-label">Application Status</label>
 		  		<input type="text" class="form-control" value="{{loanapp.application_status}}" disabled>
 			</div>
 		</div>
@@ -97,100 +97,26 @@
 				<input type="text" class="form-control" value="{{loan.aor}}%" disabled>
 			</div>
 		</div>
-		<div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
-		  <h6>INFORMATION OF BORROWER</h6>
-		</div>
 		<div class="row g-3 mb-3">
-			<div class="col-md-10">
-		  		<label for="" class="form-label">Name</label>
-		  		<input type="text" class="form-control" value="Dela Cruz, Juan Reyes" disabled>
+			<div class="col-lg-4 col-md-6">
+		  		<label for="" class="form-label">Monthly Amortization</label>
+		  		<input type="text" class="form-control" value="{{loan.monthly_amortization}}" disabled>
 			</div>
-			<div class="col-md-2">
-			    <label for="" class="form-label">Gender</label>
-			    <input type="text" class="form-control" value="Male" disabled>
+			<div class="col-lg-4 col-md-6">
+			    <label for="" class="form-label">Terms Remaining</label>
+			    <input type="text" class="form-control" value="{{loan.term_remaining}}" disabled>
 			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-2">
-		  		<label for="" class="form-label">Nationality</label>
-		  		<input type="text" class="form-control" value="Filipino" disabled>
+			{% if loanapp.application_status == 'Approved' %}
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Loan Tag</label>
+				<input type="text" class="form-control" value="{{loan.loan_tag}}" disabled>
 			</div>
-			<div class="col-md-4">
-			    <label for="" class="form-label">Residency</label>
-			    <input type="text" class="form-control" value="" disabled>
+			{% else %}
+			<div class="col-lg-4 col-md-6">
+				<label for="" class="form-label">Loan Payment Status</label>
+				<input type="text" class="form-control" value="--" disabled>
 			</div>
-			<div class="col-md-2">
-				<label for="" class="form-label">Birthdate</label>
-				<input type="text" class="form-control" value="04/04/1970" disabled>
-			</div>
-			<div class="col-md-2">
-				<label for="" class="form-label">Age</label>
-				<input type="text" class="form-control" value="52" disabled>
-			</div>
-			<div class="col-md-2">
-				<label for="" class="form-label">Birthplace</label>
-				<input type="text" class="form-control" value="Pasig City" disabled>
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-6 col-lg-4">
-		  		<label for="" class="form-label">Educational Attainment</label>
-		  		<input type="text" class="form-control" value="College" disabled>
-			</div>
-			<div class="col-md-6 col-lg-2">
-			    <label for="" class="form-label">Civil Status</label>
-			    <input type="text" class="form-control" value="Married" disabled>
-			</div>
-			<div class="col-lg-2">
-				<label for="" class="form-label">Tax Identification No.</label>
-				<input type="text" class="form-control" value="111222333" disabled>
-			</div>
-			<div class="col-lg-2">
-				<label for="" class="form-label">SSS/GSIS No.</label>
-				<input type="text" class="form-control" value="CRN-111222333" disabled>
-			</div>
-			<div class="col-lg-2 col-md-12">
-				<label for="" class="form-label" style="font-size: 9px; margin-bottom: 0;">If co-maker, relation to the Principal Applicant</label>
-				<input type="text" class="form-control" value="123456789" style="margin-top:0" disabled >
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-12">
-		  		<label for="" class="form-label">Present Address</label>
-		  		<input type="text" class="form-control" value="#2 Vilma St. Avida Settings, Nuvali, Calamba, Laguna" disabled>
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-12">
-		  		<label for="" class="form-label">Previous Address</label>
-		  		<input type="text" class="form-control" value="#2 Flores St. Sta. Cruz, Manila" disabled>
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-12">
-		  		<label for="" class="form-label">Home Ownership</label>
-		  		<input type="text" class="form-control" value="Owned" disabled>
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-6">
-		  		<label for="" class="form-label">Residential Telephone No.</label>
-		  		<input type="text" class="form-control" value="02-8-2734566" disabled>
-			</div>
-			<div class="col-md-6">
-		  		<label for="" class="form-label">Cellphone No.</label>
-		  		<input type="text" class="form-control" value="09123456789" disabled>
-			</div>
-		</div>
-		<div class="row g-3 mb-3">
-			<div class="col-md-6">
-		  		<label for="" class="form-label">Email Address</label>
-		  		<input type="text" class="form-control" value="juandelacruz@gmail.com" disabled>
-			</div>
-			<div class="col-md-6">
-		  		<label for="" class="form-label">Preferred Mailing Address</label>
-		  		<input type="text" class="form-control" value="Residence" disabled>
-			</div>
+			{% endif %}
 		</div>
 		<div class="row mb-3">
 			<div class="col-12 text-end">

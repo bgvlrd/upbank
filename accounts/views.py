@@ -6,13 +6,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from UPBank.settings import LOGIN_REDIRECT_URL
 from App.forms import LoanerInForm
-from App.models import LoanerInformation
+from App.models import BankAccount
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from App.decorators import anonymous_required
 from .forms import RegistrationForm
 from django.contrib.auth.models import Group
+from decimal import *
 
 # Create your views here.
 
@@ -55,6 +56,13 @@ def signupView(request):
 			user.groups.add(group)
 			user.save()
 
+			bankaccount = BankAccount(
+				account_number = user,
+				balance = Decimal(0),
+				bank_status = "Active"
+			)
+			bankaccount.save()
+
 			print(request.POST)
 
 			messages.success(request, "Account created successfully! You can now log in to your newly-created account!")
@@ -63,7 +71,7 @@ def signupView(request):
 		else:	
 			context = {
 				'regform': RegistrationForm(),
-				 'regform2': LoanerInForm(),
+				'regform2': LoanerInForm(),
 				'invalid_name': True
 			}
 			messages.error(request, "Registration failed. Please follow the guidelines.")
