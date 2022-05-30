@@ -229,7 +229,7 @@
 						    		<h6 class="font-italic">(You cannot change this decision.)</h6>
 						    	</div>
 						    	<div class="d-flex justify-content-center mb-3">
-						    		<button type="button" class="btn py-1 px-3 me-3" id="green_btn">Approve</button>
+						    		<button type="button" onclick="location.href='{% url 'applicant-information' loan_app.loan_account_no  %}'" name='applicant-status-button' value="accepted" class="btn py-1 px-3 me-3" id="green_btn">Approve</button>
 							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
 							    </div>
 						    </div>
@@ -255,7 +255,7 @@
 						    		<textarea class="form-control" style="background: #F2F2F2;"></textarea>
 						    	</div>
 						    	<div class="d-flex justify-content-center mb-3">
-							    	<button type="button" class="btn py-1 px-3 me-3" id="green_btn">Reject</button>
+							    	<button type="button" class="btn py-1 px-3 me-3" onclick="location.href='{% url 'applicant-information' loan_app.loan_account_no  %}'" name='applicant-status-button' value="rejected" id="green_btn">Reject</button>
 							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
 							    </div>
 					    	</div>

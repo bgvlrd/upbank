@@ -25,7 +25,23 @@ def loan_calculator_view(request, *args, **kwargs):
 @login_required
 def dashboard_view(request, *args, **kwargs):
 	if request.user.groups.filter(name__in=['Bank Officer']).exists():
-		return render(request, "dashboard.html", {})
+		loan_applications = LoanApplication.objects.all()
+		loaner_information = []
+		loan_specific_details = []
+
+
+		for i in loan_applications:
+			loaner = LoanerInformation.objects.filter(account_number = i.account_no).first()
+			loaner_information.append(loaner)
+
+		for i in loan_applications:
+			loan = Loan.objects.filter(loan_account_no = i.loan_account_no).first()
+			loan_specific_details.append(loan)
+
+		context = {
+			'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
+		}
+		return render(request, "dashboard.html", context)
 	else:
 		return redirect('borrower-loanlist')
 
@@ -103,6 +119,19 @@ def borrower_information_view(request, pk):
 	context = {
 		'loan_details' : zip(loan_application, loan_information, loan)
 	}
+
+	if request.POST['application-status-button'] =='accepted':
+		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
+		loan_application.application_status = "Accepted"
+		loan_application.save()
+
+	if request.POST['application-status-button'] =='rejected':
+		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
+		loan_application.application_status = "Rejected"
+		loan_application.save()
+
+
+
 	return render(request, "borrower_information.html", context)
 
 @login_required

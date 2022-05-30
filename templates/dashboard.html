@@ -65,24 +65,14 @@
 						    <th>Loan Decision</th>
 						  </thead>
 						  <tbody id="tableSearch">
-						    <tr onclick="document.location='{% url 'applicant-information' 1 %}'" style="cursor: pointer;">
-						    	<td>123456789</td>
-								<td>Dela Cruz, Juan</td>
-								<td>₱2,690,00</td>
-								<td>Pending</td>
+						  	{% for loan_app, loan_info, loan_amount in loan_details %}
+						    <tr onclick="document.location='{% url 'applicant-information' loan_app.loan_account_no %}'" style="cursor: pointer;">
+						    	<td>{{loan_app.loan_account_no}}</td>
+								<td>{{loan_info.full_name}}</td>
+								<td>{{loan_amount.monthly_amortization}}</td>
+								<td>{{loan_app.application_status}}</td>
 							</tr>
-							<tr onclick="document.location='{% url 'borrower-information' 2 %}'" style="cursor: pointer;">
-						    	<td>987654321</td>
-								<td>Dela Cruz, Nene</td>
-								<td>₱2,690,00</td>
-								<td>Approved</td>
-							</tr>
-							<tr>
-						    	<td>444444555</td>
-								<td>Dela Cruz, Nono</td>
-								<td>₱2,690,00</td>
-								<td>Rejected</td>
-							</tr>
+							{% endfor %}
 						  </tbody>
 						</table>
 					</div> <!--end of table-responsive -->
