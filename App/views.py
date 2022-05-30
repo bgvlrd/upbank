@@ -95,8 +95,15 @@ def applicant_information_view(request, *args, **kwargs):
 	return render(request, "applicant_information.html", {})
 
 @login_required
-def borrower_information_view(request, *args, **kwargs):
-	return render(request, "borrower_information.html", {})
+def borrower_information_view(request, pk):
+	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
+	loan_information = LoanerInformation.objects.filter(account_number = loan_application.account_no).first()
+	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
+
+	context = {
+		'loan_details' : zip(loan_application, loan_information, loan)
+	}
+	return render(request, "borrower_information.html", context)
 
 @login_required
 def fund_deposit_view(request, *args, **kwargs):
