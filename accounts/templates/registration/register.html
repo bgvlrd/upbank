@@ -84,6 +84,17 @@
         </div>
     </div>
 
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
     <!-- ACCOUNT INFORMATION HEADER-->
     <div class="row">
         <div class="col-md-12">
@@ -517,6 +528,9 @@
                 </div>
             </div>
         </div>
+        <p style="font-weight: normal; text-align: center;">
+            ***If you don't have a spouse, please skip this section.
+        </p>
 
         <!-- INFORMATION OF SPOUSE FORMS -->
         <div class="row">
@@ -529,11 +543,11 @@
                 <div class="form-group col-xs-6 col-md-12">
                     <p class="labels"> Gender </p>
                     <label>
-                        <input type="radio" id="male" name="spouse_gender" value="Male" required> Male
+                        <input type="radio" id="male" name="spouse_gender" value="Male"> Male
                     </label>
                     <br>
                     <label>
-                        <input type="radio" id="female" name="spouse_gender" value="Female" required> Female
+                        <input type="radio" id="female" name="spouse_gender" value="Female"> Female
                     </label>
                 </div>
                 <br>
@@ -546,11 +560,6 @@
                     <label>
                         <input type="radio" id="nonresident" name="spouse_residency" value="Non-Resident" required> Non-Resident
                     </label>
-                </div>
-                <br>
-                <div class="form-group col-xs-6 col-md-12">
-                    <label for="spouse_residency" class="form-label"> Residency <br></label>
-                    <input type="text" class="form-control" id="spouse_residency" name="spouse_residency">
                 </div>
                 <br>
                 <div class="form-group col-xs-6 col-md-12">
@@ -874,44 +883,44 @@
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_company" class="form-label"> Credit Card 1 (Company)<br></label>
-                    <input type="text" class="form-control" id="card1_company" name="card1_company" required>
+                    <input type="text" class="form-control" id="card1_company" name="card1_company">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_number" class="form-label"> Credit Card 1 (Number)<br></label>
-                    <input type="text" class="form-control" id="card1_number" name="card1_number" required>
+                    <input type="text" class="form-control" id="card1_number" name="card1_number">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_expiry_date" class="form-label"> Credit Card 1 (Expiry Date)<br></label>
-                    <input type="date" class="form-control" id="card1_expiry_date" name="card1_expiry_date" required>
+                    <input type="date" class="form-control" id="card1_expiry_date" name="card1_expiry_date">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_credit_limit" class="form-label"> Credit Card 1 (Credit Limit)<br></label>
-                    <input type="number" class="form-control" id="card1_credit_limit" name="card1_credit_limit" required>
+                    <input type="number" class="form-control" id="card1_credit_limit" name="card1_credit_limit">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card1_outstanding_balance" class="form-label"> Credit Card 1 (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="card1_outstanding_balance" name="card1_outstanding_balance" required>
+                    <input type="number" class="form-control" id="card1_outstanding_balance" name="card1_outstanding_balance">
                 </div>
 
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_company" class="form-label"> Credit Card 2 (Company)<br></label>
-                    <input type="text" class="form-control" id="card2_company" name="card2_company" required>
+                    <input type="text" class="form-control" id="card2_company" name="card2_company">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_number" class="form-label"> Credit Card 2 (Number)<br></label>
-                    <input type="text" class="form-control" id="card2_number" name="card2_number" required>
+                    <input type="text" class="form-control" id="card2_number" name="card2_number">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_expiry_date" class="form-label"> Credit Card 2 (Expiry Date)<br></label>
-                    <input type="date" class="form-control" id="card2_expiry_date" name="card2_expiry_date" required>
+                    <input type="date" class="form-control" id="card2_expiry_date" name="card2_expiry_date">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_credit_limit" class="form-label"> Credit Card 2 (Credit Limit)<br></label>
-                    <input type="number" class="form-control" id="card2_credit_limit" name="card2_credit_limit" required>
+                    <input type="number" class="form-control" id="card2_credit_limit" name="card2_credit_limit">
                 </div>
                 <div class="form-group col-xs-6 col-md-12">
                     <label for="card2_outstanding_balance" class="form-label"> Credit Card 2 (Outstanding Balance)<br></label>
-                    <input type="number" class="form-control" id="card2_outstanding_balance" name="card2_outstanding_balance" required>
+                    <input type="number" class="form-control" id="card2_outstanding_balance" name="card2_outstanding_balance">
                 </div>
             </div>
         </div>
@@ -932,14 +941,14 @@
                     <p class="labels"> Source of Product Info </p>
                     <select name="source_product_info" id="source_product_info" class="dropdown">
                         <option value="" selected disabled hidden>Select an option...</option>
-                        <option value="TV / Radio"> TV / Radio </option>
-                        <option value="Flyer / Poster / Streamer"> Flyer / Poster / Streamer </option>
-                        <option value="Newspaper / Magazine"> Newspaper / Magazine </option>
-                        <option value="Direct Mail"> Direct Mail </option>
-                        <option value="UPBank Personnel"> UPBank Personnel </option>
-                        <option value="UPBank Client"> UPBank Client </option>
-                        <option value="Agency"> Agency </option>
-                        <option value="Others"> Others </option>
+                        <option value='TV / Radio'> TV / Radio </option>
+                        <option value='Flyer / Poster / Streamer'> Flyer / Poster / Streamer </option>
+                        <option value='Newspaper / Magazine'> Newspaper / Magazine </option>
+                        <option value='Direct Mail'> Direct Mail </option>
+                        <option value='UPBank Personnel'> UPBank Personnel </option>
+                        <option value='UPBank Client'> UPBank Client </option>
+                        <option value='Agency'> Agency </option>
+                        <option value='Others'> Others </option>
                     </select>
                 </div>
             </div>
