@@ -75,7 +75,7 @@
 				<input type="text" class="form-control" value="{{loan.downpayment}}" disabled>
 			</div>
 			<div class="col-lg-2 col-md-6">
-				<label for="" class="form-label">Term (in months)</label>
+				<label for="" class="form-label">Payment Term (in months)</label>
 				<input type="text" class="form-control" value="{{loan.total_term}}" disabled>
 			</div>
 		</div>
@@ -84,7 +84,7 @@
 		  		<label for="" class="form-label">Model</label>
 		  		<input type="text" class="form-control" value="{{loanapp.car_model}}" disabled>
 			</div>
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-2 col-md-6">
 			    <label for="" class="form-label">Type of Vehicle</label>
 			    <input type="text" class="form-control" value="{{loanapp.vehicle_type}}" disabled>
 			</div>
@@ -96,25 +96,20 @@
 				<label for="" class="form-label">Add-on Rate (AOR)</label>
 				<input type="text" class="form-control" value="{{loan.aor}}%" disabled>
 			</div>
+			<div class="col-lg-2 col-md-6">
+				<label for="" class="form-label">Monthly Amortization</label>
+				<input type="text" class="form-control" value="{{loan.monthly_amortization}}" disabled>
+		  </div>
 		</div>
 		<div class="row g-3 mb-3">
-			<div class="col-lg-4 col-md-6">
-		  		<label for="" class="form-label">Monthly Amortization</label>
-		  		<input type="text" class="form-control" value="{{loan.monthly_amortization}}" disabled>
-			</div>
+			{% if loanapp.application_status == 'Approved' %}
 			<div class="col-lg-4 col-md-6">
 			    <label for="" class="form-label">Terms Remaining</label>
 			    <input type="text" class="form-control" value="{{loan.term_remaining}}" disabled>
 			</div>
-			{% if loanapp.application_status == 'Approved' %}
 			<div class="col-lg-2 col-md-6">
-				<label for="" class="form-label">Loan Tag</label>
-				<input type="text" class="form-control" value="{{loan.loan_tag}}" disabled>
-			</div>
-			{% else %}
-			<div class="col-lg-4 col-md-6">
 				<label for="" class="form-label">Loan Payment Status</label>
-				<input type="text" class="form-control" value="--" disabled>
+				<input type="text" class="form-control" value="{{loan.loan_tag}}" disabled>
 			</div>
 			{% endif %}
 		</div>
