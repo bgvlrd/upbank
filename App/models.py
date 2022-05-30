@@ -6,10 +6,21 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class BankAccount(models.Model):
     account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
     balance        = models.DecimalField(max_digits = 11, decimal_places = 2)
+    account_number_derived = models.CharField(max_length=11)
+    
+    def save(self, *args, **kwargs):
+        super(BankAccount, self).save(*args, **kwargs)
+        user = User.objects.get(bankaccount__account_number=self.account_number)
+        self.account_number_derived = str(abs(hash(user.username)))[0:11]
+        super(BankAccount, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'Account ID {self.account_number_derived}'
+
 
     bank_status_choices = [
         ('Active', 'Active'),
-		('Closed', 'Closed')
+        ('Closed', 'Closed')
     ]
     
     bank_status     = models.CharField(choices = bank_status_choices, max_length = 10)

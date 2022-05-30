@@ -12,9 +12,12 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from .models import *
 from .forms import *
 from decimal import *
+from datetime import datetime
 
 # Create your views here.
 
@@ -98,17 +101,48 @@ def applicant_information_view(request, *args, **kwargs):
 def borrower_information_view(request, *args, **kwargs):
 	return render(request, "borrower_information.html", {})
 
+
 @login_required
 def fund_deposit_view(request, *args, **kwargs):
-	return render(request, "fund_deposit.html", {})
+	acct = BankAccount.objects.filter(account_number=request.user.id).values()[0]
+	user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
 
-@login_required
-def fund_deposit_review(request, *args, **kwargs):
-	return render(request, "fund_deposit_review.html", {})
+	full_name = user_name[0] + " " + user_name[1]
+	context = {
+		'bank_account' : acct,
+		'full_name' : full_name
+	}
+	print(full_name)
+	return render(request, "fund_deposit.html", context)
 
-@login_required
-def fund_deposit_success(request, *args, **kwargs):
-	return render(request, "fund_deposit_success.html", {})
+
+@csrf_exempt
+def add_deposit(request):
+	if request.method == 'POST':
+		amt = request.POST.get('amt')
+		
+		acct = BankAccount.objects.get(account_number=request.user.id)
+		acct.balance += Decimal(amt)
+		acct.save()
+
+		user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
+		full_name = user_name[0] + " " + user_name[1]
+		
+		today = datetime.now()
+		
+		context = JsonResponse({
+			'account_number': acct.account_number_derived,
+			'amt_deposited': amt,
+			'balance': acct.balance,
+			'full_name' : full_name,
+			'date': today.strftime("%B %d, %Y"),
+			'time': today.strftime("%H:%M:%S")
+		})
+
+		return context
+
+	return HttpResponse(status=500)
+		
 
 # Borrower's Views
 @login_required

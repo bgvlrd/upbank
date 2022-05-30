@@ -25,8 +25,7 @@ urlpatterns = [
     path('contact-us/', views.contact_us_view, name="contact_us"),
     path('loan-calculator/', views.loan_calculator_view, name='loan-calculator'),
     path('fund-deposit/', views.fund_deposit_view, name="fund_deposit"),
-    path('fund-deposit-review/', views.fund_deposit_review, name="fund_deposit_review"),
-    path('fund-deposit-success/', views.fund_deposit_success, name="fund_deposit_success"),
+    path('add-deposit/', views.add_deposit, name="add_deposit"),
 
     # Login/Register
     path('accounts/', include('accounts.urls')),
