@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class BankAccount(models.Model):
     account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
     balance        = models.DecimalField(max_digits = 11, decimal_places = 2)
-    account_number_derived = models.CharField(max_length=11)
+    account_number_derived = models.CharField(max_length=11, blank = True, null = True)
     
     def save(self, *args, **kwargs):
         super(BankAccount, self).save(*args, **kwargs)
@@ -342,6 +342,7 @@ class LoanApplication(models.Model):
     car_model           = models.CharField(max_length = 50)
     year_model          = models.IntegerField()
     vehicle_type        = models.CharField(choices = vehicle_type_choices, max_length = 15, verbose_name = "Type of Vehicle")
+    rejection_reason    = models.CharField(max_length=400, blank = True, null = True)
 
 class Loan(models.Model):
     loan_account_no         = models.OneToOneField(LoanApplication, on_delete = models.CASCADE, primary_key = True)
@@ -349,10 +350,11 @@ class Loan(models.Model):
     loan_tag_choices = [
         ('Completed', 'Completed'),
         ('Delinquent', 'Delinquent'),
-        ('In Loan Default', 'In Loan Default')
+        ('In Loan Default', 'In Loan Default'),
+        ('Ongoing', 'Ongoing')
     ]
     
-    loan_tag                = models.CharField(choices = loan_tag_choices, max_length = 20, default = "Completed")
+    loan_tag                = models.CharField(choices = loan_tag_choices, max_length = 20, default = "Ongoing")
 
     total_term_choices = [
         (12, '12 Months'),
@@ -366,7 +368,7 @@ class Loan(models.Model):
     selling_prize           = models.DecimalField(max_digits=10, decimal_places=2)
     downpayment_percent     = models.PositiveSmallIntegerField(validators=[MinValueValidator(20), MaxValueValidator(100)], verbose_name="Downpayment (in percent)")
     downpayment             = models.DecimalField(max_digits=10, decimal_places=2)
-    total_term              = models.IntegerField(choices=total_term_choices)
+    total_term              = models.IntegerField(choices=total_term_choices, verbose_name="Payment Term")
     term_remaining          = models.IntegerField()
     amount_financed         = models.DecimalField(max_digits=10, decimal_places=2)
     aor                     = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Add-on Rate (AOR)") #already in percent
