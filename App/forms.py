@@ -6,7 +6,7 @@ from App.models import *
 class LoanApplicationForm(ModelForm):
     class Meta:
         model = LoanApplication
-        exclude = ['account_no', 'application_status']
+        exclude = ['account_no', 'application_status', 'rejection_reason']
 
 class LoanForm(ModelForm):
     class Meta:
