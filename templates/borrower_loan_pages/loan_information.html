@@ -13,7 +13,7 @@
 
 		<div class="row g-2 mt-4">
 			<div class="col-md-4 col-sm-6 col-12">
-				<h2 class="table-title mb-0">Loan Application No: {{loanapp.pk}}</h2>
+				<h2 class="table-title mb-0">Loan Application No: {{loanapp.loan_account_no_hashed}}</h2>
 			</div>
 			<div class="col-md-8 text-md-end text-sm-end col-sm-6 col-12">
 				<a class="btn py-2 px-auto" id="download_btn" href="#"> Download
@@ -54,7 +54,7 @@
 			</div>
 			<div class="col-lg-2 col-md-4">
 				<label for="" class="form-label">Application No.</label>
-				<input type="text" class="form-control" value="{{loanapp.pk}}" disabled>
+				<input type="text" class="form-control" value="{{loanapp.loan_account_no_hashed}}" disabled>
 			</div>
 		</div>
 		<div class="row g-3 mb-3">
@@ -118,10 +118,10 @@
 			</div>
 			{% endif %}
 		</div>
-		{% if loanapp.application_status == "Denied" %}
+		{% if loanapp.application_status == "Rejected" %}
 		<div class="row g-3 mb-3">
 			<div class="col-lg-12 col-md-6">
-		  		<label for="" class="form-label">Reason for Denial of Application</label>
+		  		<label for="" class="form-label">Reason for Rejection of Application</label>
 		  		<input type="text" class="form-control" value="{{loanapp.rejection_reason}}" disabled>
 			</div>
 		</div>

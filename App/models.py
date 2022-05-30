@@ -318,7 +318,7 @@ class LoanApplication(models.Model):
 
     application_status_choices = [
         ('Approved', 'Approved'),
-        ('Denied', 'Denied'),
+        ('Rejected', 'Rejected'),
         ('For Review', 'For Review')
     ]
     

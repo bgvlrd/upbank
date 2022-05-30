@@ -198,7 +198,6 @@ def borrower_loanlist(request):
 def loan_information_view(request, pk):
 	try:
 		loanapp = LoanApplication.objects.get(account_no = request.user, pk = pk)
-		print(loanapp.loan_type)
 		loan = Loan.objects.get(loan_account_no = loanapp.loan_account_no)
 	except:
 		messages.error(request, "Access denied or the page does not exist!")
