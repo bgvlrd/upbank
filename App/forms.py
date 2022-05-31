@@ -7,7 +7,7 @@ from django import forms
 class LoanApplicationForm(ModelForm):
     class Meta:
         model = LoanApplication
-        exclude = ['account_no', 'application_status', 'rejection_reason']
+        exclude = ['account_no', 'application_status', 'rejection_reason', 'loan_account_no_hashed']
 
 class LoanForm(ModelForm):
     class Meta:

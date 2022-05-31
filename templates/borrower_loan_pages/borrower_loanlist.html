@@ -68,7 +68,7 @@
 						  <tbody id="tableSearch">
 							{% for loanapp, loan in myloans %}
 							<tr onclick="document.location='{% url 'loan-information' loanapp.pk %}'" style="cursor: pointer;">
-						    	<td>{{loanapp.pk}}</td>
+						    	<td>{{loanapp.loan_account_no_hashed}}</td>
 								<td>{{loan.amount_financed}}</td>
 								<td>{{loanapp.date_of_application}}</td>
 								<td>{{loanapp.application_status}}</td>
