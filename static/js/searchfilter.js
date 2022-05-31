@@ -1,62 +1,53 @@
 $(document).ready(function(){
+
     $("#nameFilter").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#tableSearch tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(this).toggle($(this).find("td:eq(1)").text().toLowerCase().indexOf(value) > -1)
         });
     });
-});
 
-$(document).ready(function(){
+    $("#amountFilter").on("change", function() {
+        var amountFilter = $(this).val().toLowerCase();
+        var amount1, amount2
+        if (amountFilter == '≤ 1,000,000') {
+            amount1 = 0
+            amount2 = 1000000
+        }else if (amountFilter == '1,000,000 to 5,000,000') {
+            amount1 = 1000000
+            amount2 = 5000000
+        }else if (amountFilter == '≥ 5,000,000') {
+            amount1 = 5000000
+            amount2 = Number.MAX_SAFE_INTEGER
+        }
+
+        $("#tableSearch tr td:nth-child(3):visible").each( function() {
+          var value = this.textContent.replace('$', '');
+          console.log("amount1: " + amount1)
+          console.log("amount2: " + amount2)
+          console.log("row value: " + value)
+          if (value >= amount1 && value <= amount2) {
+            $(this).closest('tr').show();
+          } else {
+            $(this).closest('tr').hide();
+          }
+        })
+   
+    });
+
+    // $("#tagFilter").on("change", function() {
+    //     var value = $(this).val().toLowerCase();
+    //     $("#tableSearch tr").filter(function() {
+    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //     });
+    // });
+
     $("#tagFilter").on("change", function() {
         var value = $(this).val().toLowerCase();
         $("#tableSearch tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(this).toggle($(this).find("td:eq(4)").text().toLowerCase().indexOf(value) > -1)
         });
     });
+
 });
 
-$(document).ready(function(){
-    $("#amountFilter").on("change", function() {
-        var value = $(this).val().toLowerCase();
-        var loan_tag = $("#tagFilter").val();
-        if (value == 'less 1,000,000') {
-            var amount1 = 0
-            var amount2 = 1000000
-        }
-        if (value == '2,000,000 to 5,000,000') {
-            var amount1 = 2000000
-            var amount2 = 5000000
-        }
-        if (value == 'more 5,000,000') {
-            var amount1 = 5000000
-            var amount2 = Number.MAX_SAFE_INTEGER
-        }
-        var table = document.getElementById("myTable")
-
-        for (var i = 1, row; row = table.rows[i]; i++) {
-           //iterate through rows (we SKIP the first row: counter starts at 1!)
-              for (var j = 0, col; col = row.cells[j]; j++) {
-
-                   if (j == 2) {    
-                       var curr_loan_tag = row.cells[4].innerText 
-                       if (loan_tag = "Loan Tag") {
-                            if (parseInt($(col).html().replace(/,/g, '')) >= amount1 && parseInt($(col).html().replace(/,/g, '')) <= amount2) {
-                                $(row).show();
-                            }
-                            else {
-                                $(row).hide();
-                            }
-                           
-                       } 
-                       else if (parseInt($(col).html().replace(/,/g, '')) >= amount1 && parseInt($(col).html().replace(/,/g, '')) <= amount2) {
-                           $(row).show();
-                       } 
-                       else {
-                           $(row).hide();
-                       }
-                }
-               }  
-        }   
-    });
-});
