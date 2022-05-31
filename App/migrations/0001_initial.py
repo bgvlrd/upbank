@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
             name='LoanApplication',
             fields=[
                 ('loan_account_no', models.AutoField(primary_key=True, serialize=False)),
+                ('loan_account_ref_no', models.CharField(max_length=8, blank=True, editable=False, unique=True, null=True)),
                 ('application_status', models.CharField(choices=[('Approved', 'Approved'), ('Denied', 'Denied'), ('For Review', 'For Review')], default='For Review', max_length=15)),
                 ('loan_type', models.CharField(choices=[('Personal', 'Personal'), ('Business', 'Business'), ('Public Use', 'Public Use'), ('Others', 'Others')], max_length=15, verbose_name='Purpose of Loan')),
                 ('date_of_application', models.DateField(auto_now_add=True)),

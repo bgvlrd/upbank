@@ -150,6 +150,6 @@ class OTCPayForm(ModelForm):
         fields = '__all__'
 
         widgets = {
-            'loan_account_no_hashed': forms.Select(attrs={'class': 'form-control inputs'}),
+            'loan_account_ref_no': forms.Select(attrs={'class': 'form-control inputs'}),
             'amount_paid': forms.NumberInput(attrs={'class': 'form-control inputs', 'id':'amt'})
         }

@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+import random
 
 class BankAccount(models.Model):
     account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
@@ -304,17 +305,22 @@ class CreditBankReferences(models.Model):
     bank_monthly_amortization  = models.IntegerField(verbose_name = "Monthly Amortization")
     bank_maturity_date         = models.DateField(verbose_name = "Maturity Date")
 
-class LoanApplication(models.Model): 
+class LoanApplication(models.Model):
+    # Create a 9-digit unique reference number
+    def create_unique_number():
+        not_unique = True
+        while not_unique:
+            unique_ref = random.randint(100000000, 999999999)
+            if not LoanApplication.objects.filter(loan_account_no=unique_ref):
+                not_unique = False
+        return str(unique_ref)
+
     loan_account_no = models.AutoField(primary_key = True)
     account_no      = models.ForeignKey(User, db_column = "id", on_delete = models.PROTECT)
-    loan_account_no_hashed = models.CharField(max_length=11, blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        self.loan_account_no_hashed = str(abs(hash(self.loan_account_no)) % (10 ** 9))
-        super(LoanApplication, self).save(*args, **kwargs)
+    loan_account_ref_no = models.CharField(max_length=8, blank=True, editable=False, unique=True, null=True, default=create_unique_number)
 
     def __str__(self):
-        return self.loan_account_no_hashed
+        return self.loan_account_ref_no
 
     application_status_choices = [
         ('Approved', 'Approved'),
@@ -386,7 +392,7 @@ class Loan(models.Model):
 class OTCPayment(models.Model):
     otc_payment_id      = models.AutoField(primary_key=True)
 
-    loan_account_no_hashed = models.ForeignKey(LoanApplication, db_column="loan_account_no_hashed", on_delete=models.PROTECT)
+    loan_account_ref_no = models.ForeignKey(LoanApplication, db_column="loan_account_ref_no", on_delete=models.PROTECT)
     transaction_date    = models.DateField()
     amount_paid         = models.DecimalField(max_digits = 11, decimal_places = 2)
 

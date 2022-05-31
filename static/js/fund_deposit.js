@@ -18,6 +18,23 @@ $("#submit-button").click(function(){
 });
 
 
+$("#fill-button").click(function(){
+	if ($('#amt').val() != '' && $('#amt').val() > 0 && $("#loan-number :selected").val() > 0){
+		$(".error").addClass("d-none");
+		$(".fill").addClass("d-none");
+		$(".review").removeClass("d-none");
+
+		var loan = $("#loan-number :selected").text();
+		console.log("LOAN:" + loan);
+        var amt = $("#amt").val();
+
+        $("#loan-number-review").text(loan.toString());
+		$("#amt-review").text("PHP " + amt.toString());
+	} else {
+		$(".error").removeClass("d-none");
+	}
+});
+
 $("#back-button").click(function(){
 	$(".review").addClass("d-none");
 	$(".fill").removeClass("d-none");
