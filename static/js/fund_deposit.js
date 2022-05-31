@@ -2,7 +2,6 @@
 $('.holder').val(full_name);
 $('.acctnumber').val(account_number);
 
-const element = document.querySelector('#side-image-1');
 $("#submit-button").click(function(){
 
 	if ($('#amt').val() != '' && $('#amt').val() > 0){
