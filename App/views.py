@@ -285,16 +285,48 @@ def applyforLoan(request):
 @login_required
 def otc_payment(request, *args, **kwargs):
 	now = datetime.now()
-	transaction_date = now.strftime("%B %m, %Y %H:%M")
+	transaction_date = now.strftime("%B %m, %Y")
 	print(transaction_date)
+
+	valid_otc_payer = Loan.objects.filter(loan_tag = "Delinquent") | Loan.objects.filter(loan_tag = "In Loan Default")
+	print(valid_otc_payer[1].amount_financed)
+
 
 	form = OTCPayForm()
 
 	context = {
 		'transaction_date' : transaction_date,
+		'valid_otc_payer': valid_otc_payer,
 		'form': form
 	}
 	return render(request, "otc_payment.html", context)
+
+
+def add_deposit(request):
+	if request.method == 'POST':
+		amt = request.POST.get('amt')
+
+		acct = BankAccount.objects.get(account_number=request.user.id)
+		acct.balance += Decimal(amt)
+		acct.save()
+
+		user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
+		full_name = user_name[0] + " " + user_name[1]
+
+		today = datetime.now()
+
+		context = JsonResponse({
+			'account_number': acct.account_number_derived,
+			'amt_deposited': amt,
+			'balance': acct.balance,
+			'full_name': full_name,
+			'date': today.strftime("%B %d, %Y"),
+			'time': today.strftime("%H:%M:%S")
+		})
+
+		return context
+
+	return HttpResponse(status=500)
 
 # Landing
 @anonymous_required(redirect_url='/dashboard')

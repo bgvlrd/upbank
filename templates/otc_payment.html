@@ -17,8 +17,14 @@
 					<h2 class="center">Over The Counter Loan Payment Form</h2>
 					<br>
 					<div class="form-group col-lg-16">
-						<label for="loan-number" class="form-label">LoanAccount Number</label>
-						<p id="loan-number"> {{form.loan_account_ref_no}} </p>
+						<label for="loan-number" class="form-label">Loan Account Number</label>
+						<select id="loan-number" class="form-control inputs date">
+								<option value="" selected disabled hidden>Choose from delinquent and default loans</option>
+							{% for payer in valid_otc_payer %}
+								<option>{{payer.loan_account_no}}</option>
+							{% endfor %}
+						</select>
+
                         <br>
 						<label for="date" class="form-label">Transaction Date</label>
 						<input type="text" class="form-control inputs date" value="{{transaction_date}}" disabled>
@@ -80,7 +86,7 @@
 					<div class="d-flex justify-content-center">
 						<button type="button" id="back-button" class="center back button-form">Back</button>
 						&nbsp &nbsp &nbsp
-						<button type="submit" id="submit-final" class="center button-form">Continue</button>
+						<button type="submit" id="otc-submit-final" class="center button-form">Continue</button>
 					</div>
 
 				</div>
@@ -204,9 +210,9 @@
 </div>
 </div>
 <script>
-	var full_name = "{{full_name}}";
+	var date = "{{transaction_date}}";
 	var account_number = "{{bank_account.account_number_derived}}";
-	var deposit_url = "{% url 'add_deposit' %}";
+	var payment_url = "{% url 'add_otc_payment' %}";
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
