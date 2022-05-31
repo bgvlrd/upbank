@@ -17,20 +17,14 @@
 					<h2 class="center">Over The Counter Loan Payment Form</h2>
 					<br>
 					<div class="form-group col-lg-16">
-						<label for="loan-number" class="form-label">Loan Account Number</label>
-						<select id="loan-number" class="form-control inputs date">
-								<option value="" selected disabled hidden>Choose from delinquent and default loans</option>
-							{% for payer in valid_otc_payer %}
-								<option>{{payer.loan_account_no}}</option>
-							{% endfor %}
-						</select>
-
+						<label for="loan-number" class="form-label">LoanAccount Number</label>
+						<p id="loan-number"> {{form.loan_account_ref_no}} </p>
                         <br>
 						<label for="date" class="form-label">Transaction Date</label>
 						<input type="text" class="form-control inputs date" value="{{transaction_date}}" disabled>
 						<br>
 						<label for="amt" class="form-label">Amount Paid</label>
-						<p id="amt"> {{form.amount_paid}} </p>
+						<p> {{form.amount_paid}} </p>
 						<span class="error d-none">
 							Please enter the loan account number and amount paid.
 						</span>
@@ -86,7 +80,7 @@
 					<div class="d-flex justify-content-center">
 						<button type="button" id="back-button" class="center back button-form">Back</button>
 						&nbsp &nbsp &nbsp
-						<button type="submit" id="otc-submit-final" class="center button-form">Continue</button>
+						<button type="submit" id="submit-final" class="center button-form">Continue</button>
 					</div>
 
 				</div>
@@ -210,7 +204,9 @@
 </div>
 </div>
 <script>
-
+	var full_name = "{{full_name}}";
+	var account_number = "{{bank_account.account_number_derived}}";
+	var deposit_url = "{% url 'add_deposit' %}";
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
