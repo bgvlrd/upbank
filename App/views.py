@@ -148,7 +148,7 @@ def fund_deposit_view(request, *args, **kwargs):
 		'bank_account' : acct,
 		'full_name' : full_name
 	}
-	print(full_name)
+	
 	return render(request, "fund_deposit.html", context)
 
 
@@ -172,7 +172,7 @@ def add_deposit(request):
 			'balance': acct.balance,
 			'full_name' : full_name,
 			'date': today.strftime("%B %d, %Y"),
-			'time': today.strftime("%H:%M:%S")
+			'time': today.strftime("%H:%M:%S %p")
 		})
 
 		return context

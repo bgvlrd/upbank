@@ -5,9 +5,18 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 import random
 
 class BankAccount(models.Model):
+    # Create a 9-digit unique account number
+    def create_unique_number():
+        not_unique = True
+        while not_unique:
+            unique_no = random.randint(100000000, 999999999)
+            if not BankAccount.objects.filter(account_number_derived=unique_no):
+                not_unique = False
+        return str(unique_no)
+
     account_number = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
     balance        = models.DecimalField(max_digits = 11, decimal_places = 2)
-    account_number_derived = models.CharField(max_length=11, blank = True, null = True)
+    account_number_derived = models.CharField(max_length=8, blank=True, editable=False, unique=True, null=True, default=create_unique_number)
     
     def save(self, *args, **kwargs):
         super(BankAccount, self).save(*args, **kwargs)
