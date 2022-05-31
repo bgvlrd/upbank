@@ -16,24 +16,6 @@ $("#submit-button").click(function(){
 	}		
 });
 
-
-$("#fill-button").click(function(){
-	if ($('#amt').val() != '' && $('#amt').val() > 0 && $("#loan-number :selected").val() > 0){
-		$(".error").addClass("d-none");
-		$(".fill").addClass("d-none");
-		$(".review").removeClass("d-none");
-
-		var loan = $("#loan-number :selected").text();
-		console.log("LOAN:" + loan);
-        var amt = $("#amt").val();
-
-        $("#loan-number-review").text(loan.toString());
-		$("#amt-review").text("PHP " + amt.toString());
-	} else {
-		$(".error").removeClass("d-none");
-	}
-});
-
 $("#otc-fill-button").click(function(){
 	if ($("#loan-number :selected").val() > 0){
 		$(".error").addClass("d-none");
@@ -98,22 +80,29 @@ $("#submit-final").click(function(e){
 	});
 });
 
-$("#otc-submit-final").click(function(e){
+
+$("#confirm-otc-final").click(function(e){
+	e.preventDefault();
+
 	e.preventDefault();
 
 	$.ajax({
 		type: 'POST',
-		url: otc_url,
+		url: confirm_otc_url,
 		data: {
-			amt: $("#amt").val(),
-			loan_account_no: $("#loan-number :selected").text()
+			loan_account_no: $("#loan-number-review").text()
 		},
 		success:function(data){
 			$(".review").addClass("d-none");
 			$(".success-submit").removeClass("d-none");
+			$("#loan-number-success").text(data["loan_account_no"]);
+			$("#amount-paid-success").text("PHP " + data["to_pay"]);
+
+
 		},
 		error: function() {
 			swal("Something's wrong.", "There is an error with the server. Try again later.", "error");
 		}
 	});
 });
+

@@ -302,7 +302,6 @@ def otc_payment(request, *args, **kwargs):
 @csrf_exempt
 def add_otc_payment(request):
 	if request.method == 'POST':
-		amt = request.POST.get('amt')
 		loan_account_no = request.POST.get('loan_account_no')
 
 
@@ -322,6 +321,38 @@ def add_otc_payment(request):
 			'loan_account_no': loan_account_no,
 			'date': today.strftime("%B %d, %Y"),
 			'time': today.strftime("%H:%M:%S %p")
+		})
+
+		return context
+
+	return HttpResponse(status=500)
+
+@csrf_exempt
+def confirm_otc_payment(request):
+	if request.method == 'POST':
+		loan_account_no = request.POST.get('loan_account_no')
+		print(loan_account_no)
+
+		loan_account_id = LoanApplication.objects.get(loan_account_ref_no = loan_account_no).loan_account_no
+		loan_account = Loan.objects.get(loan_account_no=loan_account_id)
+
+		monthly_amortization = loan_account.monthly_amortization
+		months_missed = loan_account.months_missed_counter
+		to_pay = monthly_amortization * months_missed
+
+		# Continue loan since it is already paid
+		loan_account.loan_tag = 'Ongoing'
+		loan_account.save()
+		loan_account.term_remaining = loan_account.term_remaining - loan_account.months_missed_counter
+		loan_account.save()
+		loan_account.months_missed_counter = 0
+		loan_account.save()
+
+		today = datetime.now()
+
+		context = JsonResponse({
+			'to_pay': to_pay,
+			'loan_account_no': loan_account_no,
 		})
 
 		return context

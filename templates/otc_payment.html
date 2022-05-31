@@ -51,7 +51,7 @@
 						</div>
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4 class="grey-font">Loan Account</h4>
+								<h4 class="grey-font">Loan Account Number</h4>
 							</div>
 							<div class="col-8">
 								<h4 id="loan-number-review"></h4>
@@ -64,7 +64,7 @@
 								<h4 class="grey-font">Transaction Date</h4>
 							</div>
 							<div class="col-8">
-								<h4 id="holder">{{transaction_date}}</h4>
+								<h4 id="transaction-date">{{transaction_date}}</h4>
 							</div>
 							<hr>
 						</div>
@@ -99,7 +99,7 @@
 					<div class="d-flex justify-content-center">
 						<button type="button" id="back-button" class="center back button-form">Back</button>
 						&nbsp &nbsp &nbsp
-						<button type="submit" id="otc-submit-final" class="center button-form">Confirm</button>
+						<button type="submit" id="confirm-otc-final" class="center button-form">Confirm</button>
 					</div>
 
 				</div>
@@ -131,7 +131,7 @@
 								<h4 class="grey-font">Amount Paid</h4>
 							</div>
 							<div class="col-8">
-								<h4 id="loan-number-success"></h4>
+								<h4 id="amount-paid-success"></h4>
 							</div>
 						</div>
 					</div>
@@ -215,6 +215,7 @@
 	var transaction_date = "{{transaction_date}}";
 	var account_number = "{{bank_account.account_number_derived}}";
 	var otc_url = "{% url 'add_otc_payment' %}";
+	var confirm_otc_url = "{% url 'confirm_otc_payment' %}";
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
