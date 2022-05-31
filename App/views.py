@@ -163,7 +163,7 @@ def add_deposit(request):
 
 		user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
 		full_name = user_name[0] + " " + user_name[1]
-		
+
 		today = datetime.now()
 		
 		context = JsonResponse({
@@ -285,16 +285,48 @@ def applyforLoan(request):
 @login_required
 def otc_payment(request, *args, **kwargs):
 	now = datetime.now()
-	transaction_date = now.strftime("%B %m, %Y %H:%M")
-	print(transaction_date)
+	transaction_date = now.strftime("%B %d, %Y")
+
+	valid_otc_payer = Loan.objects.filter(loan_tag="Delinquent") | Loan.objects.filter(loan_tag="In Loan Default")
 
 	form = OTCPayForm()
 
 	context = {
 		'transaction_date' : transaction_date,
+		'valid_otc_payer': valid_otc_payer,
 		'form': form
 	}
 	return render(request, "otc_payment.html", context)
+
+
+@csrf_exempt
+def add_otc_payment(request):
+	if request.method == 'POST':
+		amt = request.POST.get('amt')
+		loan_account_no = request.POST.get('loan_account_no')
+
+
+		loan_account_id = LoanApplication.objects.get(loan_account_ref_no = loan_account_no).loan_account_no
+		loan_account = Loan.objects.get(loan_account_no=loan_account_id)
+
+		monthly_amortization = loan_account.monthly_amortization
+		months_missed = loan_account.months_missed_counter
+		to_pay = monthly_amortization * months_missed
+
+		today = datetime.now()
+
+		context = JsonResponse({
+			'to_pay': to_pay,
+			'months_missed': months_missed,
+			'monthly_amortization': monthly_amortization,
+			'loan_account_no': loan_account_no,
+			'date': today.strftime("%B %d, %Y"),
+			'time': today.strftime("%H:%M:%S %p")
+		})
+
+		return context
+
+	return HttpResponse(status=500)
 
 # Landing
 @anonymous_required(redirect_url='/dashboard')

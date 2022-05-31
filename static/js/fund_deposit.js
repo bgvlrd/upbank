@@ -34,6 +34,36 @@ $("#fill-button").click(function(){
 	}
 });
 
+$("#otc-fill-button").click(function(){
+	if ($("#loan-number :selected").val() > 0){
+		$(".error").addClass("d-none");
+		$(".fill").addClass("d-none");
+		$(".review").removeClass("d-none");
+
+		var loan = $("#loan-number :selected").text();
+
+        $("#loan-number-review").text(loan.toString());
+
+        $.ajax({
+            type: 'POST',
+            url: otc_url,
+            data: {
+                loan_account_no: $("#loan-number :selected").text()
+            },
+            success:function(data){
+                $(".review").addClass("d-none");
+                $(".review").removeClass("d-none");
+            },
+            error: function() {
+                swal("Something's wrong.", "There is an error with the server. Try again later.", "error");
+            }
+        });
+
+	} else {
+		$(".error").removeClass("d-none");
+	}
+});
+
 $("#back-button").click(function(){
 	$(".review").addClass("d-none");
 	$(".fill").removeClass("d-none");
@@ -58,6 +88,26 @@ $("#submit-final").click(function(e){
 			$("#acctnumber-success").text(data["account_number"]);
 			$("#amt-success").text("PHP " + data["amt_deposited"]);
 			$("#balance-success").text("PHP " + data["balance"]);
+		},
+		error: function() {
+			swal("Something's wrong.", "There is an error with the server. Try again later.", "error");
+		}
+	});
+});
+
+$("#otc-submit-final").click(function(e){
+	e.preventDefault();
+
+	$.ajax({
+		type: 'POST',
+		url: otc_url,
+		data: {
+			amt: $("#amt").val(),
+			loan_account_no: $("#loan-number :selected").text()
+		},
+		success:function(data){
+			$(".review").addClass("d-none");
+			$(".success-submit").removeClass("d-none");
 		},
 		error: function() {
 			swal("Something's wrong.", "There is an error with the server. Try again later.", "error");
