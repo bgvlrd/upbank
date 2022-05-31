@@ -302,7 +302,7 @@ def otc_payment(request, *args, **kwargs):
 	return render(request, "otc_payment.html", context)
 
 
-def add_deposit(request):
+def add_otc_payment(request):
 	if request.method == 'POST':
 		amt = request.POST.get('amt')
 
