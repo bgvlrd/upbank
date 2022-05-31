@@ -53,6 +53,9 @@ $("#otc-fill-button").click(function(){
             success:function(data){
                 $(".review").addClass("d-none");
                 $(".review").removeClass("d-none");
+                $("#amt-review").text("PHP " + data["to_pay"]);
+                $("#monthly-amortization-review").text("PHP " + data["monthly_amortization"]);
+                $("#months-missed-review").text(data["months_missed"]);
             },
             error: function() {
                 swal("Something's wrong.", "There is an error with the server. Try again later.", "error");

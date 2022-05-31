@@ -25,12 +25,9 @@
 							{% endfor %}
 						</select>
                         <br>
-						<label for="date" class="form-label">Transaction Date</label>
-						<input type="text" class="form-control inputs date" value="{{transaction_date}}" disabled>
-						<br>
 
 						<span class="error d-none">
-							Please enter the loan account number and amount paid.
+							Please enter the loan account number of borrower.
 						</span>
 					</div>
 					<br>
@@ -58,7 +55,7 @@
 							</div>
 							<div class="col-8">
 								<h4 id="loan-number-review"></h4>
-								<h4 id="account" class="grey-font">UPBank Account</h4>
+								<h4 id="account" class="grey-font">UPBank Loan Account</h4>
 							</div>
 							<hr>
 						</div>
@@ -73,62 +70,68 @@
 						</div>
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4 class="grey-font">Amount</h4>
+								<h4 class="grey-font">Monthly Amortization</h4>
+							</div>
+							<div class="col-8">
+								<h4 id="monthly-amortization-review" style="font-weight:100;"></h4>
+							</div>
+							<hr>
+							<div class="col-4">
+								<h4 class="grey-font">Months Missed</h4>
+							</div>
+							<div class="col-8">
+								<h4 id="months-missed-review" style="font-weight:100;"></h4>
+							</div>
+							<hr>
+						</div>
+						<div class="row gx-5">
+							<div class="col-4">
+								<h4 class="grey-font">Total Amount To Pay</h4>
 							</div>
 							<div class="col-8">
 								<h4 id="amt-review"></h4>
 							</div>
 						</div>
 					</div>
-					<br><br>
+					<br>
+					<h4 class="grey-font">Confirm that the borrower has paid the exact total amount over-the-counter.</h4>
+					<br>
 					<div class="d-flex justify-content-center">
 						<button type="button" id="back-button" class="center back button-form">Back</button>
 						&nbsp &nbsp &nbsp
-						<button type="submit" id="otc-submit-final" class="center button-form">Continue</button>
+						<button type="submit" id="otc-submit-final" class="center button-form">Confirm</button>
 					</div>
 
 				</div>
 				<div class="success-submit d-none animate__animated animate__fadeIn">
-					<h2 class="center">Transaction Details</h2>
+					<h2 class="center">OTC Payment Details</h2>
 					<br>
 					<div class="container-fluid">
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4 class="grey-font">Date & Time</h4>
+								<h4 class="grey-font">Loan Account Number</h4>
 							</div>
 							<div class="col-8">
-								<h4 id="date-success"></h4>
-								<h4 id="time-success" class="grey-font"></h4>
+								<h4 id="loan-number-success"></h4>
+								<h4 id="account" class="grey-font">UPBank Loan Account</h4>
 							</div>
+							<hr>
 						</div>
-						<hr>
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4 class="grey-font">Account Details</h4>
+								<h4 class="grey-font">Transaction Date</h4>
 							</div>
 							<div class="col-8">
-								<h4 id="holder-success"></h4>
-								<h4 id="account-type-success" class="grey-font">UPBank Account</h4>
-								<h4 id="acctnumber-success" class="grey-font"></h4>
+								<h4>{{transaction_date}}</h4>
 							</div>
-
+							<hr>
 						</div>
-						<hr>
 						<div class="row gx-5">
 							<div class="col-4">
-								<h4 class="grey-font">Amount Deposited</h4>
+								<h4 class="grey-font">Amount Paid</h4>
 							</div>
 							<div class="col-8">
-								<h4 id="amt-success"></h4>
-							</div>
-						</div>
-						<hr>
-						<div class="row gx-5">
-							<div class="col-4">
-								<h4 class="grey-font">Total balance</h4>
-							</div>
-							<div class="col-8">
-								<h4 id="balance-success"></h4>
+								<h4 id="loan-number-success"></h4>
 							</div>
 						</div>
 					</div>
