@@ -71,7 +71,7 @@
 						  </thead>
 						  <tbody id="tableSearch">
 						  	{% for loan_app, loan_info, loan_amount in loan_details %}
-						    <tr onclick="document.location='{% url 'applicant-information' loan_app.loan_account_no %}'" style="cursor: pointer;">
+						    <tr onclick="document.location='{% url 'borrower-information' loan_app.loan_account_no %}'" style="cursor: pointer;">
 						    	<td>{{loan_app.loan_account_no}}</td>
 								<td>{{loan_info.full_name}}</td>
 								<td>{{loan_amount.monthly_amortization}}</td>
