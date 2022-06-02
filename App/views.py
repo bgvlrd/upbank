@@ -18,6 +18,8 @@ from .models import *
 from .forms import *
 from decimal import *
 from datetime import datetime
+from datetime import date
+from dateutil import relativedelta
 
 # Create your views here.
 
@@ -119,26 +121,31 @@ def borrower_information_view(request, pk):
 	loan_information = LoanerInformation.objects.filter(account_number = loan_application.account_no).first()
 	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
 
-
-	if request.POST['application-status-button'] =='accepted':
-		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
-		loan_application.application_status = "Accepted"
-		loan_application.save()
-
-	if request.POST['application-status-button'] =='rejected':
-		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
-		loan_application.application_status = "Rejected"
-		loan_application.save()
-
 	context = {
-		'loan_application' : loan_application
-		'loan_information' : loan_information
+		'loan_application' : loan_application,
+		'loan_information' : loan_information,
 		'loan' : loan
 	}
 
 
 
 	return render(request, "borrower_information.html", context)
+
+def approve_loan(request, pk):
+	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
+	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
+	loan_application.application_status = "Approved"
+	loan.next_pay_date = date.today() + relativedelta.relativedelta(months=+1)
+	loan.save()
+	loan_application.save()
+
+	return redirect('dashboard')
+			
+def reject_loan(request, pk):
+	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
+	loan_application.application_status = "Rejected"
+	loan_application.save()
+	return redirect('dashboard')
 
 
 @login_required
