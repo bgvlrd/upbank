@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item mt-2 me-4">
-            {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated and request.user.groups.all.0.name == "Borrower" %}
               <a class="nav-link" href="{% url 'dashboard'%}">Home</a>
             {% else %}
               <a class="nav-link" href="{% url 'landing_page'%}">Home</a>
@@ -50,16 +50,19 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{% url 'loan-calculator' %}">Loan Calculator</a>
-              {% if request.user.is_authenticated %}
+              {% if request.user.groups.all.0.name == "Borrower" %}
                 <a class="dropdown-item" href="{% url 'apply-for-loan' %}">Loan Application</a>
                 <a class="dropdown-item" href="{% url 'borrower-loanlist' %}">Loan Monitoring</a>
                 <a class="dropdown-item" href="{% url 'fund_deposit'%}">Fund Deposit</a>
+              {% elif request.user.groups.all.0.name == "Bank Officer" %}
                 <a class="dropdown-item" href="{% url 'otc_payment'%}">Over the Counter Loan Payment</a>
               {% endif %}
             </div>
           </li>
           <li class="nav-item mt-2 me-4">
+            {% if request.user.is_authenticated == False or request.user.groups.all.0.name == "Borrower" %}
             <a class="nav-link" href="{% url 'contact_us'%}">Contact Us</a>
+            {% endif %}
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

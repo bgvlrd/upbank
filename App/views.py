@@ -68,12 +68,11 @@ def dashboard_pending_view(request, *args, **kwargs):
 	context = {
 		'loan_details' : zip(loan_applications, loaner_information, loan_specific_details)
 	}
-
 	return render(request, "dashboard/dashboard_pending.html", context)
 
 @login_required
 def dashboard_approved_view(request, *args, **kwargs):
-	loan_applications = LoanApplication.objects.filter(application_status = "For Review").order_by('date_of_application')
+	loan_applications = LoanApplication.objects.filter(application_status = "Approved").order_by('date_of_application')
 	loaner_information = []
 	loan_specific_details = []
 
@@ -93,7 +92,7 @@ def dashboard_approved_view(request, *args, **kwargs):
 
 @login_required
 def dashboard_rejected_view(request, *args, **kwargs):
-	loan_applications = LoanApplication.objects.filter(application_status = "For Review").order_by('date_of_application')
+	loan_applications = LoanApplication.objects.filter(application_status = "Rejected").order_by('date_of_application')
 	loaner_information = []
 	loan_specific_details = []
 
@@ -112,41 +111,35 @@ def dashboard_rejected_view(request, *args, **kwargs):
 	return render(request, "dashboard/dashboard_rejected.html", context)
 
 @login_required
-def applicant_information_view(request, *args, **kwargs):
-	return render(request, "applicant_information.html", {})
-
-@login_required
 def borrower_information_view(request, pk):
 	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
-	loan_information = LoanerInformation.objects.filter(account_number = loan_application.account_no).first()
+	loaner_information = LoanerInformation.objects.filter(account_number = loan_application.account_no).first()
 	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
+
+	if request.method == 'POST':
+		if "approve_loan" in request.POST:
+			loan_application.application_status = "Approved"
+			loan.next_pay_date = date.today() + relativedelta.relativedelta(months=+1)
+			loan_application.save()
+			loan.save()
+			messages.success(request, "Loan successfully approved!")
+
+		elif "reject_loan" in request.POST:
+			rejection_reason = request.POST.get('rejection_reason')
+			loan_application.rejection_reason = rejection_reason
+			loan_application.application_status = "Rejected"
+			loan_application.save()
+			messages.success(request, "Loan successfully rejected!")
+		
+		return redirect('dashboard')
 
 	context = {
 		'loan_application' : loan_application,
-		'loan_information' : loan_information,
-		'loan' : loan
+		'loaner_information' : loaner_information,
+		'loan' : loan,
 	}
 
-
-
 	return render(request, "borrower_information.html", context)
-
-def approve_loan(request, pk):
-	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
-	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
-	loan_application.application_status = "Approved"
-	loan.next_pay_date = date.today() + relativedelta.relativedelta(months=+1)
-	loan.save()
-	loan_application.save()
-
-	return redirect('dashboard')
-			
-def reject_loan(request, pk):
-	loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
-	loan_application.application_status = "Rejected"
-	loan_application.save()
-	return redirect('dashboard')
-
 
 @login_required
 def fund_deposit_view(request, *args, **kwargs):

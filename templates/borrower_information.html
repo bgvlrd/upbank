@@ -30,7 +30,7 @@
 
 					<div class="row g-2 mt-4">
 						<div class="col-md-4 col-sm-6 col-12">
-							<h2 class="table-title mb-0">{{loan_information.full_name}}</h2>
+							<h2 class="table-title mb-0">{{loaner_information.full_name}}</h2>
 						</div>
 						<div class="col-md-8 text-md-end text-sm-end col-sm-6 col-12">
 							<a class="btn py-2 px-auto" id="download_btn" href="#"> Download
@@ -43,101 +43,102 @@
 					<div class="row g-3 mb-3">
 						<div class="col-md-4">
 					  		<label for="purpose_of_loan" class="form-label">Purpose of Loan</label>
-					  		<input type="text" class="form-control" value="Personal" disabled>
+					  		<input type="text" class="form-control" value="{{loan_application.loan_type}}" disabled>
 						</div>
 					</div>
 					
-					<!-- show if application_status == 'Approved' -->
-					<!-- <div class="row g-3 mb-3">
+					{% if loan_application.application_status == "Approved" %}
+					<div class="row g-3 mb-3">
 						<div class="col-md-6">
 					  		<label for="" class="form-label">Principal Borrower</label>
-					  		<input type="text" class="form-control" value="Dela Cruz, Juan Reyes" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.full_name}}" disabled>
 						</div>
 						<div class="col-md-6">
 						    <label for="" class="form-label">Co-borrower</label>
-						    <input type="text" class="form-control" value="Dela Cruz, Marietta Mendez" disabled>
+						    <input type="text" class="form-control" value="{{loaner_information.spouse_full_name}}" disabled>
 						</div>
-					</div> -->
+					</div>
+					{% endif %}
 
 					<div class="row g-3 mb-3">
 						<div class="col-lg-2 col-md-6">
 					  		<label for="" class="form-label">Date of Application</label>
-					  		<input type="text" class="form-control" value="04/25/2020" disabled>
+					  		<input type="text" class="form-control" value="{{loan_application.date_of_application}}" disabled>
 						</div>
 						<div class="col-lg-4 col-md-6">
 						    <label for="" class="form-label">Dealer</label>
-						    <input type="text" class="form-control" value="Automotive Icon" disabled>
+						    <input type="text" class="form-control" value="{{loan_application.dealer}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-4">
 							<label for="" class="form-label">Sales Agent</label>
-							<input type="text" class="form-control" value="Gina Bee" disabled>
+							<input type="text" class="form-control" value="{{loan_application.sales_agent}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-4">
 							<label for="" class="form-label">Branch</label>
-							<input type="text" class="form-control" value="Alabang" disabled>
+							<input type="text" class="form-control" value="{{loan_application.branch}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-4">
 							<label for="" class="form-label">Application No.</label>
-							<input type="text" class="form-control" value="123456789" disabled>
+							<input type="text" class="form-control" value="{{loan_application.loan_account_no}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-lg-4 col-md-6">
 					  		<label for="" class="form-label">Brand</label>
-					  		<input type="text" class="form-control" value="Mercedes Benz" disabled>
+					  		<input type="text" class="form-control" value="{{loan_application.car_brand}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-3">
 						    <label for="" class="form-label">Year Model</label>
-						    <input type="text" class="form-control" value="2022" disabled>
+						    <input type="text" class="form-control" value="{{loan_application.year_model}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-3">
 							<label for="" class="form-label">Cash Price</label>
-							<input type="text" class="form-control" value="2,260,000.00" disabled>
+							<input type="text" class="form-control" value="₱{{loan.selling_prize}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-6">
 							<label for="" class="form-label">Downpayment</label>
-							<input type="text" class="form-control" value="670,000.00" disabled>
+							<input type="text" class="form-control" value="₱{{loan.downpayment}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-6">
 							<label for="" class="form-label">Term (in months)</label>
-							<input type="text" class="form-control" value="60" disabled>
+							<input type="text" class="form-control" value="{{loan.total_term}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-lg-4 col-md-6">
 					  		<label for="" class="form-label">Model</label>
-					  		<input type="text" class="form-control" value="2022 A 180 Progressive" disabled>
+					  		<input type="text" class="form-control" value="{{loan_application.car_model}}" disabled>
 						</div>
 						<div class="col-lg-4 col-md-6">
 						    <label for="" class="form-label">Type of Vehicle</label>
-						    <input type="text" class="form-control" value="Brand New" disabled>
+						    <input type="text" class="form-control" value="{{loan_application.vehicle_type}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-6">
 							<label for="" class="form-label">Amount Financed</label>
-							<input type="text" class="form-control" value="1,833,000.00" disabled>
+							<input type="text" class="form-control" value="₱{{loan.amount_financed}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-6">
 							<label for="" class="form-label">Add-on Rate (AOR)</label>
-							<input type="text" class="form-control" value="5.25%" disabled>
+							<input type="text" class="form-control" value="{{loan.aor}}%" disabled>
 						</div>
 					</div>
 
-					<!-- show if application_status == 'Approved' -->
-					<!-- <div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
+					{% if loan_application.application_status == "Approved" %}
+					<div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
 					  <h6>AUTO DEBIT DETAILS</h6>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-lg-4">
 					  		<label for="" class="form-label">Bank-Account Number</label>
-					  		<input type="text" class="form-control" value="PSBSA-xxxxxxxx4655" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.account_number.id}}" disabled>
 						</div>
 						<div class="col-lg-4">
 						    <label for="" class="form-label">Monthly Amortization</label>
-						    <input type="text" class="form-control" value="36,185.66" disabled>
+						    <input type="text" class="form-control" value="₱{{loan.monthly_amortization}}" disabled>
 						</div>
 						<div class="col-lg-4">
 					  		<label for="" class="form-label">Loan Status</label>
-					  		<input type="text" class="form-control" value="Ongoing" disabled>
+					  		<input type="text" class="form-control" value="{{loan.loan_tag}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
@@ -153,7 +154,9 @@
 					  		<label for="" class="form-label">60th Loan Payment</label>
 					  		<input type="text" class="form-control" value="February 4, 2027" disabled>
 						</div>
-					</div> -->
+					</div>
+
+					{% elif loan_application.application_status == "For Review"  %}
 
 					<div class="d-flex justify-content-center align-items-center mb-3 mt-4" id="borrower_box">
 					  <h6>INFORMATION OF BORROWER</h6>
@@ -161,51 +164,51 @@
 					<div class="row g-3 mb-3">
 						<div class="col-md-10">
 					  		<label for="" class="form-label">Name</label>
-					  		<input type="text" class="form-control" value="Dela Cruz, Juan Reyes" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.full_name}}" disabled>
 						</div>
 						<div class="col-md-2">
 						    <label for="" class="form-label">Gender</label>
-						    <input type="text" class="form-control" value="Male" disabled>
+						    <input type="text" class="form-control" value="{{loaner_information.gender}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-md-2">
 					  		<label for="" class="form-label">Nationality</label>
-					  		<input type="text" class="form-control" value="Filipino" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.nationality}}" disabled>
 						</div>
 						<div class="col-md-4">
 						    <label for="" class="form-label">Residency</label>
-						    <input type="text" class="form-control" value="" disabled>
+						    <input type="text" class="form-control" value="{{loaner_information.residency}}" disabled>
 						</div>
 						<div class="col-md-2">
 							<label for="" class="form-label">Birthdate</label>
-							<input type="text" class="form-control" value="04/04/1970" disabled>
+							<input type="text" class="form-control" value="{{loaner_information.birthdate}}" disabled>
 						</div>
 						<div class="col-md-2">
 							<label for="" class="form-label">Age</label>
-							<input type="text" class="form-control" value="52" disabled>
+							<input type="text" class="form-control" value="{{loaner_information.calculate_loaner_age}}" disabled>
 						</div>
 						<div class="col-md-2">
 							<label for="" class="form-label">Birthplace</label>
-							<input type="text" class="form-control" value="Pasig City" disabled>
+							<input type="text" class="form-control" value="{{loaner_information.birthplace}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-md-6 col-lg-4">
 					  		<label for="" class="form-label">Educational Attainment</label>
-					  		<input type="text" class="form-control" value="College" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.educational_attainment}}" disabled>
 						</div>
 						<div class="col-md-6 col-lg-2">
 						    <label for="" class="form-label">Civil Status</label>
-						    <input type="text" class="form-control" value="Married" disabled>
+						    <input type="text" class="form-control" value="{{loaner_information.civil_status}}" disabled>
 						</div>
 						<div class="col-lg-2">
 							<label for="" class="form-label">Tax Identification No.</label>
-							<input type="text" class="form-control" value="111222333" disabled>
+							<input type="text" class="form-control" value="{{loaner_information.tin}}" disabled>
 						</div>
 						<div class="col-lg-2">
 							<label for="" class="form-label">SSS/GSIS No.</label>
-							<input type="text" class="form-control" value="CRN-111222333" disabled>
+							<input type="text" class="form-control" value="{{loaner_information.sss_gsis_no}}" disabled>
 						</div>
 						<div class="col-lg-2 col-md-12">
 							<label for="" class="form-label" style="font-size: 9px; margin-bottom: 0;">If co-maker, relation to the Principal Applicant</label>
@@ -215,40 +218,40 @@
 					<div class="row g-3 mb-3">
 						<div class="col-md-12">
 					  		<label for="" class="form-label">Present Address</label>
-					  		<input type="text" class="form-control" value="#2 Vilma St. Avida Settings, Nuvali, Calamba, Laguna" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.present_address}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-md-12">
 					  		<label for="" class="form-label">Previous Address</label>
-					  		<input type="text" class="form-control" value="#2 Flores St. Sta. Cruz, Manila" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.prev_address}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-md-12">
 					  		<label for="" class="form-label">Home Ownership</label>
-					  		<input type="text" class="form-control" value="Owned" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.home_ownership}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
 						<div class="col-md-6">
 					  		<label for="" class="form-label">Residential Telephone No.</label>
-					  		<input type="text" class="form-control" value="02-8-2734566" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.telephone_no}}" disabled>
 						</div>
 						<div class="col-md-6">
 					  		<label for="" class="form-label">Cellphone No.</label>
-					  		<input type="text" class="form-control" value="09123456789" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.cellphone_no}}" disabled>
 						</div>
 					</div>
 					<div class="row g-3 mb-3">
-						<div class="col-md-6">
+						<div class="col-md-12">
 					  		<label for="" class="form-label">Email Address</label>
-					  		<input type="text" class="form-control" value="juandelacruz@gmail.com" disabled>
+					  		<input type="text" class="form-control" value="{{loaner_information.email}}" disabled>
 						</div>
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 					  		<label for="" class="form-label">Preferred Mailing Address</label>
 					  		<input type="text" class="form-control" value="Residence" disabled>
-						</div>
+						</div> -->
 					</div>
 					<div class="row mb-3">
 						<div class="col-12 text-end">
@@ -260,55 +263,71 @@
 							</button>
 						</div>
 					</div>
+
+					{% endif %}
+
+					{% if loan_application.application_status == "Rejected" %}
+					<div class="row g-3 mb-3">
+						<div class="col-lg-12 col-md-6">
+					  		<label for="" class="form-label">Reason for Rejection of Application</label>
+					  		<input type="text" class="form-control" value="{{loan_application.rejection_reason}}" disabled>
+						</div>
+					</div>
+					{% endif %}
+
 				</div> <!--end of container -->
 				
-				<!-- Approve Modal -->
-				<div class="modal fade" id="approveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">Approve Application?</h5>
-								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-				    		<div class="modal-body">
-				    			<div class="m-3">
-						    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">APPROVE</span> this Loan Application?</h6>
-						    		<h6 class="font-italic">(You cannot change this decision.)</h6>
-						    	</div>
-						    	<div class="d-flex justify-content-center mb-3">
-						    		<a type="button" href="{% url 'approve_loan' loan_application.loan_account_no  %}" name='applicant-status-button' value="accepted" class="btn py-1 px-3 me-3" id="green_btn">Approve</a>
-							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
-							    </div>
-						    </div>
-				    	</div>
-				  	</div>
-				</div>
-
-				<!-- Reject Modal -->
-				<div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				  	<div class="modal-dialog">
-				    	<div class="modal-content">
-				    		<div class="modal-header">
-				    			<h5 class="modal-title" id="staticBackdropLabel">Reject Application?</h5>
-					    		<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-					    	</div>
-						    <div class="modal-body">
-						    	<div class="m-3">
-						    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">REJECT</span> this Loan Application?</h6>
-						    		<h6 class="font-italic">(You cannot change this decision.)</h6>
-						    	</div>
-						    	<div class="mb-3 me-5 ms-5">
-						    		<h6 class="mb-0">Reason for Rejection:</h6>
-						    		<textarea name = "rejection_reason" class="form-control" style="background: #F2F2F2;"></textarea>
-						    	</div>
-						    	<div class="d-flex justify-content-center mb-3">
-							    	<a type="button" href="{% url 'reject_loan' loan_application.loan_account_no  %}" name='applicant-status-button' value="rejected" class="btn py-1 px-3 me-3" id="green_btn">Reject</a>
-							        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
+				<form method="POST">
+	    		{% csrf_token %}	
+					<!-- Approve Modal -->
+					<div class="modal fade" id="approveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="staticBackdropLabel">Approve Application?</h5>
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+					    		<div class="modal-body">
+					    			<div class="m-3">
+							    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">APPROVE</span> this Loan Application?</h6>
+							    		<h6 class="font-italic">(You cannot change this decision.)</h6>
+							    	</div>
+							    	<div class="d-flex justify-content-center mb-3">
+							    		<button type="submit" class="btn py-1 px-3 me-3" id="green_btn" name="approve_loan">Approve</button>
+								        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
+								    </div>
 							    </div>
 					    	</div>
-				    	</div>
+					  	</div>
 					</div>
-				</div>
+
+					<!-- Reject Modal -->
+					<div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					  	<div class="modal-dialog">
+					    	<div class="modal-content">
+					    		<div class="modal-header">
+					    			<h5 class="modal-title" id="staticBackdropLabel">Reject Application?</h5>
+						    		<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+						    	</div>
+							    <div class="modal-body">
+							    	<div class="m-3">
+							    		<h6 class="mb-0">Are you sure you want to <span class="modal-action">REJECT</span> this Loan Application?</h6>
+							    		<h6 class="font-italic">(You cannot change this decision.)</h6>
+							    	</div>
+							    	<div class="mb-3 me-5 ms-5">
+							    		<h6 class="mb-0">Reason for Rejection:</h6>
+							    		<textarea name = "rejection_reason" class="form-control" style="background: #F2F2F2;"></textarea>
+							    	</div>
+							    	<div class="d-flex justify-content-center mb-3">
+								    	<button type="submit" class="btn py-1 px-3 me-3" id="green_btn" name="reject_loan">Reject</button>
+								        <button type="button" class="btn py-1 px-3" id="cancel_btn" data-bs-dismiss="modal">Cancel</button>
+								    </div>
+						    	</div>
+					    	</div>
+						</div>
+					</div>
+
+				</form>
 				
 
 	        </main>

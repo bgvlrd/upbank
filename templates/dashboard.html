@@ -34,6 +34,18 @@
 	        <main class="col-sm-9 col-md-10">
 	            <div class="container">
 
+	            	{% if messages %}
+					<br>
+						{% for message in messages %}
+						<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+							<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+							{{ message }}
+						</div>
+						{% endfor %}
+					{% endif %}
+
 					<div class="row g-2 mb-4 mt-5">
 						<h3 class="table-title mb-0">ALL LOAN APPLICATIONS</h3>
 	            		<hr>
