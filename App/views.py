@@ -119,9 +119,6 @@ def borrower_information_view(request, pk):
 	loan_information = LoanerInformation.objects.filter(account_number = loan_application.account_no).first()
 	loan = Loan.objects.filter(loan_account_no = loan_application.loan_account_no).first()
 
-	context = {
-		'loan_details' : zip(loan_application, loan_information, loan)
-	}
 
 	if request.POST['application-status-button'] =='accepted':
 		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
@@ -132,6 +129,12 @@ def borrower_information_view(request, pk):
 		loan_application = LoanApplication.objects.filter(loan_account_no = pk).first()
 		loan_application.application_status = "Rejected"
 		loan_application.save()
+
+	context = {
+		'loan_application' : loan_application
+		'loan_information' : loan_information
+		'loan' : loan
+	}
 
 
 
