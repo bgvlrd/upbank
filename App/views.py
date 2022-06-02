@@ -16,8 +16,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import *
 from .forms import *
+from .tasks import *
 from decimal import *
 from datetime import datetime
+
 
 # Create your views here.
 
@@ -414,3 +416,4 @@ def forgotPasswordView(request, *args, **kwargs):
 #					return redirect ("/password_reset/done/")
 #	password_reset_form = PasswordResetForm()
 #	return render(request=request, template_name="password/password_reset.html", context={"password_reset_form":password_reset_form})
+
