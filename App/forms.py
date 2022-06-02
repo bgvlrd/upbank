@@ -15,7 +15,8 @@ class LoanForm(ModelForm):
         exclude = [
             'loan_account_no', 'loan_tag', 'term_remaining',
             'months_missed_counter', 'downpayment',
-            'aor', 'monthly_amortization', 'amount_financed'
+            'aor', 'monthly_amortization', 'amount_financed',
+            'next_pay_date'
         ]
 
 class BankAccForm(ModelForm):
