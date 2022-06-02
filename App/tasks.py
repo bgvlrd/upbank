@@ -3,7 +3,7 @@ from .models import BankAccount, Loan, LoanApplication, LoanerInformation
 from datetime import datetime
 from datetime import date
 
-@background(schedule=60)
+@background(schedule=timedelta(hours=24))
 def collect_loan():
     loans = Loan.objects.all()
     for loan in loans:
