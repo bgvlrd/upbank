@@ -19,6 +19,19 @@
 
 /* End of Sidebar */
 
+/* Reset filter button */
+#reset_btn {
+  font-size: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 7px;
+}
+
+#reset_btn:focus {
+  border: none;
+  outline: none;
+}
+
 /* Bank Officer Tables */
 
 .table-title {

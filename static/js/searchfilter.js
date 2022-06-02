@@ -1,14 +1,38 @@
 $(document).ready(function(){
 
     $("#nameFilter").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#tableSearch tr").filter(function() {
-            $(this).toggle($(this).find("td:eq(1)").text().toLowerCase().indexOf(value) > -1)
-        });
+        filterTable()
     });
 
     $("#amountFilter").on("change", function() {
-        var amountFilter = $(this).val().toLowerCase();
+        filterTable()
+    });
+
+    $("#tagFilter").on("change", function() {
+        filterTable()
+    });
+
+    $("#reset_btn").click( function() {
+        $("#nameFilter").val("")
+        $("#tagFilter").val("")
+        $("#amountFilter").val("")
+        $("#tableSearch tr").show()
+    })
+
+});
+
+function filterTable() {
+    // filter by name
+    if ($("#nameFilter").val() != null){
+        var value = $("#nameFilter").val().toLowerCase();
+        $("#tableSearch tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    }
+
+    // filter by amount
+    if ($("#amountFilter").val() != null){
+        var amountFilter = $("#amountFilter").val().toLowerCase();
         var amount1, amount2
         if (amountFilter == '≤ 1,000,000') {
             amount1 = 0
@@ -22,32 +46,21 @@ $(document).ready(function(){
         }
 
         $("#tableSearch tr td:nth-child(3):visible").each( function() {
-          var value = this.textContent.replace('$', '');
-          console.log("amount1: " + amount1)
-          console.log("amount2: " + amount2)
-          console.log("row value: " + value)
-          if (value >= amount1 && value <= amount2) {
+          var amount = this.textContent.replace('$', '');
+          if (amount >= amount1 && amount <= amount2) {
             $(this).closest('tr').show();
           } else {
             $(this).closest('tr').hide();
           }
         })
-   
-    });
+    }
 
-    // $("#tagFilter").on("change", function() {
-    //     var value = $(this).val().toLowerCase();
-    //     $("#tableSearch tr").filter(function() {
-    //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    //     });
-    // });
-
-    $("#tagFilter").on("change", function() {
-        var value = $(this).val().toLowerCase();
-        $("#tableSearch tr").filter(function() {
-            $(this).toggle($(this).find("td:eq(4)").text().toLowerCase().indexOf(value) > -1)
+    // filter by tag 
+    if ($("#tagFilter").val() != null){
+        var tag = $("#tagFilter").val().toLowerCase();
+        $("#tableSearch tr:visible").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(tag) > -1)
         });
-    });
+    }
 
-});
-
+}
