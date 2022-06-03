@@ -239,15 +239,9 @@ class LoanerInformation(models.Model):
     # Statement of Income and Expenses
 
     borrower_monthly_income         = models.IntegerField(verbose_name = "Borrower's Gross Monthly Income")
-<<<<<<< HEAD
-    spouse_monthly_income           = models.IntegerField(verbose_name = "Spouse's Gross Monthly Income", blank=True, null=True)
-    borrower_monthly_expenses       = models.IntegerField(verbose_name = "Borrower's Gross Monthly Expenses")
-    spouse_monthly_expenses         = models.IntegerField(verbose_name = "Spouse's Gross Monthly Expenses", blank=True, null=True)
-=======
     spouse_monthly_income           = models.IntegerField(blank = True, null = True, default = 0, verbose_name = "Spouse's Gross Monthly Income")
     borrower_monthly_expenses       = models.IntegerField(verbose_name = "Borrower's Gross Monthly Expenses")
     spouse_monthly_expenses         = models.IntegerField(blank = True, null = True, default = 0, verbose_name = "Spouse's Gross Monthly Expenses")
->>>>>>> fb4b3f599014ec7cc7b56af99d95af2f7f535133
 
     # Statement of Assets and Liabilities
     # No verbose name yet

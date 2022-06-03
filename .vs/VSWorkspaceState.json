@@ -8,6 +8,6 @@
     "\\templates\\borrower_loan_pages",
     "\\templates\\dashboard"
   ],
-  "SelectedNode": "\\accounts\\views.py",
+  "SelectedNode": "\\App\\models.py",
   "PreviewInSolutionExplorer": false
 }
