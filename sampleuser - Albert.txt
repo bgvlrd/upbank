@@ -1,0 +1,95 @@
+username: albertTheodoro
+full name: Albert Theodoro
+pw: albertpassword
+cellphone no: 09912145019
+nat'l: Filipino
+Birthplace: Manila
+email_address: alberttheo@gmail.com
+TIN: 7461143190
+Birthdate: 08/07/1993
+SSS: 0324449131
+Present Address: 14 Peridox St., Alpina Heights, UPS-4 West Village, Parañaque City
+Past Address: 14 Peridox St., Alpina Heights, UPS-4 West Village, Parañaque City
+Length Years: 10
+Length Months: 3
+Telephone No.: 0288320115
+Gender: Male
+Residency: Resident
+Educational Attainment: College (Undergraduate Degree)
+Civil Status: Single
+Home Ownership: Owned
+Income: Unemployed - Student
+Status: Permanent
+
+-----no position, dependents, spouse-----
+
+---income---
+Borrower's Monthly Income (Php)*
+25000
+Spouse's Monthly Income (Php)
+
+Borrower's Monthly Expenses (Php)*
+3000
+Spouse's Monthly Expenses (Php)
+
+---assets---
+Cash on Hand with Banks (Details)*
+PSBank
+Cash on Hand with Banks (Amount)*
+25000
+Real Estate Property (Details)*
+House in Alpina Heights
+Real Estate Property (Amount)*
+2350000
+Motor Vehicle (Details)*
+Audi R8
+Motor Vehicle (Amount)*
+2250000
+
+---liabilities---
+Personal Salary Loan (Bank)*
+None
+Personal Salary Loan (Amortization)*
+0
+Personal Salary Loan (Outstanding Balance)*
+0
+Car Loan (Bank)*
+None
+Car Loan (Amortization)*
+0
+Car Loan (Outstanding Balance)*
+0
+Housing Loan (Bank)*
+None
+Housing Loan (Amortization)*
+0
+Housing Loan (Outstanding Balance)*
+0
+Credit Card 1 (Company)
+None
+Credit Card 1 (Number)
+None
+Credit Card 1 (Expiry Date)
+dd/mm/yyyy
+Credit Card 1 (Credit Limit)
+0
+Credit Card 1 (Outstanding Balance)
+0
+Credit Card 2 (Company)
+None
+Credit Card 2 (Number)
+None
+Credit Card 2 (Expiry Date)
+dd/mm/yyyy
+Credit Card 2 (Credit Limit)
+0
+Credit Card 2 (Outstanding Balance)
+0
+
+---other---
+Source of Product Info: Direct Mail
+Relative: No
+
+
+
+

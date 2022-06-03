@@ -1,3 +1,4 @@
+from pickle import TRUE
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
@@ -238,9 +239,9 @@ class LoanerInformation(models.Model):
     # Statement of Income and Expenses
 
     borrower_monthly_income         = models.IntegerField(verbose_name = "Borrower's Gross Monthly Income")
-    spouse_monthly_income           = models.IntegerField(verbose_name = "Spouse's Gross Monthly Income")
+    spouse_monthly_income           = models.IntegerField(verbose_name = "Spouse's Gross Monthly Income", blank=True, null=True)
     borrower_monthly_expenses       = models.IntegerField(verbose_name = "Borrower's Gross Monthly Expenses")
-    spouse_monthly_expenses         = models.IntegerField(verbose_name = "Spouse's Gross Monthly Expenses")
+    spouse_monthly_expenses         = models.IntegerField(verbose_name = "Spouse's Gross Monthly Expenses", blank=True, null=True)
 
     # Statement of Assets and Liabilities
     # No verbose name yet
