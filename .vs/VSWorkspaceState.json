@@ -3,9 +3,11 @@
     "",
     "\\accounts",
     "\\accounts\\templates",
-    "\\accounts\\templates\\registration",
-    "\\App"
+    "\\App",
+    "\\templates",
+    "\\templates\\borrower_loan_pages",
+    "\\templates\\dashboard"
   ],
-  "SelectedNode": "\\App\\forms.py",
+  "SelectedNode": "\\accounts\\views.py",
   "PreviewInSolutionExplorer": false
 }
