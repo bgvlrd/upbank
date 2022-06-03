@@ -89,7 +89,7 @@ class LoanerInformation(models.Model):
     birthplace              = models.CharField(max_length = 50)
     educational_attainment  = models.CharField(choices = educational_attainment_choices, max_length = 30, blank = True, null = True)
     civil_status            = models.CharField(choices = civil_status_choices, max_length = 20, blank = True, null = True)
-    tin                     = models.CharField(max_length = 10, verbose_name = "Tax Identification Number (TIN)")
+    tin                     = models.CharField(max_length = 15, verbose_name = "Tax Identification Number (TIN)")
     sss_gsis_no             = models.CharField(max_length = 20, verbose_name = "SSS / GSIS Number", blank = True, null = True)
     present_address         = models.CharField(max_length = 500)
     prev_address            = models.CharField(max_length = 500, verbose_name = "Previous Address")
@@ -238,9 +238,9 @@ class LoanerInformation(models.Model):
     # Statement of Income and Expenses
 
     borrower_monthly_income         = models.IntegerField(verbose_name = "Borrower's Gross Monthly Income")
-    spouse_monthly_income           = models.IntegerField(verbose_name = "Spouse's Gross Monthly Income")
+    spouse_monthly_income           = models.IntegerField(blank = True, null = True, default = 0, verbose_name = "Spouse's Gross Monthly Income")
     borrower_monthly_expenses       = models.IntegerField(verbose_name = "Borrower's Gross Monthly Expenses")
-    spouse_monthly_expenses         = models.IntegerField(verbose_name = "Spouse's Gross Monthly Expenses")
+    spouse_monthly_expenses         = models.IntegerField(blank = True, null = True, default = 0, verbose_name = "Spouse's Gross Monthly Expenses")
 
     # Statement of Assets and Liabilities
     # No verbose name yet
