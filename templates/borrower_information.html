@@ -144,15 +144,15 @@
 					<div class="row g-3 mb-3">
 						<div class="col-lg-4">
 					  		<label for="" class="form-label">Monthly Loan Payment Schedule</label>
-					  		<input type="text" class="form-control" value="Every 4th day of each month" disabled>
+					  		<input type="text" class="form-control" value="Every {{loan.next_pay_date.day}} of the month" disabled>
 						</div>
 						<div class="col-lg-4">
 						    <label for="" class="form-label">1st Loan Payment</label>
-						    <input type="text" class="form-control" value="March 4, 2022" disabled>
+						    <input type="text" class="form-control" value="{{loan.next_pay_date}}" disabled>
 						</div>
 						<div class="col-lg-4">
-					  		<label for="" class="form-label">60th Loan Payment</label>
-					  		<input type="text" class="form-control" value="February 4, 2027" disabled>
+					  		<label for="" class="form-label">{{loan.total_term}}th Loan Payment</label>
+					  		<input type="text" class="form-control" value="{{loan.next_pay_date}}" disabled>
 						</div>
 					</div>
 

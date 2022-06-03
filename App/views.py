@@ -198,9 +198,9 @@ def borrower_loanlist(request):
 	return render(request, "borrower_loan_pages/borrower_loanlist.html", context)
 
 @login_required
-def loan_information_view(request, pk):
+def loan_information_view(request, accno):
 	try:
-		loanapp = LoanApplication.objects.get(account_no = request.user, pk = pk)
+		loanapp = LoanApplication.objects.get(account_no = request.user, loan_account_ref_no = accno)
 		loan = Loan.objects.get(loan_account_no = loanapp.loan_account_no)
 	except:
 		messages.error(request, "Access denied or the page does not exist!")
