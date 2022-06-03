@@ -145,12 +145,13 @@ def borrower_information_view(request, pk):
 @login_required
 def fund_deposit_view(request, *args, **kwargs):
 	acct = BankAccount.objects.filter(account_number=request.user.id).values()[0]
-	user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
+	# user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
 
-	full_name = user_name[0] + " " + user_name[1]
+	# full_name = user_name[0] + " " + user_name[1]
+	user_name = LoanerInformation.objects.get(account_number = request.user)
 	context = {
 		'bank_account' : acct,
-		'full_name' : full_name
+		'full_name' : user_name.full_name
 	}
 	
 	return render(request, "fund_deposit.html", context)
@@ -165,8 +166,9 @@ def add_deposit(request):
 		acct.balance += Decimal(amt)
 		acct.save()
 
-		user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
-		full_name = user_name[0] + " " + user_name[1]
+		# user_name = User.objects.filter(id=request.user.id).values_list('first_name', 'last_name')[0]
+		# full_name = user_name[0] + " " + user_name[1]
+		user_name = LoanerInformation.objects.get(account_number = request.user)
 
 		today = datetime.now()
 		
@@ -174,7 +176,7 @@ def add_deposit(request):
 			'account_number': acct.account_number_derived,
 			'amt_deposited': amt,
 			'balance': acct.balance,
-			'full_name' : full_name,
+			'full_name' : user_name.full_name,
 			'date': today.strftime("%B %d, %Y"),
 			'time': today.strftime("%H:%M:%S %p")
 		})

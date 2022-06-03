@@ -16,7 +16,7 @@ class LoanForm(ModelForm):
             'loan_account_no', 'loan_tag', 'term_remaining',
             'months_missed_counter', 'downpayment',
             'aor', 'monthly_amortization', 'amount_financed',
-            'next_pay_date'
+            'next_pay_date', 'last_pay_date'
         ]
 
 class BankAccForm(ModelForm):
