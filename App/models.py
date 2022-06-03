@@ -398,6 +398,7 @@ class Loan(models.Model):
     monthly_amortization    = models.DecimalField(max_digits=10, decimal_places=2)
     months_missed_counter   = models.IntegerField(default = 0)
     next_pay_date           = models.DateTimeField(null = True, blank = True)
+    last_pay_date           = models.DateTimeField(null = True, blank = True)
 
 class OTCPayment(models.Model):
     otc_payment_id      = models.AutoField(primary_key=True)

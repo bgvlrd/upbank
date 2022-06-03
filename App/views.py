@@ -120,6 +120,7 @@ def borrower_information_view(request, pk):
 		if "approve_loan" in request.POST:
 			loan_application.application_status = "Approved"
 			loan.next_pay_date = date.today() + relativedelta.relativedelta(months=+1)
+			loan.last_pay_date = date.today() + relativedelta.relativedelta(years=+loan.total_term, months=+1)
 			loan_application.save()
 			loan.save()
 			messages.success(request, "Loan successfully approved!")
