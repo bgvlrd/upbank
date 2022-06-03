@@ -388,7 +388,7 @@ class Loan(models.Model):
         (60, '60 Months')
     ]
 
-    selling_prize           = models.DecimalField(max_digits=10, decimal_places=2)
+    selling_prize           = models.DecimalField(max_digits=10, decimal_places=2, verbose_name = "Selling Price")
     downpayment_percent     = models.PositiveSmallIntegerField(validators=[MinValueValidator(20), MaxValueValidator(100)], verbose_name="Downpayment (in percent)")
     downpayment             = models.DecimalField(max_digits=10, decimal_places=2)
     total_term              = models.IntegerField(choices=total_term_choices, verbose_name="Payment Term")
